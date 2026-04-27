@@ -8,3 +8,65 @@
     to { transform: translateX(-50%); }
   }
 }
+
+/* AALTO — sección Clientes
+   Corrección: no usar logos externos rotos, no destacar marcas individuales,
+   mantener orden visual uniforme y más impacto en mobile/desktop. */
+#clientes {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(66, 153, 225, 0.16), transparent 28%),
+    radial-gradient(circle at 86% 90%, rgba(66, 153, 225, 0.10), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+#clientes img {
+  display: none !important;
+}
+
+#clientes span.hidden {
+  display: block !important;
+}
+
+#clientes .grid > div {
+  min-height: 96px;
+  border: 1px solid rgba(26, 54, 93, 0.12) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06) !important;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+#clientes .grid > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.45) !important;
+  box-shadow: 0 24px 60px rgba(26, 54, 93, 0.12) !important;
+}
+
+#clientes .grid > div span {
+  color: #1a365d !important;
+  font-size: 0.72rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.18em !important;
+}
+
+@media (max-width: 640px) {
+  #clientes {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  #clientes .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #clientes .grid > div {
+    height: 92px !important;
+    min-height: 92px !important;
+    padding: 14px !important;
+  }
+
+  #clientes .grid > div span {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.14em !important;
+  }
+}
