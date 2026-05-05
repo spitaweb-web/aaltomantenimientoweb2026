@@ -1,0 +1,68 @@
+name: Apply CTA menu fix
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Import CTA menu fix stylesheet
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TARGET="src/main.tsx"
+          IMPORT_LINE="import './cta-menu-fix.css';"
+
+          if [ ! -f "$TARGET" ]; then
+            echo "Target file not found: $TARGET"
+            exit 1
+          fi
+
+          if grep -Fq "$IMPORT_LINE" "$TARGET"; then
+            echo "CTA fix import already present."
+            exit 0
+          fi
+
+          if grep -Fq "import './index.css'" "$TARGET"; then
+            python3 - <<'PY'
+from pathlib import Path
+path = Path('src/main.tsx')
+text = path.read_text(encoding='utf-8')
+text = text.replace("import './index.css';", "import './index.css';\nimport './cta-menu-fix.css';", 1)
+path.write_text(text, encoding='utf-8')
+PY
+          else
+            python3 - <<'PY'
+from pathlib import Path
+path = Path('src/main.tsx')
+text = path.read_text(encoding='utf-8')
+path.write_text("import './cta-menu-fix.css';\n" + text, encoding='utf-8')
+PY
+          fi
+
+      - name: Commit import
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/main.tsx
+          git commit -m "fix: load CTA menu scroll visibility override"
+          git push
