@@ -1,0 +1,93 @@
+/*
+ * AALTO - CTA menu visibility fix
+ * Mantiene legible el CTA del menu cuando el header cambia al hacer scroll.
+ * Archivo de override cargado despues de index.css para evitar tocar el diseño base.
+ */
+
+:root {
+  --aalto-cta-fixed-bg: #ffffff;
+  --aalto-cta-fixed-text: #0b3551;
+  --aalto-cta-fixed-border: rgba(255, 255, 255, 0.92);
+  --aalto-cta-fixed-shadow: 0 12px 28px rgba(2, 20, 32, 0.18);
+}
+
+/* Estados comunes de header/menu al bajar */
+header.scrolled a[class*="cta"],
+header.scrolled button[class*="cta"],
+header.is-scrolled a[class*="cta"],
+header.is-scrolled button[class*="cta"],
+header[data-scrolled="true"] a[class*="cta"],
+header[data-scrolled="true"] button[class*="cta"],
+.site-header.scrolled a[class*="cta"],
+.site-header.scrolled button[class*="cta"],
+.navbar.scrolled a[class*="cta"],
+.navbar.scrolled button[class*="cta"],
+.menu.scrolled a[class*="cta"],
+.menu.scrolled button[class*="cta"],
+nav.scrolled a[class*="cta"],
+nav.scrolled button[class*="cta"],
+header[class*="scroll"] a[class*="cta"],
+header[class*="scroll"] button[class*="cta"],
+header[class*="sticky"] a[class*="cta"],
+header[class*="sticky"] button[class*="cta"] {
+  background: var(--aalto-cta-fixed-bg) !important;
+  color: var(--aalto-cta-fixed-text) !important;
+  border-color: var(--aalto-cta-fixed-border) !important;
+  box-shadow: var(--aalto-cta-fixed-shadow) !important;
+}
+
+/* Fallback para CTAs por destino, por si el componente no tiene clase CTA */
+header.scrolled a[href*="contact"],
+header.scrolled a[href*="whatsapp"],
+header.scrolled a[href*="wa.me"],
+header.scrolled a[href*="cotizar"],
+header.scrolled a[href*="presupuesto"],
+header.is-scrolled a[href*="contact"],
+header.is-scrolled a[href*="whatsapp"],
+header.is-scrolled a[href*="wa.me"],
+header.is-scrolled a[href*="cotizar"],
+header.is-scrolled a[href*="presupuesto"],
+header[data-scrolled="true"] a[href*="contact"],
+header[data-scrolled="true"] a[href*="whatsapp"],
+header[data-scrolled="true"] a[href*="wa.me"],
+header[data-scrolled="true"] a[href*="cotizar"],
+header[data-scrolled="true"] a[href*="presupuesto"] {
+  background: var(--aalto-cta-fixed-bg) !important;
+  color: var(--aalto-cta-fixed-text) !important;
+  border-color: var(--aalto-cta-fixed-border) !important;
+  box-shadow: var(--aalto-cta-fixed-shadow) !important;
+}
+
+/* Hover/focus: conserva contraste y evita que vuelva al azul sobre fondo azul */
+header.scrolled a[class*="cta"]:hover,
+header.scrolled button[class*="cta"]:hover,
+header.is-scrolled a[class*="cta"]:hover,
+header.is-scrolled button[class*="cta"]:hover,
+header[data-scrolled="true"] a[class*="cta"]:hover,
+header[data-scrolled="true"] button[class*="cta"]:hover,
+header.scrolled a[class*="cta"]:focus-visible,
+header.scrolled button[class*="cta"]:focus-visible,
+header.is-scrolled a[class*="cta"]:focus-visible,
+header.is-scrolled button[class*="cta"]:focus-visible,
+header[data-scrolled="true"] a[class*="cta"]:focus-visible,
+header[data-scrolled="true"] button[class*="cta"]:focus-visible {
+  background: #f7fbff !important;
+  color: var(--aalto-cta-fixed-text) !important;
+  transform: translateY(-1px);
+}
+
+/* Mobile: refuerza legibilidad dentro del menu desplegable */
+@media (max-width: 768px) {
+  header a[class*="cta"],
+  header button[class*="cta"],
+  header a[href*="contact"],
+  header a[href*="whatsapp"],
+  header a[href*="wa.me"],
+  header a[href*="cotizar"],
+  header a[href*="presupuesto"] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
