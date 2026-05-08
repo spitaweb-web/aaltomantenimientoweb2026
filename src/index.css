@@ -13,11 +13,24 @@
    El hero tiene tarjetas de sectores superpuestas: no deben quedar recortadas. */
 main > section:first-of-type {
   overflow: visible !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+main > section:first-of-type [id="sectores"] {
+  z-index: 999 !important;
+}
+
+main > section:first-of-type [id="sectores"] button {
+  min-height: 112px !important;
+  height: 112px !important;
+  overflow: visible !important;
 }
 
 main > section:first-of-type + section {
   position: relative;
-  z-index: 5;
+  z-index: 1;
+  padding-top: 8rem !important;
 }
 
 /* AALTO — sección Clientes
