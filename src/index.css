@@ -9,6 +9,17 @@
   }
 }
 
+/* AALTO — base segura para la versión Matrico-style.
+   El hero tiene tarjetas de sectores superpuestas: no deben quedar recortadas. */
+main > section:first-of-type {
+  overflow: visible !important;
+}
+
+main > section:first-of-type + section {
+  position: relative;
+  z-index: 5;
+}
+
 /* AALTO — sección Clientes
    Corrección: no usar logos externos rotos, no destacar marcas individuales,
    mantener orden visual uniforme y más impacto en mobile/desktop. */
