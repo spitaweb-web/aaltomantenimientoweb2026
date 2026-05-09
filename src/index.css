@@ -206,4 +206,25 @@ main > section:first-of-type + section {
   }
 }
 
-/* deploy marker: aalto-matias-responsive-services-v2 */
+/* Hero background PNG subido por Agustín */
+main > section:first-of-type {
+  background-color: #061523 !important;
+  background-image:
+    linear-gradient(180deg, rgba(6, 21, 35, 0.12) 0%, rgba(6, 21, 35, 0.52) 58%, rgba(6, 21, 35, 0.9) 100%),
+    url('https://raw.githubusercontent.com/spitaweb-web/aaltomantenimiento/main/aalto-vercel-ready/src/assets/file_0000000043d871f59e93bf2766f862f0.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+main > section:first-of-type > img {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  main > section:first-of-type {
+    background-position: center top !important;
+  }
+}
+
+/* deploy marker: aalto-real-hero-background-png-v1 */
