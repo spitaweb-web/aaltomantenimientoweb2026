@@ -3,7 +3,6 @@ import { Building2, CheckCircle2, Hammer, Mail, Menu, Paintbrush, Phone, Snowfla
 
 const azul = '#1a365d';
 const celeste = '#4299e1';
-const amarillo = '#f2b51d';
 
 const nav = [
   ['Quiénes somos', 'quienes-somos'],
@@ -22,15 +21,46 @@ const sectores = [
 ] as const;
 
 const rubros = [
-  ['Obra civil', Building2, ['Albañilería General.', 'Construcción en Seco.', 'Pavimentos y pisos.', 'Revestimientos y acabados.']],
-  ['Pintura', Paintbrush, ['Pintura Civil de Medianas y Grandes Superficies.', 'Revestimientos Plásticos y Texturados.', 'Epoxis y Poliuretánicos.', 'Señalizaciones.']],
-  ['Instalaciones', Zap, ['Electricidad de media y baja tensión.', 'Montaje y mantenimiento de tableros.', 'Sistemas y medición de puesta a tierra.', 'Plomería general.']],
-  ['Carpintería', Wrench, ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.']],
-  ['Refrigeración', Snowflake, ['Instalación y mantenimiento de aire acondicionado.', 'Refrigeración central, roof-top, inverter, piso techo.', 'Mantenimiento de sistemas frigoríficos.']],
-  ['Herrería', Hammer, ['Estructuras Metálicas a Medida.', 'Acero Inoxidable.', 'Soldaduras especializadas.', 'Rejas, puertas y portones.']],
+  {
+    titulo: 'Obra civil',
+    Icon: Building2,
+    items: ['Albañilería General.', 'Construcción en Seco.', 'Pavimentos y pisos.', 'Revestimientos y acabados.'],
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1400',
+  },
+  {
+    titulo: 'Pintura',
+    Icon: Paintbrush,
+    items: ['Pintura Civil de Medianas y Grandes Superficies.', 'Revestimientos Plásticos y Texturados.', 'Epoxis y Poliuretánicos.', 'Señalizaciones.'],
+    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=1400',
+  },
+  {
+    titulo: 'Instalaciones',
+    Icon: Zap,
+    items: ['Electricidad de media y baja tensión.', 'Montaje y mantenimiento de tableros.', 'Sistemas y medición de puesta a tierra.', 'Plomería general.'],
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1400',
+  },
+  {
+    titulo: 'Carpintería',
+    Icon: Wrench,
+    items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1400',
+  },
+  {
+    titulo: 'Refrigeración',
+    Icon: Snowflake,
+    items: ['Instalación y mantenimiento de aire acondicionado.', 'Refrigeración central, roof-top, inverter, piso techo.', 'Mantenimiento de sistemas frigoríficos.'],
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1400',
+  },
+  {
+    titulo: 'Herrería',
+    Icon: Hammer,
+    items: ['Estructuras Metálicas a Medida.', 'Acero Inoxidable.', 'Soldaduras especializadas.', 'Rejas, puertas y portones.'],
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1400',
+  },
 ] as const;
 
 const clientes = ['Salentein', 'Rosell Boher', 'Trivento', 'Talca', 'Yaguar', 'Chandon', 'Norton', 'SMN Argentina', 'Renacer', 'Luigi Bosca', 'Halliburton', 'Park Hyatt', 'Neverland', 'Coca-Cola', 'Unilever'];
+const clientesSlider = [...clientes, ...clientes];
 
 function go(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -171,12 +201,47 @@ export default function App() {
             </div>
           </div>
           <div className="mt-16 grid gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {rubros.map(([titulo, Icon]) => (
+            {rubros.map(({ titulo, Icon }) => (
               <div key={titulo} className="flex h-28 flex-col justify-center bg-white p-5 shadow-sm">
                 <Icon size={22} className="mb-4 text-[#3b82f6]" />
                 <h3 className="text-[12px] font-black uppercase tracking-[0.16em] text-[#1a365d]">{titulo}</h3>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-14 text-center">
+            <Kicker>Servicios especializados</Kicker>
+            <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Detalle de servicios</h2>
+          </div>
+          <div className="space-y-0 border-y border-slate-100">
+            {rubros.map(({ titulo, Icon, items, image }, index) => {
+              const invert = index % 2 === 1;
+              return (
+                <article key={titulo} className="grid min-h-[460px] border-b border-slate-100 last:border-b-0 lg:grid-cols-2">
+                  <div className={`${invert ? 'lg:order-2' : ''} flex flex-col justify-center bg-white px-6 py-14 sm:px-10 lg:px-14`}>
+                    <div className="mb-7 flex items-center gap-4 text-[#0f7da5]">
+                      <Icon size={42} strokeWidth={2.1} />
+                      <h3 className="text-3xl font-black tracking-[-0.03em] text-[#0f4f6f] sm:text-4xl">{titulo}</h3>
+                    </div>
+                    <ul className="space-y-4">
+                      {items.map((item) => (
+                        <li key={item} className="flex gap-4 text-lg font-medium leading-relaxed text-[#0f4f6f]">
+                          <CheckCircle2 size={24} className="mt-1 shrink-0 text-[#0f7da5]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={`${invert ? 'lg:order-1' : ''} min-h-[320px] overflow-hidden bg-slate-100`}>
+                    <img src={image} alt={titulo} className="h-full min-h-[320px] w-full object-cover grayscale" />
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -187,8 +252,14 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {clientes.map(c => <div key={c} className="flex h-24 items-center justify-center border bg-white p-4 text-center text-xs font-black uppercase tracking-widest text-slate-500 shadow-sm grayscale">{c}</div>)}
+          <div className="brand-marquee overflow-hidden py-3">
+            <div className="brand-marquee-track flex w-max gap-5">
+              {clientesSlider.map((cliente, index) => (
+                <div key={`${cliente}-${index}`} className="brand-marquee-card flex h-24 w-56 shrink-0 items-center justify-center border bg-white px-6 text-center text-xs font-black uppercase tracking-widest text-slate-500 shadow-sm grayscale">
+                  {cliente}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
