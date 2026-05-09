@@ -43,19 +43,19 @@ const rubros = [
     titulo: 'Carpintería',
     Icon: Wrench,
     items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1400',
   },
   {
     titulo: 'Refrigeración',
     Icon: Snowflake,
     items: ['Instalación y mantenimiento de aire acondicionado.', 'Refrigeración central, roof-top, inverter, piso techo.', 'Mantenimiento de sistemas frigoríficos.'],
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c0f?auto=format&fit=crop&q=80&w=1400',
   },
   {
     titulo: 'Herrería',
     Icon: Hammer,
     items: ['Estructuras Metálicas a Medida.', 'Acero Inoxidable.', 'Soldaduras especializadas.', 'Rejas, puertas y portones.'],
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1400',
   },
 ] as const;
 
@@ -118,25 +118,25 @@ export default function App() {
         <div className="flex flex-col gap-7">{nav.map(([label, id]) => <button key={id} onClick={() => { setOpen(false); go(id); }} className="border-b pb-4 text-left text-lg font-black uppercase tracking-[0.18em] text-[#1a365d]">{label}</button>)}</div>
       </div>}
 
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a192f] pt-[74px] text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-visible bg-[#0a192f] pt-[74px] text-center">
         <img src="https://images.unsplash.com/photo-1581092160607-ee22731c9c0f?auto=format&fit=crop&q=80&w=2200" alt="Mantenimiento edilicio profesional" className="absolute inset-0 h-full w-full object-cover grayscale opacity-55" />
         <div className="absolute inset-0 bg-[#061523]/70" />
         <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-36 pt-20 lg:px-10">
-          <h1 className="mx-auto max-w-5xl text-5xl font-black uppercase leading-[0.97] tracking-[-0.06em] text-white sm:text-6xl md:text-7xl lg:text-[88px]">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-8 pt-14 md:pb-36 md:pt-20 lg:px-10">
+          <h1 className="mx-auto max-w-5xl text-4xl font-black uppercase leading-[0.97] tracking-[-0.055em] text-white sm:text-5xl md:text-7xl lg:text-[88px]">
             Tus instalaciones en <span className="text-[#3b82f6]">buenas manos.</span>
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-lg font-light leading-relaxed text-white/85 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-3xl text-base font-light leading-relaxed text-white/85 sm:text-xl">
             Desde una obra puntual hasta el mantenimiento diario. Siempre con la misma dedicación y compromiso.
           </p>
-          <button onClick={() => go('contacto')} className="mt-9 rounded-md bg-[#f2b51d] px-10 py-4 text-[12px] font-black uppercase tracking-[0.18em] text-white shadow-lg">
+          <button onClick={() => go('contacto')} className="mt-8 rounded-md bg-[#f2b51d] px-8 py-4 text-[12px] font-black uppercase tracking-[0.18em] text-white shadow-lg sm:px-10">
             Contacto directo
           </button>
         </div>
-        <div id="sectores" className="absolute bottom-[-46px] left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6">
-          <div className="grid gap-3 md:grid-cols-5">
+        <div id="sectores" className="relative z-20 mt-4 w-full max-w-5xl px-6 md:absolute md:bottom-[-52px] md:left-1/2 md:mt-0 md:-translate-x-1/2">
+          <div className="sectores-track flex snap-x gap-3 overflow-x-auto pb-3 md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
             {sectores.map(([label, Icon]) => (
-              <button key={label} onClick={() => go('especialidades')} className="flex h-[92px] flex-col items-center justify-center bg-white px-3 text-center shadow-xl transition-transform hover:-translate-y-1">
+              <button key={label} onClick={() => go('especialidades')} className="sector-card flex h-[96px] min-w-[168px] shrink-0 snap-start flex-col items-center justify-center bg-white px-3 text-center shadow-xl transition-transform hover:-translate-y-1 md:h-[112px] md:min-w-0">
                 <Icon size={28} className="mb-3 text-[#0f7da5]" />
                 <span className="text-[11px] font-black uppercase tracking-[0.12em] text-[#1a365d]">{label}</span>
               </button>
@@ -221,23 +221,23 @@ export default function App() {
             {rubros.map(({ titulo, Icon, items, image }, index) => {
               const invert = index % 2 === 1;
               return (
-                <article key={titulo} className="grid min-h-[460px] border-b border-slate-100 last:border-b-0 lg:grid-cols-2">
-                  <div className={`${invert ? 'lg:order-2' : ''} flex flex-col justify-center bg-white px-6 py-14 sm:px-10 lg:px-14`}>
+                <article key={titulo} className="service-row grid border-b border-slate-100 last:border-b-0 lg:min-h-[460px] lg:grid-cols-2">
+                  <div className={`${invert ? 'lg:order-2' : ''} service-text flex flex-col justify-center bg-white px-6 py-10 sm:px-10 sm:py-14 lg:px-14`}>
                     <div className="mb-7 flex items-center gap-4 text-[#0f7da5]">
-                      <Icon size={42} strokeWidth={2.1} />
-                      <h3 className="text-3xl font-black tracking-[-0.03em] text-[#0f4f6f] sm:text-4xl">{titulo}</h3>
+                      <Icon size={38} strokeWidth={2.1} className="shrink-0" />
+                      <h3 className="text-2xl font-black tracking-[-0.03em] text-[#0f4f6f] sm:text-4xl">{titulo}</h3>
                     </div>
                     <ul className="space-y-4">
                       {items.map((item) => (
-                        <li key={item} className="flex gap-4 text-lg font-medium leading-relaxed text-[#0f4f6f]">
-                          <CheckCircle2 size={24} className="mt-1 shrink-0 text-[#0f7da5]" />
+                        <li key={item} className="flex gap-4 text-base font-medium leading-relaxed text-[#0f4f6f] sm:text-lg">
+                          <CheckCircle2 size={22} className="mt-1 shrink-0 text-[#0f7da5]" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div className={`${invert ? 'lg:order-1' : ''} min-h-[320px] overflow-hidden bg-slate-100`}>
-                    <img src={image} alt={titulo} className="h-full min-h-[320px] w-full object-cover grayscale" />
+                  <div className={`${invert ? 'lg:order-1' : ''} service-image min-h-[260px] overflow-hidden bg-slate-100 lg:min-h-[460px]`}>
+                    <img src={image} alt={titulo} className="h-[260px] w-full object-cover grayscale lg:h-full lg:min-h-[460px]" />
                   </div>
                 </article>
               );
