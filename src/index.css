@@ -164,6 +164,26 @@ main > section:first-of-type + section {
     padding-top: 4rem !important;
   }
 
+  .sectores-track {
+    scrollbar-width: none;
+  }
+
+  .sectores-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-text {
+    order: 1 !important;
+  }
+
+  .service-image {
+    order: 2 !important;
+  }
+
   #clientes {
     padding-top: 72px !important;
     padding-bottom: 72px !important;
@@ -185,3 +205,5 @@ main > section:first-of-type + section {
     letter-spacing: 0.14em !important;
   }
 }
+
+/* deploy marker: aalto-matias-responsive-services-v2 */
