@@ -3,6 +3,7 @@ import { Building2, CheckCircle2, Hammer, Mail, Menu, Paintbrush, Phone, Snowfla
 
 const azul = '#1a365d';
 const celeste = '#4299e1';
+const contactEmail = 'info@aaltomantenimiento.com.ar';
 
 const nav = [
   ['Quiénes somos', 'quienes-somos'],
@@ -272,7 +273,7 @@ export default function App() {
             <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-white/70">Contanos qué tipo de mantenimiento, personal externo o intervención técnica necesita tu empresa.</p>
             <div className="mt-10 space-y-5 text-white/80">
               <a href="tel:+542614715133" className="flex items-center gap-4"><Phone size={20} className="text-[#3b82f6]" />+54 261 471 5133</a>
-              <a href="mailto:aalto.mza@gmail.com" className="flex items-center gap-4"><Mail size={20} className="text-[#3b82f6]" />aalto.mza@gmail.com</a>
+              <a href={`mailto:${contactEmail}`} className="flex items-center gap-4"><Mail size={20} className="text-[#3b82f6]" />{contactEmail}</a>
             </div>
           </div>
           <form onSubmit={e => e.preventDefault()} className="bg-white p-7 text-slate-900 shadow-xl">
@@ -287,7 +288,7 @@ export default function App() {
       <footer className="bg-white py-10 text-[#1a365d]">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-10">
           <Logo />
-          <div className="grid gap-3 text-sm font-light md:grid-cols-3"><span>aalto.mza@gmail.com</span><span>+54 261 471 5133</span><span>aaltomantenimiento.com.ar</span></div>
+          <div className="grid gap-3 text-sm font-light md:grid-cols-3"><span>{contactEmail}</span><span>+54 261 471 5133</span><span>aaltomantenimiento.com.ar</span></div>
         </div>
       </footer>
     </main>
