@@ -5,6 +5,24 @@ main > section:nth-of-type(3) {
   display: none !important;
 }
 
+/* Slider de marcas: habilita logos reales y deja fallback textual solo si falla la imagen. */
+#clientes .brand-marquee-card img {
+  display: block !important;
+  max-height: 48px;
+  max-width: 150px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.82;
+}
+
+#clientes .brand-marquee-card span.hidden {
+  display: none !important;
+}
+
+#clientes .brand-marquee-card img[style*='display: none'] + span.hidden {
+  display: block !important;
+}
+
 .aalto-whatsapp-widget {
   position: fixed;
   right: 20px;
