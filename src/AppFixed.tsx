@@ -60,7 +60,20 @@ const rubros = [
   },
 ] as const;
 
-const clientes = ['Salentein', 'Rosell Boher', 'Trivento', 'Talca', 'Yaguar', 'Chandon', 'Norton', 'SMN Argentina', 'Renacer', 'Luigi Bosca', 'Halliburton', 'Park Hyatt', 'Neverland', 'Coca-Cola', 'Unilever'];
+const clientes = [
+  { name: 'Salentein', logo: 'https://logo.clearbit.com/bodegassalentein.com' },
+  { name: 'Rosell Boher', logo: 'https://logo.clearbit.com/rosellboher.com' },
+  { name: 'Trivento', logo: 'https://logo.clearbit.com/trivento.com' },
+  { name: 'Chandon', logo: 'https://logo.clearbit.com/chandon.com' },
+  { name: 'Norton', logo: 'https://logo.clearbit.com/bodeganorton.com' },
+  { name: 'Luigi Bosca', logo: 'https://logo.clearbit.com/luigibosca.com' },
+  { name: 'Halliburton', logo: 'https://logo.clearbit.com/halliburton.com' },
+  { name: 'Park Hyatt', logo: 'https://logo.clearbit.com/hyatt.com' },
+  { name: 'Coca-Cola', logo: 'https://logo.clearbit.com/coca-cola.com' },
+  { name: 'Unilever', logo: 'https://logo.clearbit.com/unilever.com' },
+  { name: 'Yaguar', logo: 'https://logo.clearbit.com/yaguar.com.ar' },
+  { name: 'Neverland', logo: 'https://logo.clearbit.com/neverland.com.ar' },
+] as const;
 const clientesSlider = [...clientes, ...clientes];
 
 function go(id: string) {
@@ -256,8 +269,9 @@ export default function App() {
           <div className="brand-marquee overflow-hidden py-3">
             <div className="brand-marquee-track flex w-max gap-5">
               {clientesSlider.map((cliente, index) => (
-                <div key={`${cliente}-${index}`} className="brand-marquee-card flex h-24 w-56 shrink-0 items-center justify-center border bg-white px-6 text-center text-xs font-black uppercase tracking-widest text-slate-500 shadow-sm grayscale">
-                  {cliente}
+                <div key={`${cliente.name}-${index}`} className="brand-marquee-card flex h-24 w-56 shrink-0 items-center justify-center border bg-white px-6 text-center text-xs font-black uppercase tracking-widest text-slate-500 shadow-sm grayscale">
+                  <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-12 max-w-[150px] object-contain" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'block'; }} />
+                  <span className="hidden">{cliente.name}</span>
                 </div>
               ))}
             </div>
