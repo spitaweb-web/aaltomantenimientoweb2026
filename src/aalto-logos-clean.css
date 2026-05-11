@@ -9,6 +9,33 @@ main > section:first-of-type {
   background-position: center center !important;
 }
 
+/* Hero sectores: iconos más grandes, negros y con más presencia visual. */
+main > section:first-of-type #sectores .sector-card,
+main > section:first-of-type #sectores button {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(15, 23, 42, 0.10) !important;
+}
+
+main > section:first-of-type #sectores svg {
+  width: 38px !important;
+  height: 38px !important;
+  color: #020617 !important;
+  stroke-width: 1.9 !important;
+  margin-bottom: 12px !important;
+}
+
+main > section:first-of-type #sectores span {
+  color: #020617 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.16em !important;
+  font-weight: 900 !important;
+}
+
+main > section:first-of-type #sectores button:hover svg {
+  transform: translateY(-2px) scale(1.06);
+  transition: transform 180ms ease;
+}
+
 #clientes .brand-marquee {
   padding-block: 18px !important;
 }
@@ -69,6 +96,15 @@ main > section:first-of-type {
 @media (max-width: 640px) {
   main > section:first-of-type {
     background-position: center top !important;
+  }
+
+  main > section:first-of-type #sectores svg {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  main > section:first-of-type #sectores span {
+    font-size: 11px !important;
   }
 
   #clientes .brand-marquee-track {
