@@ -1,0 +1,118 @@
+/* AALTO motion + header refinement */
+header {
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, background 260ms ease !important;
+  will-change: transform;
+}
+
+header.aalto-header-hidden {
+  transform: translateY(-105%) !important;
+}
+
+header.aalto-header-scrolled {
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(12px);
+}
+
+@media (min-width: 1024px) {
+  header > div {
+    height: clamp(58px, 4.9vw, 68px) !important;
+    padding-left: clamp(22px, 3.2vw, 42px) !important;
+    padding-right: clamp(22px, 3.2vw, 42px) !important;
+  }
+
+  header nav {
+    gap: clamp(12px, 1.4vw, 22px) !important;
+  }
+
+  header nav button {
+    font-size: clamp(9px, 0.68vw, 11px) !important;
+    letter-spacing: clamp(0.12em, 0.22vw, 0.19em) !important;
+  }
+
+  header nav button span {
+    margin-left: clamp(12px, 1.3vw, 20px) !important;
+  }
+
+  header .rounded-full,
+  header button:last-child {
+    font-size: clamp(9px, 0.68vw, 11px) !important;
+    padding: clamp(9px, 0.82vw, 12px) clamp(18px, 1.9vw, 26px) !important;
+    letter-spacing: clamp(0.12em, 0.2vw, 0.17em) !important;
+  }
+
+  header svg {
+    width: clamp(38px, 3.6vw, 54px) !important;
+    height: clamp(28px, 2.8vw, 40px) !important;
+  }
+
+  header .text-3xl {
+    font-size: clamp(22px, 2vw, 30px) !important;
+  }
+}
+
+/* CTAs finos, no grotescos */
+button,
+.aalto-cta,
+a[href*='wa.me'] {
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease !important;
+}
+
+button:hover,
+.aalto-cta:hover,
+a[href*='wa.me']:hover {
+  transform: translateY(-1.5px) !important;
+}
+
+main > section:first-of-type button:hover {
+  box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important;
+}
+
+/* Reveals sutiles */
+.aalto-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(4px);
+  transition:
+    opacity 620ms ease,
+    transform 700ms cubic-bezier(.2,.8,.2,1),
+    filter 700ms ease;
+  transition-delay: var(--aalto-delay, 0ms);
+}
+
+.aalto-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+main > section:first-of-type h1.aalto-reveal {
+  transform: translateY(10px) scale(0.985);
+}
+
+main > section:first-of-type h1.aalto-reveal.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+#sectores button.aalto-reveal {
+  transform: translateY(16px) scale(0.98);
+}
+
+#sectores button.aalto-reveal.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header,
+  .aalto-reveal,
+  button,
+  .aalto-cta {
+    transition: none !important;
+  }
+
+  .aalto-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
