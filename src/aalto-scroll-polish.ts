@@ -11,42 +11,6 @@ function fixRefrigerationImage() {
   image.onerror = null;
 }
 
-function initHeaderScroll() {
-  const header = document.querySelector<HTMLElement>('header');
-  if (!header || header.dataset.scrollHideReady === 'true') return;
-
-  header.dataset.scrollHideReady = 'true';
-  let lastY = window.scrollY;
-  let ticking = false;
-
-  const update = () => {
-    const currentY = window.scrollY;
-    const goingDown = currentY > lastY;
-    const pastStart = currentY > 88;
-    const mobileOnly = window.matchMedia('(max-width: 767px)').matches;
-
-    if (mobileOnly) {
-      header.classList.toggle('aalto-header-hidden', goingDown && pastStart);
-    } else {
-      header.classList.remove('aalto-header-hidden');
-    }
-
-    header.classList.toggle('aalto-header-scrolled', currentY > 30);
-
-    lastY = currentY;
-    ticking = false;
-  };
-
-  window.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(update);
-  }, { passive: true });
-
-  window.addEventListener('resize', update, { passive: true });
-  update();
-}
-
 function initRevealAnimations() {
   const targets = Array.from(document.querySelectorAll<HTMLElement>([
     'main > section:first-of-type h1',
@@ -82,7 +46,6 @@ function initRevealAnimations() {
 
 function initPolish() {
   fixRefrigerationImage();
-  initHeaderScroll();
   initRevealAnimations();
   window.setTimeout(fixRefrigerationImage, 600);
   window.setTimeout(initRevealAnimations, 700);
