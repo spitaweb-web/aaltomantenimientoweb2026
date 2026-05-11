@@ -1,0 +1,76 @@
+/* AALTO logos clean mode: sin tarjetas, logos contra el fondo */
+#clientes .brand-marquee {
+  padding-block: 18px !important;
+}
+
+#clientes .brand-marquee-track {
+  gap: 56px !important;
+  align-items: center !important;
+}
+
+#clientes .aalto-local-logo-card,
+#clientes .brand-marquee-card,
+#clientes .brand-marquee-card.aalto-local-logo-card {
+  width: 190px !important;
+  height: 86px !important;
+  min-width: 190px !important;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: visible !important;
+}
+
+#clientes .aalto-local-logo-card::before,
+#clientes .aalto-local-logo-card::after,
+#clientes .brand-marquee-card::before,
+#clientes .brand-marquee-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+#clientes .aalto-local-logo-card img,
+#clientes .brand-marquee-card img {
+  display: block !important;
+  max-width: 100% !important;
+  max-height: 62px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: grayscale(1) contrast(1.08) !important;
+  opacity: 0.78 !important;
+  transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease !important;
+}
+
+#clientes .aalto-local-logo-card:hover img,
+#clientes .brand-marquee-card:hover img {
+  filter: grayscale(0) contrast(1.08) !important;
+  opacity: 1 !important;
+  transform: translateY(-2px) scale(1.045) !important;
+}
+
+#clientes .aalto-local-logo-card span.hidden,
+#clientes .brand-marquee-card span.hidden {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  #clientes .brand-marquee-track {
+    gap: 34px !important;
+  }
+
+  #clientes .aalto-local-logo-card,
+  #clientes .brand-marquee-card,
+  #clientes .brand-marquee-card.aalto-local-logo-card {
+    width: 150px !important;
+    height: 72px !important;
+    min-width: 150px !important;
+  }
+
+  #clientes .aalto-local-logo-card img,
+  #clientes .brand-marquee-card img {
+    max-height: 48px !important;
+  }
+}
