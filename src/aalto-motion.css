@@ -14,41 +14,54 @@ header.aalto-header-scrolled {
   backdrop-filter: blur(12px);
 }
 
+header button:first-child {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
 .aalto-real-logo {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 7px !important;
   line-height: 1 !important;
-  min-width: 132px;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .aalto-real-logo svg {
-  width: 42px !important;
-  height: 30px !important;
+  width: 40px !important;
+  height: 29px !important;
   flex: 0 0 auto;
   filter: none !important;
+  margin: 0 !important;
 }
 
 .aalto-real-logo-text {
   display: grid;
   gap: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
   transform: translateY(1px);
 }
 
 .aalto-real-logo-text strong {
   color: #111827;
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 950;
   letter-spacing: -0.09em;
   line-height: 0.76;
+  margin: 0 !important;
 }
 
 .aalto-real-logo-text span {
   color: #64748b;
-  font-size: 6.8px;
+  font-size: 6.6px;
   font-weight: 900;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
+  margin: 0 !important;
 }
 
 .aalto-form-status {
@@ -66,8 +79,8 @@ header.aalto-header-scrolled {
 @media (min-width: 1024px) {
   header > div {
     height: clamp(60px, 4.9vw, 68px) !important;
-    padding-left: clamp(22px, 3.2vw, 42px) !important;
-    padding-right: clamp(22px, 3.2vw, 42px) !important;
+    padding-left: clamp(8px, 1.2vw, 18px) !important;
+    padding-right: clamp(18px, 2.6vw, 34px) !important;
   }
 
   header nav { gap: clamp(12px, 1.35vw, 20px) !important; }
@@ -116,10 +129,11 @@ main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(
 #sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
 
 @media (max-width: 640px) {
-  .aalto-real-logo { min-width: 124px; gap: 7px !important; }
-  .aalto-real-logo svg { width: 39px !important; height: 28px !important; }
-  .aalto-real-logo-text strong { font-size: 22px; }
-  .aalto-real-logo-text span { font-size: 6.2px; letter-spacing: 0.32em; }
+  header > div { padding-left: 10px !important; padding-right: 14px !important; }
+  .aalto-real-logo { min-width: 0 !important; gap: 6px !important; }
+  .aalto-real-logo svg { width: 38px !important; height: 27px !important; }
+  .aalto-real-logo-text strong { font-size: 21px; }
+  .aalto-real-logo-text span { font-size: 6px; letter-spacing: 0.3em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
