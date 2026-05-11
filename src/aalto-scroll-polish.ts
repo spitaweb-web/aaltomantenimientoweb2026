@@ -1,4 +1,4 @@
-const refrigerationFallback = 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1400';
+const refrigerationFallback = '/refrigeracion-industrial.svg';
 
 function fixRefrigerationImage() {
   const serviceArticles = Array.from(document.querySelectorAll<HTMLElement>('article.service-row'));
@@ -7,7 +7,7 @@ function fixRefrigerationImage() {
   if (!image) return;
 
   image.src = refrigerationFallback;
-  image.alt = 'Mantenimiento de refrigeración y sistemas técnicos';
+  image.alt = 'Sistema industrial de refrigeración';
   image.onerror = null;
 }
 
