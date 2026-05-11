@@ -27,10 +27,7 @@ header button:first-child {
   padding: 0 !important;
 }
 
-.aalto-real-logo-image-mode {
-  width: auto !important;
-  height: auto !important;
-}
+.aalto-real-logo-image-mode { width: auto !important; height: auto !important; }
 
 .aalto-real-logo-img {
   display: block !important;
@@ -44,10 +41,7 @@ header button:first-child {
   filter: none !important;
 }
 
-footer .aalto-real-logo-img {
-  height: 42px !important;
-  max-width: 200px !important;
-}
+footer .aalto-real-logo-img { height: 42px !important; max-width: 200px !important; }
 
 .aalto-real-logo svg {
   width: 40px !important;
@@ -132,18 +126,19 @@ button:hover,
 a[href*='wa.me']:hover { transform: translateY(-1.5px) !important; }
 main > section:first-of-type button:hover { box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important; }
 
+/* Desktop: reveals más sobrios para que no se sienta forzado en PC. */
 .aalto-reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  filter: blur(4px);
-  transition: opacity 620ms ease, transform 700ms cubic-bezier(.2,.8,.2,1), filter 700ms ease;
-  transition-delay: var(--aalto-delay, 0ms);
+  opacity: 0.96;
+  transform: translateY(6px);
+  filter: blur(0.8px);
+  transition: opacity 360ms ease, transform 420ms cubic-bezier(.2,.8,.2,1), filter 420ms ease;
+  transition-delay: min(var(--aalto-delay, 0ms), 90ms);
 }
 
 .aalto-reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-main > section:first-of-type h1.aalto-reveal { transform: translateY(10px) scale(0.985); }
+main > section:first-of-type h1.aalto-reveal { transform: translateY(5px) scale(0.996); }
 main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
-#sectores button.aalto-reveal { transform: translateY(16px) scale(0.98); }
+#sectores button.aalto-reveal { transform: translateY(6px) scale(0.995); }
 #sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
 
 @media (max-width: 640px) {
@@ -153,6 +148,19 @@ main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(
   .aalto-real-logo svg { width: 38px !important; height: 27px !important; }
   .aalto-real-logo-text strong { font-size: 21px; }
   .aalto-real-logo-text span { font-size: 6px; letter-spacing: 0.3em; }
+
+  .aalto-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(3px);
+    transition: opacity 560ms ease, transform 640ms cubic-bezier(.2,.8,.2,1), filter 640ms ease;
+  }
+
+  .aalto-reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+  main > section:first-of-type h1.aalto-reveal { transform: translateY(8px) scale(0.99); }
+  main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
+  #sectores button.aalto-reveal { transform: translateY(14px) scale(0.98); }
+  #sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
