@@ -1,0 +1,84 @@
+/* Iconos AALTO: interfaz más fina, consistente y premium */
+:root {
+  --aalto-ink: #0f172a;
+  --aalto-blue: #1a365d;
+  --aalto-cyan: #0f7da5;
+}
+
+header button[aria-label="Abrir menú"] svg,
+button[aria-label="Cerrar menú"] svg {
+  stroke-width: 1.65 !important;
+  color: var(--aalto-blue) !important;
+}
+
+main > section:first-of-type #sectores svg {
+  width: 42px !important;
+  height: 42px !important;
+  stroke-width: 1.55 !important;
+  color: var(--aalto-ink) !important;
+}
+
+main > section:first-of-type #sectores .sector-card {
+  position: relative;
+  isolation: isolate;
+}
+
+main > section:first-of-type #sectores .sector-card::before {
+  content: '';
+  position: absolute;
+  inset: 13px 50% auto auto;
+  width: 36px;
+  height: 36px;
+  transform: translateX(50%);
+  border-radius: 999px;
+  background: rgba(15, 125, 165, 0.065);
+  z-index: -1;
+}
+
+.service-row svg,
+#especialidades svg,
+#contacto svg {
+  stroke-width: 1.65 !important;
+}
+
+#especialidades .mx-auto.grid.max-w-6xl svg {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+.service-row .service-text > div svg {
+  width: 44px !important;
+  height: 44px !important;
+  color: var(--aalto-cyan) !important;
+}
+
+#contacto a svg {
+  width: 22px !important;
+  height: 22px !important;
+  color: #60a5fa !important;
+}
+
+.aalto-whatsapp-button svg,
+.aalto-whatsapp-icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+@media (max-width: 767px) {
+  header button[aria-label="Abrir menú"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  header button[aria-label="Abrir menú"] svg {
+    width: 36px !important;
+    height: 36px !important;
+    stroke-width: 1.45 !important;
+  }
+
+  main > section:first-of-type #sectores svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
