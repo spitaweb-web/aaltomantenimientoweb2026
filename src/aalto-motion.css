@@ -4,10 +4,7 @@ header {
   will-change: transform;
 }
 
-header.aalto-header-hidden {
-  transform: translateY(-105%) !important;
-}
-
+header.aalto-header-hidden { transform: translateY(-105%) !important; }
 header.aalto-header-scrolled {
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10) !important;
   background: rgba(255, 255, 255, 0.94) !important;
@@ -28,6 +25,28 @@ header button:first-child {
   min-width: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.aalto-real-logo-image-mode {
+  width: auto !important;
+  height: auto !important;
+}
+
+.aalto-real-logo-img {
+  display: block !important;
+  width: auto !important;
+  height: 38px !important;
+  max-width: 178px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  filter: none !important;
+}
+
+footer .aalto-real-logo-img {
+  height: 42px !important;
+  max-width: 200px !important;
 }
 
 .aalto-real-logo svg {
@@ -111,7 +130,6 @@ a[href*='wa.me'] {
 button:hover,
 .aalto-cta:hover,
 a[href*='wa.me']:hover { transform: translateY(-1.5px) !important; }
-
 main > section:first-of-type button:hover { box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important; }
 
 .aalto-reveal {
@@ -131,6 +149,7 @@ main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(
 @media (max-width: 640px) {
   header > div { padding-left: 10px !important; padding-right: 14px !important; }
   .aalto-real-logo { min-width: 0 !important; gap: 6px !important; }
+  .aalto-real-logo-img { height: 36px !important; max-width: 168px !important; }
   .aalto-real-logo svg { width: 38px !important; height: 27px !important; }
   .aalto-real-logo-text strong { font-size: 21px; }
   .aalto-real-logo-text span { font-size: 6px; letter-spacing: 0.3em; }
@@ -141,6 +160,5 @@ main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(
   .aalto-reveal,
   button,
   .aalto-cta { transition: none !important; }
-
   .aalto-reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
 }
