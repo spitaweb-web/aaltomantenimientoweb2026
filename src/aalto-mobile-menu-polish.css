@@ -1,0 +1,30 @@
+/* Mobile header/menu polish */
+@media (max-width: 767px) {
+  header button[aria-label="Abrir menú"] {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  header button[aria-label="Abrir menú"] svg {
+    width: 34px !important;
+    height: 34px !important;
+    stroke-width: 1.65 !important;
+    color: #1a365d !important;
+  }
+
+  header button[aria-label="Abrir menú"]:hover,
+  header button[aria-label="Abrir menú"]:active,
+  header button[aria-label="Abrir menú"]:focus {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
