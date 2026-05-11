@@ -3,9 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './aalto-final.css'
 import './aalto-logos-clean.css'
+import './aalto-interactions.css'
 import './whatsapp-widget.ts'
 import './contact-email-fix.ts'
 import './local-client-logos.ts'
+import './industry-popup.ts'
 import App from './AppFixed.tsx'
 
 createRoot(document.getElementById('root')!).render(
