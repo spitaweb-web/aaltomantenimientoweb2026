@@ -1,0 +1,27 @@
+/* Mobile hero: más aire visual de la imagen sin perder legibilidad */
+@media (max-width: 767px) {
+  main > section:first-of-type > img {
+    opacity: 0.74 !important;
+    filter: grayscale(1) contrast(1.05) brightness(0.92) !important;
+    object-position: center top !important;
+  }
+
+  main > section:first-of-type > div.absolute.inset-0.bg-\[\#061523\]\/70 {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 21, 35, 0.44) 0%,
+      rgba(6, 21, 35, 0.56) 42%,
+      rgba(6, 21, 35, 0.68) 100%
+    ) !important;
+  }
+
+  main > section:first-of-type {
+    background-color: #071625 !important;
+  }
+
+  main > section:first-of-type h1,
+  main > section:first-of-type p,
+  main > section:first-of-type button {
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28) !important;
+  }
+}
