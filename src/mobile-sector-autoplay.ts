@@ -6,35 +6,56 @@ function initMobileSectorAutoplay() {
   let direction = 1;
   let raf = 0;
   let last = performance.now();
-  let paused = false;
+  let pausedUntil = 0;
+  let userActive = false;
 
   const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+  const pauseBriefly = (ms = 1800) => { pausedUntil = performance.now() + ms; };
 
   const step = (now: number) => {
     const delta = now - last;
     last = now;
 
-    if (isMobile() && !paused && track.scrollWidth > track.clientWidth) {
-      const speed = 0.018;
-      track.scrollLeft += direction * delta * speed;
+    if (isMobile() && !userActive && now > pausedUntil && track.scrollWidth > track.clientWidth) {
+      const speedPxPerMs = 0.034; // visible, lento y controlable
+      track.scrollLeft += direction * delta * speedPxPerMs;
 
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) direction = -1;
-      if (track.scrollLeft <= 2) direction = 1;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScroll - 3) direction = -1;
+      if (track.scrollLeft <= 3) direction = 1;
     }
 
     raf = window.requestAnimationFrame(step);
   };
 
-  const pause = () => { paused = true; };
-  const resume = () => { window.setTimeout(() => { paused = false; }, 1800); };
+  track.addEventListener('touchstart', () => {
+    userActive = true;
+    pauseBriefly(2600);
+  }, { passive: true });
 
-  track.addEventListener('touchstart', pause, { passive: true });
-  track.addEventListener('touchend', resume, { passive: true });
-  track.addEventListener('pointerenter', pause);
-  track.addEventListener('pointerleave', resume);
+  track.addEventListener('touchend', () => {
+    userActive = false;
+    pauseBriefly(1100);
+  }, { passive: true });
+
+  track.addEventListener('pointerdown', () => {
+    userActive = true;
+    pauseBriefly(2600);
+  });
+
+  track.addEventListener('pointerup', () => {
+    userActive = false;
+    pauseBriefly(1100);
+  });
+
+  track.addEventListener('pointercancel', () => {
+    userActive = false;
+    pauseBriefly(1100);
+  });
+
+  track.addEventListener('wheel', () => pauseBriefly(1400), { passive: true });
 
   raf = window.requestAnimationFrame(step);
-
   window.addEventListener('beforeunload', () => window.cancelAnimationFrame(raf));
 }
 
