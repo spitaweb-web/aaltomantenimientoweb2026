@@ -1,6 +1,7 @@
 const contactEmail = 'info@aaltomantenimiento.com.ar';
 const whatsappPhone = '542614715133';
 const whatsappMessage = encodeURIComponent('Hola, quiero solicitar asesoramiento para mantenimiento edilicio.');
+const realLogoPath = '/aalto-logo.png';
 
 function setRefrigerationImage() {
   const rows = Array.from(document.querySelectorAll<HTMLElement>('article.service-row'));
@@ -47,6 +48,29 @@ function createLogoSvg() {
   return svg;
 }
 
+function mountFallbackLogo(target: HTMLElement) {
+  target.innerHTML = '';
+  const svg = createLogoSvg();
+  const text = document.createElement('div');
+  text.className = 'aalto-real-logo-text';
+  text.innerHTML = '<strong>aalto</strong><span>MANTENIMIENTO</span>';
+  target.append(svg, text);
+}
+
+function mountImageLogo(target: HTMLElement) {
+  target.innerHTML = '';
+  target.classList.add('aalto-real-logo-image-mode');
+  const img = document.createElement('img');
+  img.src = realLogoPath;
+  img.alt = 'AALTO Mantenimiento';
+  img.className = 'aalto-real-logo-img';
+  img.onerror = () => {
+    target.classList.remove('aalto-real-logo-image-mode');
+    mountFallbackLogo(target);
+  };
+  target.appendChild(img);
+}
+
 function replaceAaltoLogo() {
   const targets = [
     document.querySelector<HTMLElement>('header button:first-child .inline-flex'),
@@ -57,14 +81,7 @@ function replaceAaltoLogo() {
     if (target.dataset.realLogoReady === 'true') return;
     target.dataset.realLogoReady = 'true';
     target.classList.add('aalto-real-logo');
-    target.innerHTML = '';
-
-    const svg = createLogoSvg();
-    const text = document.createElement('div');
-    text.className = 'aalto-real-logo-text';
-    text.innerHTML = '<strong>aalto</strong><span>MANTENIMIENTO</span>';
-
-    target.append(svg, text);
+    mountImageLogo(target);
   });
 }
 
