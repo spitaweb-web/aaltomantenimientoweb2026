@@ -10,6 +10,7 @@ import './contact-email-fix.ts'
 import './local-client-logos.ts'
 import './industry-popup.ts'
 import './aalto-scroll-polish.ts'
+import './aalto-final-behavior.ts'
 import App from './AppFixed.tsx'
 
 createRoot(document.getElementById('root')!).render(
