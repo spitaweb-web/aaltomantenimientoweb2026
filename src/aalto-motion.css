@@ -17,24 +17,27 @@ header.aalto-header-scrolled {
 .aalto-real-logo {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   line-height: 1 !important;
+  min-width: 132px;
 }
 
 .aalto-real-logo svg {
-  width: 54px !important;
-  height: 42px !important;
-  filter: drop-shadow(0 8px 16px rgba(26, 54, 93, 0.10));
+  width: 42px !important;
+  height: 30px !important;
+  flex: 0 0 auto;
+  filter: none !important;
 }
 
 .aalto-real-logo-text {
   display: grid;
-  gap: 5px;
+  gap: 4px;
+  transform: translateY(1px);
 }
 
 .aalto-real-logo-text strong {
   color: #111827;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 950;
   letter-spacing: -0.09em;
   line-height: 0.76;
@@ -42,9 +45,9 @@ header.aalto-header-scrolled {
 
 .aalto-real-logo-text span {
   color: #64748b;
-  font-size: 8px;
+  font-size: 6.8px;
   font-weight: 900;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
 }
 
@@ -55,22 +58,10 @@ header.aalto-header-scrolled {
   line-height: 1.45;
 }
 
-.aalto-form-status.is-sending {
-  color: #1a365d;
-}
-
-.aalto-form-status.is-success {
-  color: #047857;
-}
-
-.aalto-form-status.is-error {
-  color: #b91c1c;
-}
-
-#contacto form button:disabled {
-  cursor: wait;
-  opacity: 0.72;
-}
+.aalto-form-status.is-sending { color: #1a365d; }
+.aalto-form-status.is-success { color: #047857; }
+.aalto-form-status.is-error { color: #b91c1c; }
+#contacto form button:disabled { cursor: wait; opacity: 0.72; }
 
 @media (min-width: 1024px) {
   header > div {
@@ -79,18 +70,14 @@ header.aalto-header-scrolled {
     padding-right: clamp(22px, 3.2vw, 42px) !important;
   }
 
-  header nav {
-    gap: clamp(12px, 1.35vw, 20px) !important;
-  }
+  header nav { gap: clamp(12px, 1.35vw, 20px) !important; }
 
   header nav button {
     font-size: clamp(10.5px, 0.78vw, 12.5px) !important;
     letter-spacing: clamp(0.12em, 0.2vw, 0.17em) !important;
   }
 
-  header nav button span {
-    margin-left: clamp(12px, 1.2vw, 18px) !important;
-  }
+  header nav button span { margin-left: clamp(12px, 1.2vw, 18px) !important; }
 
   header .rounded-full,
   header button:last-child {
@@ -99,12 +86,9 @@ header.aalto-header-scrolled {
     letter-spacing: clamp(0.1em, 0.18vw, 0.15em) !important;
   }
 
-  header .text-3xl {
-    font-size: clamp(22px, 2vw, 30px) !important;
-  }
+  header .text-3xl { font-size: clamp(22px, 2vw, 30px) !important; }
 }
 
-/* CTAs finos, no grotescos */
 button,
 .aalto-cta,
 a[href*='wa.me'] {
@@ -113,75 +97,36 @@ a[href*='wa.me'] {
 
 button:hover,
 .aalto-cta:hover,
-a[href*='wa.me']:hover {
-  transform: translateY(-1.5px) !important;
-}
+a[href*='wa.me']:hover { transform: translateY(-1.5px) !important; }
 
-main > section:first-of-type button:hover {
-  box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important;
-}
+main > section:first-of-type button:hover { box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important; }
 
-/* Reveals sutiles */
 .aalto-reveal {
   opacity: 0;
   transform: translateY(18px);
   filter: blur(4px);
-  transition:
-    opacity 620ms ease,
-    transform 700ms cubic-bezier(.2,.8,.2,1),
-    filter 700ms ease;
+  transition: opacity 620ms ease, transform 700ms cubic-bezier(.2,.8,.2,1), filter 700ms ease;
   transition-delay: var(--aalto-delay, 0ms);
 }
 
-.aalto-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-main > section:first-of-type h1.aalto-reveal {
-  transform: translateY(10px) scale(0.985);
-}
-
-main > section:first-of-type h1.aalto-reveal.is-visible {
-  transform: translateY(0) scale(1);
-}
-
-#sectores button.aalto-reveal {
-  transform: translateY(16px) scale(0.98);
-}
-
-#sectores button.aalto-reveal.is-visible {
-  transform: translateY(0) scale(1);
-}
+.aalto-reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+main > section:first-of-type h1.aalto-reveal { transform: translateY(10px) scale(0.985); }
+main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
+#sectores button.aalto-reveal { transform: translateY(16px) scale(0.98); }
+#sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
 
 @media (max-width: 640px) {
-  .aalto-real-logo svg {
-    width: 48px !important;
-    height: 36px !important;
-  }
-
-  .aalto-real-logo-text strong {
-    font-size: 26px;
-  }
-
-  .aalto-real-logo-text span {
-    font-size: 7px;
-    letter-spacing: 0.36em;
-  }
+  .aalto-real-logo { min-width: 124px; gap: 7px !important; }
+  .aalto-real-logo svg { width: 39px !important; height: 28px !important; }
+  .aalto-real-logo-text strong { font-size: 22px; }
+  .aalto-real-logo-text span { font-size: 6.2px; letter-spacing: 0.32em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   header,
   .aalto-reveal,
   button,
-  .aalto-cta {
-    transition: none !important;
-  }
+  .aalto-cta { transition: none !important; }
 
-  .aalto-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
+  .aalto-reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
 }
