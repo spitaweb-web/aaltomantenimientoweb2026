@@ -1,1 +1,2 @@
 AALTO final deploy marker
+anti-fouc-logo-final
