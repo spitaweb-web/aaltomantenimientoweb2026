@@ -22,9 +22,15 @@ function initHeaderScroll() {
   const update = () => {
     const currentY = window.scrollY;
     const goingDown = currentY > lastY;
-    const pastHeroStart = currentY > 120;
+    const pastStart = currentY > 88;
+    const mobileOnly = window.matchMedia('(max-width: 767px)').matches;
 
-    header.classList.toggle('aalto-header-hidden', goingDown && pastHeroStart);
+    if (mobileOnly) {
+      header.classList.toggle('aalto-header-hidden', goingDown && pastStart);
+    } else {
+      header.classList.remove('aalto-header-hidden');
+    }
+
     header.classList.toggle('aalto-header-scrolled', currentY > 30);
 
     lastY = currentY;
@@ -36,6 +42,9 @@ function initHeaderScroll() {
     ticking = true;
     window.requestAnimationFrame(update);
   }, { passive: true });
+
+  window.addEventListener('resize', update, { passive: true });
+  update();
 }
 
 function initRevealAnimations() {
