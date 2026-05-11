@@ -72,10 +72,8 @@ function mountImageLogo(target: HTMLElement) {
 }
 
 function replaceAaltoLogo() {
-  const targets = [
-    document.querySelector<HTMLElement>('header button:first-child .inline-flex'),
-    document.querySelector<HTMLElement>('footer .inline-flex'),
-  ].filter(Boolean) as HTMLElement[];
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('.inline-flex.items-center.gap-3'))
+    .filter((target) => target.textContent?.toLowerCase().includes('aalto'));
 
   targets.forEach((target) => {
     if (target.dataset.realLogoReady === 'true') return;
@@ -83,6 +81,17 @@ function replaceAaltoLogo() {
     target.classList.add('aalto-real-logo');
     mountImageLogo(target);
   });
+}
+
+function observeDynamicLogos() {
+  if (document.body.dataset.aaltoLogoObserverReady === 'true') return;
+  document.body.dataset.aaltoLogoObserverReady = 'true';
+
+  const observer = new MutationObserver(() => {
+    window.requestAnimationFrame(replaceAaltoLogo);
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 function setupFormSubmit() {
@@ -169,6 +178,7 @@ function setupFormSubmit() {
 
 function initFinalBehavior() {
   replaceAaltoLogo();
+  observeDynamicLogos();
   setRefrigerationImage();
   simplifyWhatsapp();
   setupFormSubmit();
