@@ -1,4 +1,14 @@
 /* AALTO logos clean mode: sin tarjetas, logos contra el fondo */
+
+/* Hero: elimina la rejilla/cuadrados superpuestos para que la imagen respire limpia. */
+main > section:first-of-type > div[style*="linear-gradient"] {
+  display: none !important;
+}
+
+main > section:first-of-type {
+  background-position: center center !important;
+}
+
 #clientes .brand-marquee {
   padding-block: 18px !important;
 }
@@ -57,6 +67,10 @@
 }
 
 @media (max-width: 640px) {
+  main > section:first-of-type {
+    background-position: center top !important;
+  }
+
   #clientes .brand-marquee-track {
     gap: 34px !important;
   }
