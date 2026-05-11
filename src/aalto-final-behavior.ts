@@ -32,18 +32,18 @@ function simplifyWhatsapp() {
 function createLogoSvg() {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', '0 0 120 74');
+  svg.setAttribute('viewBox', '0 0 92 58');
   svg.setAttribute('aria-hidden', 'true');
 
-  const p1 = document.createElementNS(ns, 'path');
-  p1.setAttribute('d', 'M38 5 6 69h20L47 25l13 24 15-15L60 5H38Z');
-  p1.setAttribute('fill', '#1a365d');
+  const outer = document.createElementNS(ns, 'path');
+  outer.setAttribute('d', 'M29 6 6 52h13L34 21l10 18 10-10L42 6H29Z');
+  outer.setAttribute('fill', '#1a365d');
 
-  const p2 = document.createElementNS(ns, 'path');
-  p2.setAttribute('d', 'M60 5 75 34l15-15 28 50H96L76 39 61 63 47 49 60 5Z');
-  p2.setAttribute('fill', '#4299e1');
+  const inner = document.createElementNS(ns, 'path');
+  inner.setAttribute('d', 'M42 6 54 29l10-10 22 33H72L55 28 44 47 33 36 42 6Z');
+  inner.setAttribute('fill', '#4299e1');
 
-  svg.append(p1, p2);
+  svg.append(outer, inner);
   return svg;
 }
 
