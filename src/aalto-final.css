@@ -10,39 +10,63 @@ main > section:nth-of-type(3) {
   display: none !important;
 }
 
-/* Slider de marcas: logos reales con mayor impacto visual. */
+/* Logo AALTO: más presencia y legibilidad en header/footer. */
+header svg,
+footer svg {
+  filter: drop-shadow(0 8px 16px rgba(26, 54, 93, 0.12));
+}
+
+header button:first-child,
+footer .inline-flex {
+  transform: translateZ(0);
+}
+
+/* Slider de marcas: logos reales con fallback premium si falla el CDN. */
 #clientes .brand-marquee {
-  padding-block: 10px !important;
+  padding-block: 14px !important;
 }
 
 #clientes .brand-marquee-track {
-  gap: 18px !important;
+  gap: 20px !important;
 }
 
 #clientes .brand-marquee-card {
-  width: 250px !important;
-  height: 112px !important;
-  border: 1px solid rgba(26, 54, 93, 0.12) !important;
-  border-radius: 18px !important;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
-  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08) !important;
+  width: 260px !important;
+  height: 118px !important;
+  border: 1px solid rgba(26, 54, 93, 0.14) !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(66, 153, 225, 0.10), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.09) !important;
   filter: none !important;
+  overflow: hidden;
+  position: relative;
+}
+
+#clientes .brand-marquee-card::after {
+  content: '';
+  position: absolute;
+  inset: auto 18px 14px 18px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(66, 153, 225, 0.45), transparent);
+  opacity: 0.65;
 }
 
 #clientes .brand-marquee-card img {
   display: block !important;
-  max-height: 58px !important;
-  max-width: 172px !important;
+  max-height: 60px !important;
+  max-width: 176px !important;
   object-fit: contain;
   filter: grayscale(1) contrast(1.05);
-  opacity: 0.9;
+  opacity: 0.92;
   transition: opacity 160ms ease, filter 160ms ease, transform 160ms ease;
 }
 
 #clientes .brand-marquee-card:hover img {
   filter: grayscale(0) contrast(1.08);
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.045);
 }
 
 #clientes .brand-marquee-card span.hidden {
@@ -51,6 +75,12 @@ main > section:nth-of-type(3) {
 
 #clientes .brand-marquee-card img[style*='display: none'] + span.hidden {
   display: block !important;
+  color: #1a365d !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
 }
 
 .aalto-whatsapp-widget {
@@ -176,12 +206,16 @@ main > section:nth-of-type(3) {
   }
 
   #clientes .brand-marquee-card {
-    width: 210px !important;
-    height: 96px !important;
+    width: 215px !important;
+    height: 98px !important;
   }
 
   #clientes .brand-marquee-card img {
     max-height: 48px !important;
     max-width: 142px !important;
+  }
+
+  #clientes .brand-marquee-card img[style*='display: none'] + span.hidden {
+    font-size: 14px !important;
   }
 }
