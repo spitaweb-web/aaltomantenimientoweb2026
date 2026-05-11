@@ -9,6 +9,24 @@ main > section:first-of-type {
   background-position: center center !important;
 }
 
+/* Header mobile: hamburguesa sin cuadrado/caja visual. */
+header button[aria-label="Abrir menú"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+header button[aria-label="Abrir menú"]:hover,
+header button[aria-label="Abrir menú"]:active,
+header button[aria-label="Abrir menú"]:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 /* Hero sectores: iconos más grandes, negros y con más presencia visual. */
 main > section:first-of-type #sectores .sector-card,
 main > section:first-of-type #sectores button {
@@ -43,6 +61,17 @@ main > section:first-of-type #sectores button:hover svg {
 #clientes .brand-marquee-track {
   gap: 56px !important;
   align-items: center !important;
+  animation: aaltoClientsMarquee 38s linear infinite !important;
+  will-change: transform;
+}
+
+#clientes .brand-marquee:hover .brand-marquee-track {
+  animation-play-state: paused !important;
+}
+
+@keyframes aaltoClientsMarquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 #clientes .aalto-local-logo-card,
@@ -107,20 +136,34 @@ main > section:first-of-type #sectores button:hover svg {
     font-size: 11px !important;
   }
 
+  #clientes {
+    padding-top: 5.5rem !important;
+    padding-bottom: 5.5rem !important;
+  }
+
+  #clientes .brand-marquee {
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding-block: 32px !important;
+  }
+
   #clientes .brand-marquee-track {
-    gap: 34px !important;
+    gap: 58px !important;
+    animation-duration: 28s !important;
   }
 
   #clientes .aalto-local-logo-card,
   #clientes .brand-marquee-card,
   #clientes .brand-marquee-card.aalto-local-logo-card {
-    width: 150px !important;
-    height: 72px !important;
-    min-width: 150px !important;
+    width: 230px !important;
+    height: 130px !important;
+    min-width: 230px !important;
   }
 
   #clientes .aalto-local-logo-card img,
   #clientes .brand-marquee-card img {
-    max-height: 48px !important;
+    max-width: 220px !important;
+    max-height: 104px !important;
+    opacity: 0.9 !important;
   }
 }
