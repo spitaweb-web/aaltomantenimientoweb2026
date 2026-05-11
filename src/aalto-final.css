@@ -5,14 +5,44 @@ main > section:nth-of-type(3) {
   display: none !important;
 }
 
-/* Slider de marcas: habilita logos reales y deja fallback textual solo si falla la imagen. */
+/* Oculta la repetición chica de rubros debajo de Especialidades. */
+#especialidades .mt-16.grid {
+  display: none !important;
+}
+
+/* Slider de marcas: logos reales con mayor impacto visual. */
+#clientes .brand-marquee {
+  padding-block: 10px !important;
+}
+
+#clientes .brand-marquee-track {
+  gap: 18px !important;
+}
+
+#clientes .brand-marquee-card {
+  width: 250px !important;
+  height: 112px !important;
+  border: 1px solid rgba(26, 54, 93, 0.12) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08) !important;
+  filter: none !important;
+}
+
 #clientes .brand-marquee-card img {
   display: block !important;
-  max-height: 48px;
-  max-width: 150px;
+  max-height: 58px !important;
+  max-width: 172px !important;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.82;
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.9;
+  transition: opacity 160ms ease, filter 160ms ease, transform 160ms ease;
+}
+
+#clientes .brand-marquee-card:hover img {
+  filter: grayscale(0) contrast(1.08);
+  opacity: 1;
+  transform: scale(1.04);
 }
 
 #clientes .brand-marquee-card span.hidden {
@@ -115,6 +145,18 @@ main > section:nth-of-type(3) {
   transform: translateY(-2px);
 }
 
+.aalto-whatsapp-icon {
+  display: inline-flex !important;
+  width: 24px;
+  height: 24px;
+}
+
+.aalto-whatsapp-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 @keyframes aaltoTocIn {
   0% { opacity: 0; transform: translateY(14px) scale(0.94); }
   70% { transform: translateY(-2px) scale(1.02); }
@@ -122,7 +164,7 @@ main > section:nth-of-type(3) {
 }
 
 @media (max-width: 640px) {
-  .aalto-whatsapp-button span {
+  .aalto-whatsapp-button span:not(.aalto-whatsapp-icon) {
     display: none;
   }
 
@@ -131,5 +173,15 @@ main > section:nth-of-type(3) {
     height: 58px;
     justify-content: center;
     padding: 0;
+  }
+
+  #clientes .brand-marquee-card {
+    width: 210px !important;
+    height: 96px !important;
+  }
+
+  #clientes .brand-marquee-card img {
+    max-height: 48px !important;
+    max-width: 142px !important;
   }
 }
