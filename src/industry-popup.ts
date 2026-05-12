@@ -1,10 +1,30 @@
 const industries = [
-  { title: 'Bodegas', description: 'Mantenimiento edilicio, instalaciones, pintura, herrería y soporte técnico para operación diaria.' },
-  { title: 'Hotelería', description: 'Intervenciones preventivas y correctivas para espacios de atención, habitaciones y áreas comunes.' },
-  { title: 'Salud', description: 'Soporte edilicio para clínicas, consultorios y espacios que requieren continuidad operativa.' },
-  { title: 'Industrias', description: 'Mantenimiento general, instalaciones, obra civil y soporte técnico para plantas y naves.' },
-  { title: 'Retail & centros comerciales', description: 'Respuesta ágil para locales, superficies comerciales, circulación y espacios de alto tránsito.' },
-];
+  {
+    key: 'bodegas',
+    title: 'Bodegas',
+    description: 'Mantenimiento edilicio, instalaciones, pintura, herrería y soporte técnico para operación diaria.',
+  },
+  {
+    key: 'hoteleria',
+    title: 'Hotelería',
+    description: 'Intervenciones preventivas y correctivas para espacios de atención, habitaciones y áreas comunes.',
+  },
+  {
+    key: 'salud',
+    title: 'Salud',
+    description: 'Soporte edilicio para clínicas, consultorios y espacios que requieren continuidad operativa.',
+  },
+  {
+    key: 'industrias',
+    title: 'Industrias',
+    description: 'Mantenimiento general, instalaciones, obra civil y soporte técnico para plantas y naves.',
+  },
+  {
+    key: 'retail',
+    title: 'Retail & centros comerciales',
+    description: 'Respuesta ágil para locales, superficies comerciales, circulación y espacios de alto tránsito.',
+  },
+] as const;
 
 function ensureIndustryPopup() {
   if (document.getElementById('aalto-industries-modal')) return;
@@ -22,7 +42,7 @@ function ensureIndustryPopup() {
       <p class="aalto-industries-intro">Soluciones de mantenimiento edilicio y personal externo para empresas que necesitan continuidad, respuesta y orden operativo.</p>
       <div class="aalto-industries-grid">
         ${industries.map((industry) => `
-          <article>
+          <article data-industry="${industry.key}">
             <span>${industry.title}</span>
             <p>${industry.description}</p>
           </article>
