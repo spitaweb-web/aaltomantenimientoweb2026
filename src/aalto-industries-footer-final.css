@@ -1,0 +1,161 @@
+/* Stable final overrides: industry popup by explicit sector + clean footer/contact finish */
+
+#contacto,
+footer {
+  background: #ffffff !important;
+  color: #1a365d !important;
+}
+
+#contacto {
+  margin-top: 0 !important;
+  padding-top: clamp(20px, 4vw, 46px) !important;
+  padding-bottom: clamp(14px, 3vw, 28px) !important;
+}
+
+#contacto > div,
+footer > div {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#contacto h2,
+#contacto p,
+#contacto a,
+#contacto span,
+#contacto .text-white,
+#contacto .text-white\/70,
+#contacto .text-white\/80,
+footer p,
+footer a,
+footer span,
+footer div {
+  color: #1a365d !important;
+}
+
+#contacto form {
+  background: #ffffff !important;
+  border: 1px solid rgba(26, 54, 93, 0.10) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 18px 52px rgba(15, 23, 42, 0.08) !important;
+}
+
+#contacto input,
+#contacto textarea {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(26, 54, 93, 0.18) !important;
+  border-radius: 0 !important;
+  color: #102a43 !important;
+  box-shadow: none !important;
+}
+
+#contacto button[type='submit'],
+#contacto form button {
+  background: #1a365d !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+}
+
+#contacto svg path:first-child,
+footer svg path:first-child {
+  fill: #1a365d !important;
+}
+
+#contacto svg path:nth-child(2),
+footer svg path:nth-child(2) {
+  fill: #4299e1 !important;
+  opacity: 1 !important;
+}
+
+.aalto-industries-grid article[data-industry] {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 238px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  padding: 22px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  color: #fff !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.22) !important;
+}
+
+.aalto-industries-grid article[data-industry]::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  background: linear-gradient(180deg, rgba(5,16,28,.12) 0%, rgba(5,16,28,.58) 44%, rgba(5,16,28,.94) 100%) !important;
+}
+
+.aalto-industries-grid article[data-industry] > * {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #fff !important;
+}
+
+.aalto-industries-grid article[data-industry] span {
+  font-size: 13px !important;
+  line-height: 1.15 !important;
+  letter-spacing: .16em !important;
+}
+
+.aalto-industries-grid article[data-industry] p {
+  margin-top: 14px !important;
+  color: rgba(255,255,255,.78) !important;
+}
+
+.aalto-industries-grid article[data-industry='bodegas'] {
+  background-image: linear-gradient(rgba(6,21,35,.20), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&q=80&w=1200') !important;
+}
+
+.aalto-industries-grid article[data-industry='hoteleria'] {
+  background-image: linear-gradient(rgba(6,21,35,.20), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200') !important;
+}
+
+.aalto-industries-grid article[data-industry='salud'] {
+  background-image: linear-gradient(rgba(6,21,35,.20), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200') !important;
+}
+
+.aalto-industries-grid article[data-industry='industrias'] {
+  background-image: linear-gradient(rgba(6,21,35,.20), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1581092160607-ee22731c9c0f?auto=format&fit=crop&q=80&w=1200') !important;
+}
+
+.aalto-industries-grid article[data-industry='retail'] {
+  background-image: linear-gradient(rgba(6,21,35,.20), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&q=80&w=1200') !important;
+}
+
+@media (max-width: 900px) {
+  .aalto-industries-grid article[data-industry] {
+    min-height: 190px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #contacto {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  #contacto > div {
+    padding-top: 18px !important;
+    padding-bottom: 12px !important;
+  }
+
+  footer {
+    padding-top: 6px !important;
+    padding-bottom: 22px !important;
+  }
+
+  footer > div {
+    gap: 8px !important;
+  }
+}
+
+/* deploy marker: aalto-stable-industry-footer-v1 */
