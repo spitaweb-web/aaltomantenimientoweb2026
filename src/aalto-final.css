@@ -219,3 +219,37 @@ footer .inline-flex {
     font-size: 14px !important;
   }
 }
+
+/* Pasada final: footer más fino, menos blanco muerto, más imagen */
+#clientes { padding-bottom: 26px !important; }
+#contacto { margin-top: 0 !important; padding-top: 14px !important; padding-bottom: 4px !important; background: #fff !important; }
+#contacto > div, footer, footer > div { border: 0 !important; outline: 0 !important; box-shadow: none !important; border-radius: 0 !important; background: transparent !important; }
+#contacto [class*='border'], footer [class*='border'], #contacto [class*='ring'], footer [class*='ring'] { border: 0 !important; box-shadow: none !important; outline: 0 !important; }
+#contacto input, #contacto textarea { border: 0 !important; border-bottom: 1px solid rgba(26,54,93,.16) !important; border-radius: 0 !important; padding-left: 0 !important; padding-right: 0 !important; box-shadow: none !important; }
+#contacto textarea { min-height: 112px !important; }
+#contacto svg path:first-child, footer svg path:first-child { fill: #1a365d !important; }
+#contacto svg path:nth-child(2), footer svg path:nth-child(2) { fill: #4299e1 !important; opacity: 1 !important; }
+.service-image img, .service-row img { width: 100% !important; min-height: 320px !important; object-fit: cover !important; }
+
+/* Pop/cards: base para imagen industrial de fondo + título/desc encima */
+[role='dialog'] article, [role='dialog'] .card, [role='dialog'] li, .modal article, .modal .card, .modal li { position: relative !important; overflow: hidden !important; min-height: 220px !important; border: 0 !important; border-radius: 18px !important; background-size: cover !important; background-position: center !important; color: #fff !important; }
+[role='dialog'] article::before, [role='dialog'] .card::before, [role='dialog'] li::before, .modal article::before, .modal .card::before, .modal li::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,21,35,.18), rgba(6,21,35,.88)); z-index: 0; }
+[role='dialog'] article > *, [role='dialog'] .card > *, [role='dialog'] li > *, .modal article > *, .modal .card > *, .modal li > * { position: relative !important; z-index: 1 !important; color: #fff !important; }
+[role='dialog'] article:nth-child(1), [role='dialog'] .card:nth-child(1), [role='dialog'] li:nth-child(1), .modal article:nth-child(1), .modal .card:nth-child(1), .modal li:nth-child(1) { background-image: linear-gradient(rgba(6,21,35,.22), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200') !important; }
+[role='dialog'] article:nth-child(2), [role='dialog'] .card:nth-child(2), [role='dialog'] li:nth-child(2), .modal article:nth-child(2), .modal .card:nth-child(2), .modal li:nth-child(2) { background-image: linear-gradient(rgba(6,21,35,.22), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=1200') !important; }
+[role='dialog'] article:nth-child(3), [role='dialog'] .card:nth-child(3), [role='dialog'] li:nth-child(3), .modal article:nth-child(3), .modal .card:nth-child(3), .modal li:nth-child(3) { background-image: linear-gradient(rgba(6,21,35,.22), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1200') !important; }
+[role='dialog'] article:nth-child(4), [role='dialog'] .card:nth-child(4), [role='dialog'] li:nth-child(4), .modal article:nth-child(4), .modal .card:nth-child(4), .modal li:nth-child(4) { background-image: linear-gradient(rgba(6,21,35,.22), rgba(6,21,35,.82)), url('https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&q=80&w=1200') !important; }
+
+@media (max-width: 768px) {
+  #clientes { padding-top: 44px !important; padding-bottom: 16px !important; }
+  #contacto { padding-top: 8px !important; padding-left: 18px !important; padding-right: 18px !important; padding-bottom: 0 !important; }
+  #contacto > div { padding-top: 20px !important; padding-bottom: 12px !important; }
+  #contacto form { margin-top: 8px !important; }
+  #contacto input, #contacto textarea { min-height: 44px !important; }
+  #contacto textarea { min-height: 102px !important; }
+  footer { padding-top: 4px !important; padding-bottom: 22px !important; }
+  footer > div { padding-top: 0 !important; padding-bottom: 0 !important; gap: 8px !important; }
+  .service-image img, .service-row img { min-height: 250px !important; }
+}
+
+/* deploy marker: aalto-footer-tight-pop-industrial-v5 */
