@@ -227,184 +227,166 @@ main > section:first-of-type > img {
   }
 }
 
-/* AALTO — footer premium UX/UI */
+/* AALTO — footer limpio, simple y delineado */
+#contacto,
 footer {
-  position: relative !important;
-  overflow: hidden !important;
-  background:
-    radial-gradient(circle at 12% 0%, rgba(66, 153, 225, 0.22), transparent 34%),
-    radial-gradient(circle at 88% 100%, rgba(26, 54, 93, 0.55), transparent 38%),
-    linear-gradient(135deg, #061523 0%, #0a1d32 48%, #07111f 100%) !important;
-  color: #ffffff !important;
-  padding: 72px 24px 88px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #ffffff !important;
+  color: #0f2744 !important;
 }
 
-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
-  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
+#contacto {
+  padding-bottom: 28px !important;
 }
 
+#contacto::before,
+#contacto::after,
+footer::before,
 footer::after {
-  content: "Mantenimiento edilicio · Outsourcing técnico · Mendoza";
-  position: relative;
-  z-index: 1;
-  display: block;
-  max-width: 1160px;
-  margin: 40px auto 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  color: rgba(255, 255, 255, 0.46);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.24em;
-  line-height: 1.6;
-  text-transform: uppercase;
-  text-align: center;
+  content: none !important;
+  display: none !important;
+  background: none !important;
 }
 
-footer > * {
-  position: relative;
-  z-index: 1;
-}
-
+#contacto > div,
 footer > div {
-  width: 100% !important;
-  max-width: 1160px !important;
-  margin: 0 auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.45fr) !important;
-  gap: 36px !important;
-  align-items: center !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(26, 54, 93, 0.16) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08) !important;
 }
 
+#contacto form,
+#contacto input,
+#contacto textarea {
+  background: #ffffff !important;
+}
+
+#contacto input,
+#contacto textarea {
+  border: 1px solid rgba(26, 54, 93, 0.16) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #102a43 !important;
+}
+
+#contacto button[type="submit"],
+#contacto form button,
+#contacto button:not([aria-label]) {
+  border-radius: 0 !important;
+  background: #102a43 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Logo del cierre: sobre blanco, no sobre azul */
+#contacto svg,
+footer svg {
+  filter: none !important;
+}
+
+#contacto svg path:first-child,
 footer svg path:first-child {
-  fill: #ffffff !important;
+  fill: #1a365d !important;
 }
 
+#contacto svg path:nth-child(2),
 footer svg path:nth-child(2) {
-  fill: #60a5fa !important;
+  fill: #4299e1 !important;
   opacity: 1 !important;
 }
 
-footer span,
-footer strong,
-footer h2,
-footer h3,
-footer h4 {
-  color: #ffffff !important;
+#contacto .logo-footer,
+footer .logo-footer {
+  background: #ffffff !important;
 }
 
+/* Delineado fino alrededor del logo si está dentro de un bloque */
+#contacto [class*="border"]:has(svg),
+footer [class*="border"]:has(svg) {
+  background: #ffffff !important;
+  border: 1px solid rgba(26, 54, 93, 0.24) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08) !important;
+}
+
+#contacto p,
+#contacto a,
+#contacto span,
 footer p,
 footer a,
-footer li {
-  color: rgba(255, 255, 255, 0.78) !important;
+footer span {
+  color: #1a365d !important;
 }
 
-footer a {
-  text-decoration: none !important;
-}
-
+#contacto a:hover,
 footer a:hover {
-  color: #ffffff !important;
+  color: #0f80b8 !important;
 }
 
+/* Quita el efecto de cuadrados/cards del cierre */
 footer > div > div:last-child,
 footer > div > ul,
 footer > div > nav {
-  width: 100% !important;
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 14px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 24px !important;
 }
 
 footer > div > div:last-child > *,
 footer > div > ul > *,
 footer > div > nav > * {
-  min-height: 76px !important;
-  padding: 18px 18px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  border: 1px solid rgba(255, 255, 255, 0.10) !important;
-  border-radius: 18px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  color: rgba(255, 255, 255, 0.86) !important;
-  font-size: clamp(13px, 1.4vw, 16px) !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #1a365d !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
   letter-spacing: 0.02em !important;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease !important;
+  transform: none !important;
 }
 
 footer > div > div:last-child > *:hover,
 footer > div > ul > *:hover,
 footer > div > nav > *:hover {
-  transform: translateY(-2px) !important;
-  border-color: rgba(96, 165, 250, 0.48) !important;
-  background: rgba(255, 255, 255, 0.10) !important;
+  transform: none !important;
+  background: transparent !important;
+  border-color: transparent !important;
 }
 
 @media (max-width: 768px) {
-  footer {
-    padding: 64px 20px 84px !important;
+  #contacto {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 
+  #contacto > div,
   footer > div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 30px !important;
-  }
-
-  footer > div > div:first-child {
-    display: flex !important;
-    justify-content: center !important;
-  }
-
-  footer > div > div:first-child > * {
-    transform: scale(0.92) !important;
-    transform-origin: center !important;
+    border-radius: 24px !important;
+    box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08) !important;
   }
 
   footer > div > div:last-child,
   footer > div > ul,
   footer > div > nav {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+    align-items: center !important;
     gap: 12px !important;
   }
 
   footer > div > div:last-child > *,
   footer > div > ul > *,
   footer > div > nav > * {
-    min-height: 62px !important;
-    justify-content: flex-start !important;
-    text-align: left !important;
-    padding: 16px 18px !important;
-    border-radius: 16px !important;
-    font-size: 14px !important;
-  }
-
-  footer::after {
-    margin-top: 30px;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-align: left;
+    text-align: center !important;
+    font-size: 11px !important;
   }
 }
 
-/* deploy marker: aalto-footer-premium-ux-ui-v1 */
+/* deploy marker: aalto-footer-clean-white-logo-v2 */
 /* deploy marker: aalto-local-hero-background-png-v1 */
