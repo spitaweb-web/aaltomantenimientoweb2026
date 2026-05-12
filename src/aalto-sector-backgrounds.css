@@ -1,0 +1,93 @@
+/* Backgrounds premium para sectores del hero */
+main > section:first-of-type #sectores .sector-card {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  background-color: #0a192f !important;
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: 0 22px 56px rgba(2, 6, 23, 0.24) !important;
+}
+
+main > section:first-of-type #sectores .sector-card:nth-child(1) {
+  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_06 (1).png') !important;
+}
+
+main > section:first-of-type #sectores .sector-card:nth-child(2) {
+  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (2).png') !important;
+}
+
+main > section:first-of-type #sectores .sector-card:nth-child(3) {
+  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (3).png') !important;
+}
+
+main > section:first-of-type #sectores .sector-card:nth-child(4) {
+  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (4).png') !important;
+}
+
+main > section:first-of-type #sectores .sector-card:nth-child(5) {
+  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (5).png') !important;
+}
+
+main > section:first-of-type #sectores .sector-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(6, 21, 35, 0.34), rgba(6, 21, 35, 0.82)),
+    radial-gradient(circle at 50% 0%, rgba(66, 153, 225, 0.25), transparent 58%);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+main > section:first-of-type #sectores .sector-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 42%, transparent 72%);
+  transform: translateX(-120%);
+  opacity: 0.38;
+  transition: transform 520ms cubic-bezier(.2,.8,.2,1);
+}
+
+main > section:first-of-type #sectores .sector-card:hover::before {
+  transform: translateX(120%);
+}
+
+main > section:first-of-type #sectores .sector-card:hover::after {
+  opacity: 0.92;
+}
+
+main > section:first-of-type #sectores .sector-card svg {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #fff !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.38));
+}
+
+main > section:first-of-type #sectores .sector-card span {
+  position: relative !important;
+  z-index: 1 !important;
+  color: #fff !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55) !important;
+}
+
+@media (max-width: 767px) {
+  main > section:first-of-type #sectores .sector-card {
+    min-width: 190px !important;
+    height: 116px !important;
+    border-radius: 0 !important;
+  }
+
+  main > section:first-of-type #sectores .sector-card svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  main > section:first-of-type #sectores .sector-card span {
+    font-size: 11px !important;
+    letter-spacing: 0.14em !important;
+  }
+}
