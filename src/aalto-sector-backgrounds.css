@@ -11,23 +11,23 @@ main > section:first-of-type #sectores .sector-card {
 }
 
 main > section:first-of-type #sectores .sector-card:nth-child(1) {
-  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_06 (1).png') !important;
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_06%20(1).png') !important;
 }
 
 main > section:first-of-type #sectores .sector-card:nth-child(2) {
-  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (2).png') !important;
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(2).png') !important;
 }
 
 main > section:first-of-type #sectores .sector-card:nth-child(3) {
-  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (3).png') !important;
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(3).png') !important;
 }
 
 main > section:first-of-type #sectores .sector-card:nth-child(4) {
-  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (4).png') !important;
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(4).png'), url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(5).png') !important;
 }
 
 main > section:first-of-type #sectores .sector-card:nth-child(5) {
-  background-image: url('/sectores/ChatGPT Image 12 may 2026, 02_00_07 (5).png') !important;
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(5).png') !important;
 }
 
 main > section:first-of-type #sectores .sector-card::after {
