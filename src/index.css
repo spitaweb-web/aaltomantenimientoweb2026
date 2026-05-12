@@ -227,4 +227,184 @@ main > section:first-of-type > img {
   }
 }
 
+/* AALTO — footer premium UX/UI */
+footer {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(66, 153, 225, 0.22), transparent 34%),
+    radial-gradient(circle at 88% 100%, rgba(26, 54, 93, 0.55), transparent 38%),
+    linear-gradient(135deg, #061523 0%, #0a1d32 48%, #07111f 100%) !important;
+  color: #ffffff !important;
+  padding: 72px 24px 88px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 78%);
+}
+
+footer::after {
+  content: "Mantenimiento edilicio · Outsourcing técnico · Mendoza";
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 1160px;
+  margin: 40px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+footer > div {
+  width: 100% !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.45fr) !important;
+  gap: 36px !important;
+  align-items: center !important;
+}
+
+footer svg path:first-child {
+  fill: #ffffff !important;
+}
+
+footer svg path:nth-child(2) {
+  fill: #60a5fa !important;
+  opacity: 1 !important;
+}
+
+footer span,
+footer strong,
+footer h2,
+footer h3,
+footer h4 {
+  color: #ffffff !important;
+}
+
+footer p,
+footer a,
+footer li {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+footer a {
+  text-decoration: none !important;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}
+
+footer > div > div:last-child,
+footer > div > ul,
+footer > div > nav {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+footer > div > div:last-child > *,
+footer > div > ul > *,
+footer > div > nav > * {
+  min-height: 76px !important;
+  padding: 18px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: clamp(13px, 1.4vw, 16px) !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.02em !important;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease !important;
+}
+
+footer > div > div:last-child > *:hover,
+footer > div > ul > *:hover,
+footer > div > nav > *:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(96, 165, 250, 0.48) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 64px 20px 84px !important;
+  }
+
+  footer > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 30px !important;
+  }
+
+  footer > div > div:first-child {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  footer > div > div:first-child > * {
+    transform: scale(0.92) !important;
+    transform-origin: center !important;
+  }
+
+  footer > div > div:last-child,
+  footer > div > ul,
+  footer > div > nav {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  footer > div > div:last-child > *,
+  footer > div > ul > *,
+  footer > div > nav > * {
+    min-height: 62px !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 16px 18px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+  }
+
+  footer::after {
+    margin-top: 30px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-align: left;
+  }
+}
+
+/* deploy marker: aalto-footer-premium-ux-ui-v1 */
 /* deploy marker: aalto-local-hero-background-png-v1 */
