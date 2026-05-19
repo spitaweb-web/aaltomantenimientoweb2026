@@ -1,0 +1,127 @@
+/* Literal home requirements from Matias: clearer background, cards higher, tighter sections, phrase in 2 lines. */
+
+/* Hero background: more literal corporate/technical maintenance, not abstract/museum-like. */
+main > section:first-of-type {
+  min-height: 640px !important;
+  padding-top: 86px !important;
+  padding-bottom: 82px !important;
+  background-color: #061523 !important;
+  background-image:
+    linear-gradient(90deg, rgba(6,21,35,.88) 0%, rgba(6,21,35,.62) 45%, rgba(6,21,35,.30) 100%),
+    url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=88&w=2200') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+main > section:first-of-type > img {
+  display: none !important;
+}
+
+main > section:first-of-type > div.absolute.inset-0 {
+  background: linear-gradient(90deg, rgba(6,21,35,.88) 0%, rgba(6,21,35,.62) 45%, rgba(6,21,35,.28) 100%) !important;
+}
+
+main > section:first-of-type > div.relative.z-10 {
+  padding-top: 64px !important;
+  padding-bottom: 74px !important;
+}
+
+main > section:first-of-type h1 {
+  max-width: 980px !important;
+  font-size: clamp(54px, 6.4vw, 92px) !important;
+  line-height: .94 !important;
+}
+
+main > section:first-of-type p {
+  max-width: 880px !important;
+  font-size: clamp(19px, 1.45vw, 24px) !important;
+  line-height: 1.38 !important;
+}
+
+/* Sector cards: higher and fully visible on load. */
+main > section:first-of-type .relative.z-20 {
+  margin-top: -18px !important;
+  margin-bottom: 0 !important;
+  max-width: min(90vw, 1080px) !important;
+}
+
+@media (min-width: 768px) {
+  main > section:first-of-type .relative.z-20 {
+    bottom: 28px !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+main > section:first-of-type .snap-start,
+main > section:first-of-type button[class*='snap-start'] {
+  height: 112px !important;
+  min-height: 112px !important;
+}
+
+/* Phrase below hero: bigger, wider, two-line target, less empty white space. */
+main > section:first-of-type + section {
+  padding-top: 38px !important;
+  padding-bottom: 34px !important;
+  text-align: center !important;
+}
+
+main > section:first-of-type + section > div {
+  max-width: min(90vw, 1180px) !important;
+  width: min(90vw, 1180px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+main > section:first-of-type + section p {
+  max-width: 1120px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  text-align-last: center !important;
+  font-size: clamp(27px, 2.25vw, 36px) !important;
+  line-height: 1.15 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Pull next content closer without crowding. */
+#quienes-somos {
+  padding-top: clamp(56px, 6vw, 82px) !important;
+}
+
+@media (max-width: 768px) {
+  main > section:first-of-type {
+    min-height: auto !important;
+    padding-top: 64px !important;
+    padding-bottom: 34px !important;
+    background-position: center top !important;
+  }
+
+  main > section:first-of-type > div.relative.z-10 {
+    padding-top: 54px !important;
+    padding-bottom: 24px !important;
+  }
+
+  main > section:first-of-type .relative.z-20 {
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 34px !important;
+    padding-bottom: 28px !important;
+  }
+
+  main > section:first-of-type + section p {
+    max-width: calc(100vw - 32px) !important;
+    font-size: clamp(20px, 6.2vw, 25px) !important;
+    line-height: 1.14 !important;
+  }
+
+  #quienes-somos {
+    padding-top: 50px !important;
+  }
+}
