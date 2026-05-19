@@ -1,0 +1,305 @@
+/* Modern UI polish: menu hover, cursor details, section reveal and white footer. Imported last. */
+
+:root {
+  --aalto-navy: #1a365d;
+  --aalto-blue: #2f80ed;
+  --aalto-cyan: #0f7da5;
+  --aalto-soft: rgba(26, 54, 93, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  cursor: default;
+}
+
+button,
+a,
+[role='button'],
+input[type='file'] + *,
+#clientes img {
+  cursor: pointer !important;
+}
+
+/* Header/nav: soft modern hover underline. */
+header nav button,
+.fixed.inset-0.z-\[60\] button:not([aria-label='Cerrar menú']) {
+  position: relative !important;
+  isolation: isolate !important;
+  transition: color 220ms ease, transform 220ms ease, opacity 220ms ease !important;
+}
+
+header nav button::after,
+.fixed.inset-0.z-\[60\] button:not([aria-label='Cerrar menú'])::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -9px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, var(--aalto-blue), var(--aalto-cyan)) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  opacity: 0 !important;
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1), opacity 240ms ease !important;
+}
+
+header nav button:hover,
+header nav button:focus-visible,
+.fixed.inset-0.z-\[60\] button:not([aria-label='Cerrar menú']):hover {
+  color: var(--aalto-blue) !important;
+  transform: translateY(-1px) !important;
+}
+
+header nav button:hover::after,
+header nav button:focus-visible::after,
+.fixed.inset-0.z-\[60\] button:not([aria-label='Cerrar menú']):hover::after {
+  transform: scaleX(1) !important;
+  opacity: 1 !important;
+}
+
+header button[aria-label='Abrir menú'],
+.fixed.inset-0.z-\[60\] button[aria-label='Cerrar menú'] {
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), color 220ms ease, background-color 220ms ease !important;
+}
+
+header button[aria-label='Abrir menú']:hover,
+.fixed.inset-0.z-\[60\] button[aria-label='Cerrar menú']:hover {
+  transform: rotate(4deg) scale(1.06) !important;
+  color: var(--aalto-blue) !important;
+}
+
+/* Global interaction details. */
+main button,
+#contacto button,
+a[href],
+#clientes img,
+main article,
+#especialidades .grid > div,
+#outsourcing .grid > div {
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1), box-shadow 240ms ease, border-color 240ms ease, filter 240ms ease, opacity 240ms ease !important;
+}
+
+main button:hover,
+#contacto button:hover,
+a[href]:hover {
+  transform: translateY(-2px) !important;
+}
+
+#especialidades .grid > div:hover,
+#outsourcing .grid > div:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 22px 54px rgba(15, 23, 42, 0.10) !important;
+  border-color: rgba(47,128,237,.18) !important;
+}
+
+main article:hover img {
+  filter: saturate(1.06) contrast(1.03) !important;
+}
+
+#clientes img:hover {
+  transform: translateY(-2px) scale(1.045) !important;
+}
+
+/* Section reveal: one clean motion per section. */
+.aalto-section-reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  filter: blur(3px);
+  transition: opacity 640ms ease, transform 760ms cubic-bezier(.16,1,.3,1), filter 760ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.aalto-section-reveal.aalto-section-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+.aalto-section-reveal > * {
+  transition: transform 640ms cubic-bezier(.16,1,.3,1), opacity 640ms ease;
+}
+
+/* Text under hero centered hard. */
+main > section:first-of-type + section,
+main > section:first-of-type + section > div,
+main > section:first-of-type + section p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+main > section:first-of-type + section p {
+  max-width: 920px !important;
+  text-align-last: center !important;
+}
+
+/* Hero cards breathing. */
+main > section:first-of-type {
+  padding-bottom: clamp(32px, 4vw, 58px) !important;
+}
+
+main > section:first-of-type .relative.z-20 {
+  margin-bottom: clamp(22px, 3vw, 42px) !important;
+}
+
+main > section:first-of-type + section {
+  padding-top: clamp(78px, 8vw, 118px) !important;
+}
+
+@media (min-width: 768px) {
+  main > section:first-of-type .relative.z-20 {
+    bottom: -38px !important;
+  }
+}
+
+/* Footer must be white, clean and separated. */
+#contacto {
+  position: relative !important;
+  z-index: 3 !important;
+  padding-bottom: clamp(74px, 7vw, 112px) !important;
+  margin-bottom: 0 !important;
+}
+
+#contacto form {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+footer,
+#contacto + footer {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important;
+  background: #ffffff !important;
+  color: var(--aalto-navy) !important;
+  border-top: 1px solid rgba(26,54,93,.10) !important;
+  box-shadow: 0 -18px 50px rgba(15, 23, 42, 0.04) !important;
+}
+
+footer > div {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+footer p,
+footer a,
+footer span,
+footer div {
+  color: var(--aalto-navy) !important;
+  font-weight: 500 !important;
+}
+
+footer svg path:first-child {
+  fill: var(--aalto-navy) !important;
+}
+
+footer svg path:nth-child(2) {
+  fill: #4299e1 !important;
+}
+
+footer p[class*='tracking'] {
+  color: rgba(26,54,93,.60) !important;
+  font-weight: 600 !important;
+  letter-spacing: .17em !important;
+}
+
+footer p.text-lg,
+footer p.text-xl,
+footer .text-lg,
+footer .text-xl,
+footer p[class*='text-lg'],
+footer p[class*='text-xl'] {
+  color: var(--aalto-navy) !important;
+  font-weight: 620 !important;
+}
+
+footer > div:last-child {
+  border-top: 1px solid rgba(26,54,93,.10) !important;
+  color: rgba(26,54,93,.55) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  header nav button::after,
+  .fixed.inset-0.z-\[60\] button:not([aria-label='Cerrar menú'])::after {
+    bottom: -7px !important;
+  }
+
+  main > section:first-of-type {
+    padding-bottom: 36px !important;
+  }
+
+  main > section:first-of-type .relative.z-20 {
+    margin-top: 18px !important;
+    margin-bottom: 20px !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 50px !important;
+  }
+
+  main > section:first-of-type + section p {
+    max-width: calc(100vw - 36px) !important;
+    text-align: center !important;
+    text-align-last: center !important;
+  }
+
+  footer {
+    padding-top: 36px !important;
+    padding-bottom: 38px !important;
+    text-align: center !important;
+  }
+
+  footer > div:first-child {
+    gap: 28px !important;
+  }
+
+  footer > div:first-child > div:last-child {
+    gap: 24px !important;
+  }
+
+  footer p[class*='tracking'] {
+    font-size: 9px !important;
+    letter-spacing: .14em !important;
+    margin-bottom: 7px !important;
+  }
+
+  footer p.text-lg,
+  footer p.text-xl,
+  footer .text-lg,
+  footer .text-xl,
+  footer p[class*='text-lg'],
+  footer p[class*='text-xl'] {
+    font-size: 14px !important;
+    line-height: 1.36 !important;
+  }
+
+  footer > div:last-child {
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    font-size: 8.5px !important;
+    line-height: 1.75 !important;
+    letter-spacing: .11em !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aalto-section-reveal,
+  .aalto-section-reveal > *,
+  main button,
+  a[href],
+  header nav button {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .aalto-section-reveal {
+    opacity: 1 !important;
+  }
+}
