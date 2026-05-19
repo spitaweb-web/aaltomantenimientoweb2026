@@ -3,8 +3,8 @@ function initMobileHeaderController() {
   if (!header || header.dataset.mobileHeaderController === 'true') return;
 
   header.dataset.mobileHeaderController = 'true';
-  header.style.transition = 'transform 320ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease, background 220ms ease';
-  header.style.willChange = 'transform';
+  header.style.transition = 'transform 360ms cubic-bezier(.16,1,.3,1), height 260ms cubic-bezier(.16,1,.3,1), box-shadow 260ms ease, background-color 260ms ease, backdrop-filter 260ms ease';
+  header.style.willChange = 'transform, height, background-color';
 
   let lastY = window.scrollY;
   let ticking = false;
@@ -26,17 +26,29 @@ function initMobileHeaderController() {
     const delta = y - lastY;
     const scrollingDown = delta > 4;
     const scrollingUp = delta < -4;
-    const canHide = isMobile() && y > 96 && !isMenuOpen() && performance.now() > lockedOpenUntil;
+    const scrolled = y > 24;
+    const canHideMobile = isMobile() && y > 118 && !isMenuOpen() && performance.now() > lockedOpenUntil;
+
+    header.classList.toggle('aalto-header-scrolled', scrolled);
+
+    if (scrolled) {
+      header.style.backgroundColor = 'rgba(255,255,255,0.94)';
+      header.style.backdropFilter = 'blur(14px)';
+      header.style.boxShadow = '0 18px 48px rgba(15,23,42,0.10)';
+    } else {
+      header.style.backgroundColor = 'rgba(255,255,255,1)';
+      header.style.backdropFilter = 'blur(0px)';
+      header.style.boxShadow = '0 1px 10px rgba(15,23,42,0.06)';
+    }
 
     if (!isMobile()) {
       showHeader();
     } else if (y < 32 || scrollingUp || isMenuOpen()) {
       showHeader();
-    } else if (canHide && scrollingDown) {
+    } else if (canHideMobile && scrollingDown) {
       hideHeader();
     }
 
-    header.classList.toggle('aalto-header-scrolled', y > 30);
     lastY = y;
     ticking = false;
   };
