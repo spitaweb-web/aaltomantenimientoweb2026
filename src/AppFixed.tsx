@@ -99,7 +99,14 @@ const clientes = [
 const clientesSlider = [...clientes, ...clientes];
 
 function go(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const offset = isMobile ? 76 : 96;
+  const top = element.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }
 
 function Logo({ compact = false }: { compact?: boolean }) {
