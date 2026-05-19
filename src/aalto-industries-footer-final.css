@@ -1,5 +1,3 @@
-/* Stable final overrides: industry popup by explicit sector + clean footer/contact finish */
-
 #contacto,
 footer {
   background: #ffffff !important;
@@ -158,4 +156,127 @@ footer svg path:nth-child(2) {
   }
 }
 
-/* deploy marker: aalto-stable-industry-footer-v1 */
+main > section > div.mx-auto,
+footer > div.mx-auto {
+  width: 90vw !important;
+  max-width: 90vw !important;
+}
+
+header > div.mx-auto {
+  width: 90vw !important;
+  max-width: 90vw !important;
+}
+
+#quienes-somos > div,
+#especialidades > div,
+#outsourcing > div,
+#clientes > div,
+#contacto > div,
+footer > div {
+  width: 90vw !important;
+  max-width: 90vw !important;
+}
+
+main > section:first-of-type {
+  background-color: #061523 !important;
+  background-image:
+    linear-gradient(180deg, rgba(6,21,35,.12) 0%, rgba(6,21,35,.52) 58%, rgba(6,21,35,.9) 100%),
+    url('/hero-aalto-industrial.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+main > section:first-of-type > img {
+  display: none !important;
+}
+
+main > section:first-of-type .snap-start,
+main > section:first-of-type button[class*='snap-start'] {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background-size: cover !important;
+  background-position: center !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  box-shadow: 0 22px 56px rgba(2,6,23,.24) !important;
+}
+
+main > section:first-of-type .snap-start::after,
+main > section:first-of-type button[class*='snap-start']::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: linear-gradient(180deg, rgba(6,21,35,.34), rgba(6,21,35,.82)), radial-gradient(circle at 50% 0%, rgba(66,153,225,.25), transparent 58%) !important;
+}
+
+main > section:first-of-type .snap-start:nth-child(1) {
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_06%20(1).png') !important;
+}
+main > section:first-of-type .snap-start:nth-child(2) {
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(2).png') !important;
+}
+main > section:first-of-type .snap-start:nth-child(3) {
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(3).png') !important;
+}
+main > section:first-of-type .snap-start:nth-child(4) {
+  background-image: url('/sectores/ChatGPT%20Image%2012%20may%202026%2C%2002_00_07%20(4).png') !important;
+}
+
+main > section:first-of-type .snap-start svg,
+main > section:first-of-type .snap-start span {
+  color: #fff !important;
+  position: relative !important;
+  z-index: 1 !important;
+  text-shadow: 0 2px 16px rgba(0,0,0,.55) !important;
+}
+
+#clientes img {
+  display: block !important;
+  max-width: 170px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+}
+
+#clientes span.hidden,
+#clientes .hidden {
+  display: none !important;
+}
+
+#clientes [class*='w-60'],
+#clientes .brand-marquee-card {
+  width: 205px !important;
+  min-width: 205px !important;
+  height: 96px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: grayscale(1) !important;
+  opacity: .76 !important;
+}
+
+#clientes [class*='animate-'],
+#clientes .brand-marquee-track {
+  gap: 42px !important;
+}
+
+#contacto form label {
+  border: 1px dashed rgba(26,54,93,.25) !important;
+}
+
+@media (max-width: 768px) {
+  main > section > div.mx-auto,
+  footer > div.mx-auto,
+  header > div.mx-auto,
+  #quienes-somos > div,
+  #especialidades > div,
+  #outsourcing > div,
+  #clientes > div,
+  #contacto > div,
+  footer > div {
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+}
