@@ -1,0 +1,165 @@
+/* AALTO mobile perfect pass: prevent title/footer overflow and keep layout ordered */
+
+@media (max-width: 768px) {
+  html,
+  body,
+  #root,
+  main {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  main > section:first-of-type {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  main > section:first-of-type > div.relative.z-10 {
+    width: min(100%, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  main > section:first-of-type h1 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: clamp(28px, 9.2vw, 38px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.055em !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-wrap: balance !important;
+  }
+
+  main > section:first-of-type h1 span {
+    display: inline !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  main > section:first-of-type p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  main > section:first-of-type .relative.z-20,
+  main > section:first-of-type .relative.z-20 > div,
+  main > section:first-of-type .overflow-x-auto {
+    width: min(100%, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  footer {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  footer > div {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  footer > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 22px !important;
+    text-align: center !important;
+  }
+
+  footer > div:first-child > button,
+  footer > div:first-child > div:first-child,
+  footer .inline-flex {
+    max-width: 100% !important;
+  }
+
+  footer .inline-flex:not(.aalto-real-logo-image-mode) {
+    width: 168px !important;
+    min-width: 0 !important;
+    max-width: 168px !important;
+    height: 42px !important;
+  }
+
+  footer > div:first-child > div:last-child {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    text-align: center !important;
+  }
+
+  footer p,
+  footer a,
+  footer span,
+  footer div {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  footer p.text-xl,
+  footer .text-xl,
+  footer p[class*='text-xl'] {
+    font-size: 15px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  footer p[class*='tracking'] {
+    letter-spacing: 0.18em !important;
+  }
+
+  footer > div:last-child {
+    margin-top: 24px !important;
+    padding-top: 18px !important;
+    font-size: 9px !important;
+    line-height: 1.55 !important;
+    letter-spacing: 0.14em !important;
+    text-align: center !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 390px) {
+  main > section:first-of-type h1 {
+    font-size: clamp(25px, 8.3vw, 32px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  footer p.text-xl,
+  footer .text-xl,
+  footer p[class*='text-xl'] {
+    font-size: 14px !important;
+  }
+}
