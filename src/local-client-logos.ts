@@ -3,25 +3,22 @@ const localClientLogos = [
   { name: 'Renacer', src: '/bodega_renacer.png' },
   { name: 'Norton', src: '/norton1.jpg' },
   { name: 'Salentein', src: '/R.png' },
-  { name: 'Servicio Meteorológico Nacional', src: '/smn.png' },
+  { name: 'Servicio Meteorologico Nacional', src: '/smn.png' },
   { name: 'Talca', src: '/talca.png' },
   { name: 'Unilever', src: '/unilever.png' },
   { name: 'Yaguar', src: '/yaguar.png' },
 ];
 
 function buildClientLogoCard(client: { name: string; src: string }, index: number) {
-  return `
-    <div class="brand-marquee-card aalto-local-logo-card flex h-24 w-56 shrink-0 items-center justify-center border bg-white px-6 text-center text-xs font-black uppercase tracking-widest text-slate-500 shadow-sm" data-logo-index="${index}">
-      <img src="${client.src}" alt="${client.name}" loading="lazy" />
-      <span class="hidden">${client.name}</span>
-    </div>
-  `;
+  return '<div class="brand-marquee-card aalto-local-logo-card" data-logo-index="' + index + '"><img src="' + client.src + '" alt="' + client.name + '" loading="lazy" /><span>' + client.name + '</span></div>';
 }
 
 function applyLocalClientLogos() {
-  const track = document.querySelector<HTMLElement>('#clientes .brand-marquee-track');
+  const section = document.querySelector<HTMLElement>('#clientes');
+  if (!section) return;
+  const track = section.querySelector<HTMLElement>('.overflow-hidden > div');
   if (!track || track.dataset.localLogosApplied === 'true') return;
-
+  track.classList.add('brand-marquee-track');
   const doubled = [...localClientLogos, ...localClientLogos, ...localClientLogos];
   track.innerHTML = doubled.map(buildClientLogoCard).join('');
   track.dataset.localLogosApplied = 'true';
@@ -29,10 +26,6 @@ function applyLocalClientLogos() {
 
 function initLocalClientLogos() {
   applyLocalClientLogos();
-
-  const observer = new MutationObserver(() => applyLocalClientLogos());
-  observer.observe(document.body, { childList: true, subtree: true });
-
   window.setTimeout(applyLocalClientLogos, 300);
   window.setTimeout(applyLocalClientLogos, 900);
   window.setTimeout(applyLocalClientLogos, 1600);
