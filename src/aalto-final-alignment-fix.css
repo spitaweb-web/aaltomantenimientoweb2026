@@ -1,0 +1,215 @@
+/* Final alignment fix: hero text center, card breathing, contact z-index, clean footer hierarchy. Imported last. */
+
+/* Phrase below hero must always be centered. */
+main > section:first-of-type + section {
+  text-align: center !important;
+  padding-top: clamp(72px, 8vw, 112px) !important;
+}
+
+main > section:first-of-type + section > div,
+main > section:first-of-type + section p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+main > section:first-of-type + section p {
+  max-width: 920px !important;
+  text-align-last: center !important;
+}
+
+/* Give the 4 hero cards air so they don't sit on the section limit. */
+main > section:first-of-type {
+  padding-bottom: 30px !important;
+}
+
+main > section:first-of-type .relative.z-20 {
+  margin-bottom: 22px !important;
+}
+
+@media (min-width: 768px) {
+  main > section:first-of-type .relative.z-20 {
+    bottom: -46px !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 104px !important;
+  }
+}
+
+/* Contact: keep form above everything and separated from footer. */
+#contacto {
+  position: relative !important;
+  z-index: 3 !important;
+  isolation: isolate !important;
+  padding-bottom: clamp(70px, 7vw, 108px) !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+}
+
+#contacto > div {
+  position: relative !important;
+  z-index: 4 !important;
+  align-items: center !important;
+}
+
+#contacto form {
+  position: relative !important;
+  z-index: 12 !important;
+  transform: none !important;
+  margin-bottom: 0 !important;
+}
+
+#contacto + footer,
+footer {
+  position: relative !important;
+  z-index: 1 !important;
+  clear: both !important;
+  margin-top: 0 !important;
+}
+
+/* Footer: Matrico-like hierarchy, lighter typography, more separation. */
+footer {
+  background: #067fa3 !important;
+  color: #ffffff !important;
+  padding-top: clamp(34px, 4vw, 56px) !important;
+  padding-bottom: clamp(30px, 4vw, 50px) !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+
+footer > div {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+footer p,
+footer a,
+footer span,
+footer div {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+footer > div:first-child {
+  align-items: center !important;
+  gap: clamp(28px, 4vw, 56px) !important;
+}
+
+footer > div:first-child > div:last-child {
+  gap: clamp(22px, 3vw, 42px) !important;
+}
+
+footer p[class*='tracking'] {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  opacity: 0.76 !important;
+  margin-bottom: 8px !important;
+}
+
+footer p.text-lg,
+footer p.text-xl,
+footer .text-lg,
+footer .text-xl,
+footer p[class*='text-lg'],
+footer p[class*='text-xl'] {
+  font-size: clamp(14px, 1.15vw, 17px) !important;
+  line-height: 1.35 !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.01em !important;
+}
+
+footer > div:last-child {
+  margin-top: clamp(26px, 3vw, 42px) !important;
+  padding-top: clamp(18px, 2vw, 26px) !important;
+  border-top: 1px solid rgba(255,255,255,.22) !important;
+  font-size: 9px !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0.16em !important;
+  font-weight: 500 !important;
+  opacity: 0.74 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 768px) {
+  main > section:first-of-type {
+    padding-bottom: 34px !important;
+  }
+
+  main > section:first-of-type .relative.z-20 {
+    margin-top: 18px !important;
+    margin-bottom: 16px !important;
+  }
+
+  main > section:first-of-type .overflow-x-auto {
+    gap: 12px !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 46px !important;
+  }
+
+  main > section:first-of-type + section p {
+    max-width: calc(100vw - 34px) !important;
+    text-align: center !important;
+    text-align-last: center !important;
+  }
+
+  #contacto {
+    overflow: hidden !important;
+    padding-bottom: 64px !important;
+  }
+
+  #contacto > div {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #contacto form {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  footer {
+    padding-top: 36px !important;
+    padding-bottom: 38px !important;
+    text-align: center !important;
+  }
+
+  footer > div:first-child {
+    gap: 28px !important;
+  }
+
+  footer > div:first-child > div:last-child {
+    gap: 24px !important;
+  }
+
+  footer p[class*='tracking'] {
+    font-size: 9px !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: 7px !important;
+  }
+
+  footer p.text-lg,
+  footer p.text-xl,
+  footer .text-lg,
+  footer .text-xl,
+  footer p[class*='text-lg'],
+  footer p[class*='text-xl'] {
+    font-size: 14px !important;
+    line-height: 1.36 !important;
+    font-weight: 620 !important;
+  }
+
+  footer > div:last-child {
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    font-size: 8.5px !important;
+    line-height: 1.75 !important;
+    letter-spacing: 0.11em !important;
+  }
+}
