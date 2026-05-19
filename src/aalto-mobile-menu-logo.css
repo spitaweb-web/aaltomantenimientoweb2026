@@ -1,0 +1,51 @@
+/* Mobile drawer: explicit official logo placement */
+@media (max-width: 1023px) {
+  .fixed.inset-0.z-\[60\].bg-white > div:first-child {
+    position: relative !important;
+    min-height: 78px !important;
+    margin-bottom: 28px !important;
+    padding-bottom: 18px !important;
+    border-bottom: 1px solid rgba(26,54,93,.08) !important;
+  }
+
+  .fixed.inset-0.z-\[60\].bg-white > div:first-child > .inline-flex {
+    width: 228px !important;
+    max-width: calc(100vw - 116px) !important;
+    height: 58px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    background-image: url('/aalto-logo.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: left center !important;
+  }
+
+  .fixed.inset-0.z-\[60\].bg-white > div:first-child > .inline-flex > * {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .fixed.inset-0.z-\[60\].bg-white button[aria-label='Cerrar menú'] {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #1a365d !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .fixed.inset-0.z-\[60\].bg-white > div:first-child > .inline-flex {
+    width: 198px !important;
+    height: 50px !important;
+    max-width: calc(100vw - 104px) !important;
+  }
+}
