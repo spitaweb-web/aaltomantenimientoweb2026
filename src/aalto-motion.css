@@ -1,172 +1,203 @@
-/* AALTO motion + header refinement */
 header {
-  transition: transform 360ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, background 260ms ease !important;
-  will-change: transform;
+  height: auto !important;
+  background: rgba(255,255,255,.98) !important;
+  box-shadow: 0 1px 12px rgba(15,23,42,.07) !important;
+  transition: transform 380ms cubic-bezier(.16,1,.3,1), box-shadow 280ms ease, background-color 280ms ease !important;
+  will-change: transform, background-color;
 }
 
 header.aalto-header-hidden { transform: translateY(-105%) !important; }
 header.aalto-header-scrolled {
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10) !important;
-  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 14px 34px rgba(15,23,42,.10) !important;
+  background: rgba(255,255,255,.94) !important;
   backdrop-filter: blur(12px);
 }
 
-header button:first-child {
-  margin: 0 !important;
-  padding: 0 !important;
-  min-width: 0 !important;
+header > div {
+  height: 78px !important;
+  max-width: 1280px !important;
+  padding-left: 28px !important;
+  padding-right: 28px !important;
 }
 
-.aalto-real-logo {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 7px !important;
+header nav { gap: 22px !important; }
+header nav button {
+  font-size: 12.5px !important;
   line-height: 1 !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  letter-spacing: .05em !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  color: #0f4f6f !important;
+}
+header nav button:hover { color: #0f7da5 !important; }
+
+header button:first-child { margin:0!important; padding:0!important; min-width:0!important; }
+header button:first-child > .inline-flex:not(.aalto-real-logo-image-mode) {
+  width: 242px !important;
+  height: 58px !important;
+  min-width: 242px !important;
+  background-size: contain !important;
+  background-position: left center !important;
+  transition: width 260ms cubic-bezier(.16,1,.3,1), height 260ms cubic-bezier(.16,1,.3,1) !important;
+}
+header.aalto-header-scrolled button:first-child > .inline-flex:not(.aalto-real-logo-image-mode) {
+  width: 218px !important;
+  height: 52px !important;
+  min-width: 218px !important;
 }
 
-.aalto-real-logo-image-mode { width: auto !important; height: auto !important; }
+main > section:first-of-type {
+  min-height: 610px !important;
+  padding-top: 78px !important;
+  overflow: visible !important;
+}
+main > section:first-of-type > div.relative.z-10 {
+  padding-top: 72px !important;
+  padding-bottom: 112px !important;
+}
+main > section:first-of-type h1 {
+  max-width: 980px !important;
+  font-size: clamp(48px, 5.9vw, 86px) !important;
+  line-height: .98 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance;
+}
+main > section:first-of-type p {
+  max-width: 840px !important;
+  margin-top: 22px !important;
+  font-size: clamp(18px, 1.45vw, 23px) !important;
+  line-height: 1.42 !important;
+  font-weight: 500 !important;
+}
+main > section:first-of-type button {
+  min-height: 46px !important;
+  border-radius: 999px !important;
+  padding: 14px 28px !important;
+  font-size: 11.5px !important;
+  letter-spacing: .08em !important;
+  font-weight: 800 !important;
+}
 
-.aalto-real-logo-img {
-  display: block !important;
-  width: auto !important;
-  height: 38px !important;
-  max-width: 178px !important;
-  object-fit: contain !important;
-  margin: 0 !important;
-  padding: 0 !important;
+main > section:first-of-type .snap-start {
+  width: 174px !important;
+  min-width: 174px !important;
+  height: 92px !important;
+  min-height: 92px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(26,54,93,.12) !important;
+}
+main > section:first-of-type .snap-start svg { width:26px!important; height:26px!important; }
+main > section:first-of-type .snap-start span {
+  font-size: 11.5px !important;
+  letter-spacing: .06em !important;
+  line-height: 1.1 !important;
+}
+
+main > section:first-of-type + section {
+  padding-top: 112px !important;
+  padding-bottom: 48px !important;
+}
+main > section:first-of-type + section p {
+  max-width: 880px !important;
+  font-size: clamp(21px, 2vw, 30px) !important;
+  line-height: 1.18 !important;
+  font-weight: 800 !important;
+  color: #0f4f6f !important;
+}
+
+#quienes-somos, #especialidades, #outsourcing, #clientes, #contacto {
+  padding-top: 92px !important;
+  padding-bottom: 92px !important;
+}
+#quienes-somos h2, #especialidades h2, #outsourcing h2, #clientes h2, #contacto h2 {
+  font-size: clamp(42px, 4.7vw, 68px) !important;
+  line-height: .96 !important;
+  letter-spacing: -.045em !important;
+}
+#quienes-somos p, #especialidades p, #outsourcing p, #contacto p {
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+}
+
+.service-row, main article[class*='lg:min-h'] { min-height: 500px !important; }
+.service-row h3, main article h3 { font-size: clamp(30px, 2.5vw, 42px) !important; }
+.service-row li, main article li { font-size: 18px !important; line-height: 1.5 !important; }
+.service-image img, .service-row img, main article img { min-height: 500px !important; object-fit: cover !important; }
+
+#clientes [class*='animate-'] {
+  gap: 46px !important;
+  align-items: center !important;
+}
+#clientes [class*='w-60'] {
+  width: 190px !important;
+  height: 92px !important;
+  min-width: 190px !important;
   border: 0 !important;
-  filter: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: .72 !important;
+  filter: grayscale(1) !important;
+}
+#clientes img { display:block!important; max-width:162px!important; max-height:58px!important; object-fit:contain!important; }
+#clientes span { font-size:13px!important; color:#64748b!important; letter-spacing:.08em!important; line-height:1.15!important; }
+
+#contacto {
+  background: #f2b51d !important;
+  color: #fff !important;
+}
+#contacto h2, #contacto p, #contacto a, #contacto span { color:#fff!important; }
+#contacto form {
+  max-width: 680px !important;
+  margin-inline: auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+#contacto input, #contacto textarea {
+  min-height: 44px !important;
+  border-radius: 999px !important;
+  padding: 12px 18px !important;
+}
+#contacto textarea { border-radius: 18px !important; min-height: 108px !important; }
+
+footer {
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+  background: #0f7da5 !important;
+  color: #fff !important;
+}
+footer p, footer span, footer div { color:#fff!important; }
+footer .inline-flex:not(.aalto-real-logo-image-mode) {
+  width: 244px !important;
+  height: 58px !important;
+  min-width: 244px !important;
 }
 
-footer .aalto-real-logo-img { height: 42px !important; max-width: 200px !important; }
-
-.aalto-real-logo svg {
-  width: 40px !important;
-  height: 29px !important;
-  flex: 0 0 auto;
-  filter: none !important;
-  margin: 0 !important;
-}
-
-.aalto-real-logo-text {
-  display: grid;
-  gap: 4px;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: translateY(1px);
-}
-
-.aalto-real-logo-text strong {
-  color: #111827;
-  font-size: 23px;
-  font-weight: 950;
-  letter-spacing: -0.09em;
-  line-height: 0.76;
-  margin: 0 !important;
-}
-
-.aalto-real-logo-text span {
-  color: #64748b;
-  font-size: 6.6px;
-  font-weight: 900;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  margin: 0 !important;
-}
-
-.aalto-form-status {
-  margin-top: 14px;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.45;
-}
-
-.aalto-form-status.is-sending { color: #1a365d; }
-.aalto-form-status.is-success { color: #047857; }
-.aalto-form-status.is-error { color: #b91c1c; }
-#contacto form button:disabled { cursor: wait; opacity: 0.72; }
-
-@media (min-width: 1024px) {
-  header > div {
-    height: clamp(60px, 4.9vw, 68px) !important;
-    padding-left: clamp(8px, 1.2vw, 18px) !important;
-    padding-right: clamp(18px, 2.6vw, 34px) !important;
-  }
-
-  header nav { gap: clamp(12px, 1.35vw, 20px) !important; }
-
-  header nav button {
-    font-size: clamp(10.5px, 0.78vw, 12.5px) !important;
-    letter-spacing: clamp(0.12em, 0.2vw, 0.17em) !important;
-  }
-
-  header nav button span { margin-left: clamp(12px, 1.2vw, 18px) !important; }
-
-  header .rounded-full,
-  header button:last-child {
-    font-size: clamp(10px, 0.74vw, 12px) !important;
-    padding: clamp(9px, 0.78vw, 11px) clamp(17px, 1.6vw, 22px) !important;
-    letter-spacing: clamp(0.1em, 0.18vw, 0.15em) !important;
-  }
-
-  header .text-3xl { font-size: clamp(22px, 2vw, 30px) !important; }
-}
-
-button,
-.aalto-cta,
-a[href*='wa.me'] {
+button, .aalto-cta, a[href*='wa.me'] {
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease !important;
 }
+button:hover, .aalto-cta:hover, a[href*='wa.me']:hover { transform: translateY(-1.5px) !important; }
 
-button:hover,
-.aalto-cta:hover,
-a[href*='wa.me']:hover { transform: translateY(-1.5px) !important; }
-main > section:first-of-type button:hover { box-shadow: 0 16px 38px rgba(242, 181, 29, 0.24) !important; }
+.aalto-form-status { margin-top:14px; font-size:13px; font-weight:800; line-height:1.45; }
+.aalto-form-status.is-sending { color:#1a365d; }
+.aalto-form-status.is-success { color:#047857; }
+.aalto-form-status.is-error { color:#b91c1c; }
+#contacto form button:disabled { cursor:wait; opacity:.72; }
 
-/* Desktop: reveals más sobrios para que no se sienta forzado en PC. */
-.aalto-reveal {
-  opacity: 0.96;
-  transform: translateY(6px);
-  filter: blur(0.8px);
-  transition: opacity 360ms ease, transform 420ms cubic-bezier(.2,.8,.2,1), filter 420ms ease;
-  transition-delay: min(var(--aalto-delay, 0ms), 90ms);
-}
+.aalto-reveal { opacity:.96; transform:translateY(6px); filter:blur(.8px); transition:opacity 360ms ease, transform 420ms cubic-bezier(.2,.8,.2,1), filter 420ms ease; }
+.aalto-reveal.is-visible { opacity:1; transform:translateY(0); filter:blur(0); }
 
-.aalto-reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-main > section:first-of-type h1.aalto-reveal { transform: translateY(5px) scale(0.996); }
-main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
-#sectores button.aalto-reveal { transform: translateY(6px) scale(0.995); }
-#sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
-
-@media (max-width: 640px) {
-  header > div { padding-left: 10px !important; padding-right: 14px !important; }
-  .aalto-real-logo { min-width: 0 !important; gap: 6px !important; }
-  .aalto-real-logo-img { height: 36px !important; max-width: 168px !important; }
-  .aalto-real-logo svg { width: 38px !important; height: 27px !important; }
-  .aalto-real-logo-text strong { font-size: 21px; }
-  .aalto-real-logo-text span { font-size: 6px; letter-spacing: 0.3em; }
-
-  .aalto-reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    filter: blur(3px);
-    transition: opacity 560ms ease, transform 640ms cubic-bezier(.2,.8,.2,1), filter 640ms ease;
-  }
-
-  .aalto-reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-  main > section:first-of-type h1.aalto-reveal { transform: translateY(8px) scale(0.99); }
-  main > section:first-of-type h1.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
-  #sectores button.aalto-reveal { transform: translateY(14px) scale(0.98); }
-  #sectores button.aalto-reveal.is-visible { transform: translateY(0) scale(1); }
+@media (max-width: 768px) {
+  header > div { height:70px!important; padding-left:14px!important; padding-right:14px!important; }
+  header button:first-child > .inline-flex:not(.aalto-real-logo-image-mode) { width:178px!important; height:42px!important; min-width:178px!important; }
+  main > section:first-of-type { min-height:720px!important; padding-top:70px!important; }
+  main > section:first-of-type h1 { font-size:clamp(40px,12vw,58px)!important; }
+  main > section:first-of-type p { font-size:17px!important; }
+  main > section:first-of-type + section { padding-top:68px!important; }
+  #quienes-somos, #especialidades, #outsourcing, #clientes, #contacto { padding-top:64px!important; padding-bottom:64px!important; }
+  .service-image img, .service-row img, main article img { min-height:280px!important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  header,
-  .aalto-reveal,
-  button,
-  .aalto-cta { transition: none !important; }
-  .aalto-reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+  header, .aalto-reveal, button, .aalto-cta { transition:none!important; }
+  .aalto-reveal { opacity:1!important; transform:none!important; filter:none!important; }
 }
