@@ -16,25 +16,51 @@ const localClientLogos = [
   { name: 'Famiq', src: 'https://logo.clearbit.com/famiq.com.ar' },
 ];
 
-function buildClientLogoCard(client: { name: string; src: string }, index: number) {
-  return '<div class="brand-marquee-card aalto-local-logo-card" data-logo-index="' + index + '"><img src="' + client.src + '" alt="' + client.name + '" loading="eager" onerror="this.classList.add(\'aalto-logo-failed\'); this.style.display=\'none\'; if(this.nextElementSibling){this.nextElementSibling.style.display=\'flex\';}" /><span>' + client.name + '</span></div>';
+function createClientLogoCard(client: { name: string; src: string }, index: number) {
+  const card = document.createElement('div');
+  card.className = 'brand-marquee-card aalto-local-logo-card';
+  card.dataset.logoIndex = String(index);
+
+  const img = document.createElement('img');
+  img.src = client.src;
+  img.alt = client.name;
+  img.loading = 'eager';
+  img.decoding = 'async';
+
+  const fallback = document.createElement('span');
+  fallback.textContent = client.name;
+  fallback.style.display = 'none';
+
+  img.addEventListener('error', () => {
+    img.classList.add('aalto-logo-failed');
+    img.style.display = 'none';
+    fallback.style.display = 'flex';
+  });
+
+  card.appendChild(img);
+  card.appendChild(fallback);
+  return card;
 }
 
 function applyLocalClientLogos() {
   const section = document.querySelector<HTMLElement>('#clientes');
   if (!section) return;
+
   const track = section.querySelector<HTMLElement>('.overflow-hidden > div');
   if (!track) return;
 
+  const orderKey = localClientLogos.map((logo) => logo.name).join('|');
+  if (track.dataset.logoOrder === orderKey) return;
+
   track.classList.add('brand-marquee-track');
-  const repeated = [...localClientLogos, ...localClientLogos];
-  const nextMarkup = repeated.map(buildClientLogoCard).join('');
+  track.textContent = '';
 
-  if (track.dataset.logoOrder === 'matias-final' && track.innerHTML === nextMarkup) return;
+  [...localClientLogos, ...localClientLogos].forEach((client, index) => {
+    track.appendChild(createClientLogoCard(client, index));
+  });
 
-  track.innerHTML = nextMarkup;
   track.dataset.localLogosApplied = 'true';
-  track.dataset.logoOrder = 'matias-final';
+  track.dataset.logoOrder = orderKey;
 }
 
 function initLocalClientLogos() {
