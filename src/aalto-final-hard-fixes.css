@@ -1,4 +1,41 @@
-/* Hard final fixes: client logos alignment/order visibility and header contact button cleanup. Imported very last. */
+/* Hard final fixes: hero cards centering, client logos alignment/order visibility and header contact button cleanup. Imported very last. */
+
+/* Hero cards: center the 4 cards perfectly on desktop. */
+@media (min-width: 768px) {
+  main > section:first-of-type > .relative.z-20 {
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: min(90vw, 1080px) !important;
+    max-width: min(90vw, 1080px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    bottom: 28px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: visible !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 button,
+  main > section:first-of-type > .relative.z-20 .snap-start {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+}
 
 /* Header: remove ugly white/background pill from Contacto while keeping the soft underline hover. */
 header nav button,
