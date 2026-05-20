@@ -168,11 +168,12 @@ main > section:nth-of-type(5) article img {
   font-size: clamp(38px, 3.2vw, 58px);
   font-style: italic;
   font-weight: 900;
+  line-height: 1 !important;
   letter-spacing: -.08em;
   color: #202833;
   opacity: .72;
   filter: grayscale(1) contrast(1.2) brightness(.8);
-  transform: skewX(-8deg);
+  transform: skewX(-8deg) translateY(-24px);
   white-space: nowrap;
   transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease;
 }
@@ -182,7 +183,7 @@ main > section:nth-of-type(5) article img {
   color: #e30613;
   opacity: 1;
   filter: none;
-  transform: skewX(-8deg) translateY(-2px);
+  transform: skewX(-8deg) translateY(-26px);
 }
 
 @keyframes aalto-client-logo-drift {
@@ -298,6 +299,7 @@ main > section:nth-of-type(5) article img {
 
   #clientes > div > div:last-child > div:first-child::after {
     font-size: 38px !important;
+    transform: skewX(-8deg) translateY(-10px) !important;
   }
 }
 
