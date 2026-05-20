@@ -60,6 +60,11 @@
     letter-spacing: .12em !important;
     text-align: center !important;
   }
+
+  main > section:first-of-type + section {
+    padding-top: 150px !important;
+    padding-bottom: 42px !important;
+  }
 }
 
 /* Tablet portrait/landscape: remove the squeezed mobile look and keep visual hierarchy. */
@@ -129,7 +134,7 @@
   }
 
   main > section:first-of-type + section {
-    padding-top: 44px !important;
+    padding-top: 138px !important;
     padding-bottom: 42px !important;
   }
 
@@ -365,12 +370,12 @@ section#clientes,
 }
 
 #clientes .overflow-hidden {
-  width: min(90vw, 1280px) !important;
-  max-width: min(90vw, 1280px) !important;
+  width: min(94vw, 1320px) !important;
+  max-width: min(94vw, 1320px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 34px 0 !important;
-  min-height: 162px !important;
+  padding: 42px 0 !important;
+  min-height: 184px !important;
   overflow: hidden !important;
 }
 
@@ -380,7 +385,7 @@ section#clientes,
   flex-wrap: nowrap !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  gap: 58px !important;
+  gap: 76px !important;
   background: transparent !important;
   opacity: 1 !important;
   filter: none !important;
@@ -390,13 +395,13 @@ section#clientes,
 #clientes .brand-marquee-card,
 #clientes .aalto-local-logo-card,
 #clientes [class*='w-60'] {
-  flex: 0 0 220px !important;
-  width: 220px !important;
-  min-width: 220px !important;
-  max-width: 220px !important;
-  height: 108px !important;
-  min-height: 108px !important;
-  padding: 12px 18px !important;
+  flex: 0 0 285px !important;
+  width: 285px !important;
+  min-width: 285px !important;
+  max-width: 285px !important;
+  height: 132px !important;
+  min-height: 132px !important;
+  padding: 12px 22px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -420,8 +425,8 @@ section#clientes,
   display: block !important;
   width: auto !important;
   height: auto !important;
-  max-width: 194px !important;
-  max-height: 76px !important;
+  max-width: 255px !important;
+  max-height: 104px !important;
   object-fit: contain !important;
   object-position: center !important;
   background: transparent !important;
@@ -429,9 +434,9 @@ section#clientes,
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  opacity: 1 !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
+  opacity: .9 !important;
+  filter: grayscale(1) contrast(1.25) brightness(.55) !important;
+  mix-blend-mode: multiply !important;
 }
 
 #clientes .brand-marquee-card span,
@@ -458,32 +463,32 @@ section#clientes,
   #clientes .overflow-hidden {
     width: calc(100vw - 32px) !important;
     max-width: calc(100vw - 32px) !important;
-    padding: 26px 0 !important;
-    min-height: 132px !important;
+    padding: 30px 0 !important;
+    min-height: 144px !important;
   }
 
   #clientes .brand-marquee-track,
   #clientes [class*='animate-'] {
-    gap: 38px !important;
+    gap: 46px !important;
   }
 
   #clientes .brand-marquee-card,
   #clientes .aalto-local-logo-card,
   #clientes [class*='w-60'] {
-    flex-basis: 172px !important;
-    width: 172px !important;
-    min-width: 172px !important;
-    max-width: 172px !important;
-    height: 92px !important;
-    min-height: 92px !important;
+    flex-basis: 205px !important;
+    width: 205px !important;
+    min-width: 205px !important;
+    max-width: 205px !important;
+    height: 104px !important;
+    min-height: 104px !important;
     padding: 10px 14px !important;
   }
 
   #clientes .brand-marquee-card img,
   #clientes .aalto-local-logo-card img,
   #clientes img {
-    max-width: 154px !important;
-    max-height: 62px !important;
+    max-width: 178px !important;
+    max-height: 72px !important;
   }
 
   #clientes .brand-marquee-card span,
