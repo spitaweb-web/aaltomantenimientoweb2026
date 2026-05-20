@@ -97,6 +97,8 @@ const clientes = [
   { name: 'Famiq', logo: 'https://logo.clearbit.com/famiq.com.ar' },
 ] as const;
 
+const clientesSlider = [...clientes, ...clientes];
+
 function go(id: string) {
   const element = document.getElementById(id);
   if (!element) return;
@@ -313,13 +315,15 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-            {clientes.map((cliente) => (
-              <div key={cliente.name} className="flex h-24 w-full max-w-[210px] items-center justify-center bg-transparent px-3 text-center text-[11px] font-black uppercase tracking-[0.08em] text-[#1a365d]">
-                <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-[70px] max-w-[180px] object-contain opacity-100 mix-blend-normal grayscale-0" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'flex'; }} />
-                <span className="hidden min-h-[42px] items-center justify-center leading-tight">{cliente.name}</span>
-              </div>
-            ))}
+          <div className="overflow-hidden py-3">
+            <div className="brand-marquee-track flex w-max gap-12 md:gap-16 animate-[marquee_80s_linear_infinite]">
+              {clientesSlider.map((cliente, index) => (
+                <div key={`${cliente.name}-${index}`} className="brand-marquee-card flex h-28 w-60 shrink-0 items-center justify-center px-4 text-center text-[13px] font-black uppercase tracking-widest text-slate-500 grayscale opacity-70 transition hover:opacity-100 hover:grayscale-0">
+                  <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-20 max-w-[190px] object-contain" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'block'; }} />
+                  <span className="hidden">{cliente.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -368,6 +372,12 @@ export default function App() {
         </svg>
         WhatsApp
       </a>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </main>
   );
 }
