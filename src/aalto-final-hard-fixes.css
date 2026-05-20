@@ -1,19 +1,19 @@
 /* Hard final fixes: hero cards centering, tablet polish, client logos alignment/order visibility and header contact button cleanup. Imported very last. */
 
-/* Hero cards: center the 4 cards perfectly on desktop. */
-@media (min-width: 768px) {
+/* Hero cards: center the 4 cards properly on desktop from the original source CSS. */
+@media (min-width: 1181px) {
   main > section:first-of-type > .relative.z-20 {
     position: absolute !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    width: min(90vw, 1080px) !important;
-    max-width: min(90vw, 1080px) !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: min(1040px, calc(100vw - 120px)) !important;
+    max-width: min(1040px, calc(100vw - 120px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    bottom: 28px !important;
+    bottom: -48px !important;
   }
 
   main > section:first-of-type > .relative.z-20 > div {
@@ -21,11 +21,13 @@
     max-width: 100% !important;
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 14px !important;
+    gap: 16px !important;
     justify-content: center !important;
     align-items: stretch !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     overflow: visible !important;
   }
 
@@ -34,6 +36,29 @@
     width: 100% !important;
     min-width: 0 !important;
     max-width: none !important;
+    height: 124px !important;
+    min-height: 124px !important;
+    padding: 18px 16px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 button svg {
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 12px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 button span {
+    display: block !important;
+    max-width: 190px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    letter-spacing: .12em !important;
+    text-align: center !important;
   }
 }
 
@@ -72,8 +97,16 @@
   }
 
   main > section:first-of-type > .relative.z-20 {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
     width: min(86vw, 860px) !important;
     max-width: min(86vw, 860px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     bottom: 26px !important;
   }
 
