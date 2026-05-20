@@ -1,4 +1,4 @@
-/* Hard final fixes: hero cards centering, client logos alignment/order visibility and header contact button cleanup. Imported very last. */
+/* Hard final fixes: hero cards centering, tablet polish, client logos alignment/order visibility and header contact button cleanup. Imported very last. */
 
 /* Hero cards: center the 4 cards perfectly on desktop. */
 @media (min-width: 768px) {
@@ -34,6 +34,251 @@
     width: 100% !important;
     min-width: 0 !important;
     max-width: none !important;
+  }
+}
+
+/* Tablet portrait/landscape: remove the squeezed mobile look and keep visual hierarchy. */
+@media (min-width: 641px) and (max-width: 1180px) {
+  header > div {
+    width: min(92vw, 1040px) !important;
+    max-width: min(92vw, 1040px) !important;
+  }
+
+  main > section:first-of-type {
+    min-height: 620px !important;
+    padding-top: 86px !important;
+    padding-bottom: 96px !important;
+    justify-content: center !important;
+  }
+
+  main > section:first-of-type > div.relative.z-10 {
+    width: min(88vw, 920px) !important;
+    max-width: min(88vw, 920px) !important;
+    padding-top: 54px !important;
+    padding-bottom: 96px !important;
+  }
+
+  main > section:first-of-type h1 {
+    max-width: 880px !important;
+    font-size: clamp(54px, 8.8vw, 78px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.06em !important;
+  }
+
+  main > section:first-of-type p {
+    max-width: 760px !important;
+    font-size: clamp(18px, 2.35vw, 22px) !important;
+    line-height: 1.36 !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 {
+    width: min(86vw, 860px) !important;
+    max-width: min(86vw, 860px) !important;
+    bottom: 26px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 > div {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 button {
+    height: 104px !important;
+    min-height: 104px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 span {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .1em !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 44px !important;
+    padding-bottom: 42px !important;
+  }
+
+  main > section:first-of-type + section > div {
+    width: min(88vw, 980px) !important;
+    max-width: min(88vw, 980px) !important;
+  }
+
+  main > section:first-of-type + section p {
+    max-width: 940px !important;
+    font-size: clamp(24px, 3.35vw, 32px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -.035em !important;
+    text-align: center !important;
+    text-align-last: center !important;
+  }
+
+  #especialidades,
+  #outsourcing,
+  #clientes,
+  #contacto,
+  main > section:nth-of-type(4) {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  #especialidades > div,
+  #outsourcing > div,
+  #clientes > div,
+  #contacto > div,
+  main > section:nth-of-type(4) > div {
+    width: min(90vw, 980px) !important;
+    max-width: min(90vw, 980px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #especialidades .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  #especialidades .grid > div {
+    padding: 34px 26px !important;
+  }
+
+  main > section:nth-of-type(4) article {
+    display: grid !important;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
+    min-height: 340px !important;
+    align-items: stretch !important;
+  }
+
+  main > section:nth-of-type(4) article > div:first-child {
+    padding: 42px 34px !important;
+    justify-content: center !important;
+  }
+
+  main > section:nth-of-type(4) article h3 {
+    font-size: clamp(26px, 3.1vw, 34px) !important;
+  }
+
+  main > section:nth-of-type(4) article li {
+    font-size: 15px !important;
+    line-height: 1.42 !important;
+  }
+
+  main > section:nth-of-type(4) article > div:last-child,
+  main > section:nth-of-type(4) article img {
+    min-height: 340px !important;
+    height: 100% !important;
+  }
+
+  #outsourcing .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  #outsourcing .grid > div {
+    padding: 26px 22px !important;
+  }
+
+  #contacto > div {
+    grid-template-columns: .9fr 1.1fr !important;
+    align-items: center !important;
+    gap: 40px !important;
+  }
+
+  #contacto h2 {
+    font-size: clamp(40px, 5vw, 56px) !important;
+  }
+
+  #contacto form {
+    width: 100% !important;
+    max-width: 560px !important;
+    justify-self: end !important;
+  }
+
+  footer > div:first-child {
+    width: min(90vw, 980px) !important;
+    max-width: min(90vw, 980px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    text-align: center !important;
+  }
+
+  footer > div:first-child > div:last-child {
+    text-align: center !important;
+  }
+}
+
+/* Small tablet / large mobile: avoid the broken tall column and keep cards readable. */
+@media (min-width: 421px) and (max-width: 767px) {
+  main > section:first-of-type {
+    padding-bottom: 44px !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: calc(100vw - 40px) !important;
+    max-width: 560px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    bottom: auto !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 > div {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  main > section:first-of-type > .relative.z-20 button {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 88px !important;
+    min-height: 88px !important;
+  }
+
+  main > section:first-of-type + section {
+    padding-top: 32px !important;
+  }
+
+  #especialidades > div,
+  #outsourcing > div,
+  #clientes > div,
+  #contacto > div,
+  main > section:nth-of-type(4) > div {
+    width: calc(100vw - 42px) !important;
+    max-width: 620px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  main > section:nth-of-type(4) article {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  main > section:nth-of-type(4) article > div:first-child {
+    padding: 34px 26px 24px !important;
+  }
+
+  main > section:nth-of-type(4) article img {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+  }
+
+  #contacto form {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
