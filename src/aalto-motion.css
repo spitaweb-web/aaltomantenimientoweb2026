@@ -183,6 +183,72 @@ button:hover, .aalto-cta:hover, a[href*='wa.me']:hover { transform: translateY(-
 .aalto-form-status.is-error { color:#b91c1c; }
 #contacto form button:disabled { cursor:wait; opacity:.72; }
 
+/* Modern scroll flow: progressive section reveal without changing structure. */
+main > section:not(:first-of-type),
+footer {
+  animation: aalto-section-flow both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 34%;
+  transform-origin: center top;
+  will-change: opacity, transform, filter;
+}
+
+main > section:not(:first-of-type) > div,
+footer > div {
+  animation: aalto-inner-flow both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 36%;
+  will-change: opacity, transform;
+}
+
+main article,
+#especialidades .grid > div,
+#outsourcing .grid > div,
+#clientes .brand-marquee-card,
+#contacto form {
+  animation: aalto-card-flow both;
+  animation-timeline: view();
+  animation-range: entry 4% cover 30%;
+  will-change: opacity, transform, filter;
+}
+
+@keyframes aalto-section-flow {
+  from {
+    opacity: .62;
+    transform: translateY(42px) scale(.985);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes aalto-inner-flow {
+  from {
+    opacity: .48;
+    transform: translateY(34px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aalto-card-flow {
+  from {
+    opacity: .45;
+    transform: translateY(26px) scale(.97);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .aalto-reveal { opacity:.96; transform:translateY(6px); filter:blur(.8px); transition:opacity 360ms ease, transform 420ms cubic-bezier(.2,.8,.2,1), filter 420ms ease; }
 .aalto-reveal.is-visible { opacity:1; transform:translateY(0); filter:blur(0); }
 
@@ -195,9 +261,36 @@ button:hover, .aalto-cta:hover, a[href*='wa.me']:hover { transform: translateY(-
   main > section:first-of-type + section { padding-top:68px!important; }
   #quienes-somos, #especialidades, #outsourcing, #clientes, #contacto { padding-top:64px!important; padding-bottom:64px!important; }
   .service-image img, .service-row img, main article img { min-height:280px!important; }
+
+  main > section:not(:first-of-type),
+  footer,
+  main > section:not(:first-of-type) > div,
+  footer > div,
+  main article,
+  #especialidades .grid > div,
+  #outsourcing .grid > div,
+  #clientes .brand-marquee-card,
+  #contacto form {
+    animation-range: entry 0% cover 24%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   header, .aalto-reveal, button, .aalto-cta { transition:none!important; }
   .aalto-reveal { opacity:1!important; transform:none!important; filter:none!important; }
+
+  main > section:not(:first-of-type),
+  footer,
+  main > section:not(:first-of-type) > div,
+  footer > div,
+  main article,
+  #especialidades .grid > div,
+  #outsourcing .grid > div,
+  #clientes .brand-marquee-card,
+  #contacto form {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
