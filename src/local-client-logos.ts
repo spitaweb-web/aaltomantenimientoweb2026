@@ -17,26 +17,35 @@ const localClientLogos = [
 ];
 
 function buildClientLogoCard(client: { name: string; src: string }, index: number) {
-  return '<div class="brand-marquee-card aalto-local-logo-card" data-logo-index="' + index + '"><img src="' + client.src + '" alt="' + client.name + '" loading="lazy" onerror="this.classList.add(\'aalto-logo-failed\'); this.style.display=\'none\'; this.nextElementSibling.style.display=\'block\';" /><span>' + client.name + '</span></div>';
+  return '<div class="brand-marquee-card aalto-local-logo-card" data-logo-index="' + index + '"><img src="' + client.src + '" alt="' + client.name + '" loading="eager" onerror="this.classList.add(\'aalto-logo-failed\'); this.style.display=\'none\'; if(this.nextElementSibling){this.nextElementSibling.style.display=\'flex\';}" /><span>' + client.name + '</span></div>';
 }
 
 function applyLocalClientLogos() {
   const section = document.querySelector<HTMLElement>('#clientes');
   if (!section) return;
   const track = section.querySelector<HTMLElement>('.overflow-hidden > div');
-  if (!track || track.dataset.localLogosApplied === 'true') return;
+  if (!track) return;
 
   track.classList.add('brand-marquee-track');
   const repeated = [...localClientLogos, ...localClientLogos];
-  track.innerHTML = repeated.map(buildClientLogoCard).join('');
+  const nextMarkup = repeated.map(buildClientLogoCard).join('');
+
+  if (track.dataset.logoOrder === 'matias-final' && track.innerHTML === nextMarkup) return;
+
+  track.innerHTML = nextMarkup;
   track.dataset.localLogosApplied = 'true';
+  track.dataset.logoOrder = 'matias-final';
 }
 
 function initLocalClientLogos() {
   applyLocalClientLogos();
-  window.setTimeout(applyLocalClientLogos, 300);
-  window.setTimeout(applyLocalClientLogos, 900);
-  window.setTimeout(applyLocalClientLogos, 1600);
+  window.setTimeout(applyLocalClientLogos, 250);
+  window.setTimeout(applyLocalClientLogos, 750);
+  window.setTimeout(applyLocalClientLogos, 1500);
+  window.setTimeout(applyLocalClientLogos, 2600);
+
+  const observer = new MutationObserver(() => applyLocalClientLogos());
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 if (document.readyState === 'loading') {
