@@ -76,6 +76,87 @@ main > section:nth-of-type(5) article img {
   background-color: #ffffff !important;
 }
 
+/* Client logos final polish: 90vw, no frame, bigger, grayscale and subtle motion. */
+#clientes > div {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#clientes > div > div:last-child {
+  width: 90vw !important;
+  max-width: 90vw !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 22px 0 10px !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(34px, 4.8vw, 86px) !important;
+  overflow: visible !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  animation: aalto-client-logo-drift 18s ease-in-out infinite alternate !important;
+}
+
+#clientes > div > div:last-child > div {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 138px !important;
+  min-height: 138px !important;
+  padding: 0 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#clientes > div > div:last-child img {
+  width: auto !important;
+  height: auto !important;
+  max-width: min(260px, 18vw) !important;
+  max-height: 104px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  opacity: .88 !important;
+  filter: grayscale(1) contrast(1.35) brightness(.62) !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* The uploaded Coca-Cola asset has a baked background; render it as clean monochrome text to avoid the gray rectangle. */
+#clientes > div > div:last-child > div:first-child img {
+  display: none !important;
+}
+
+#clientes > div > div:last-child > div:first-child::after {
+  content: 'Coca-Cola';
+  display: block !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(38px, 3.2vw, 58px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -.08em;
+  color: #202833;
+  opacity: .78;
+  transform: skewX(-8deg);
+  white-space: nowrap;
+}
+
+@keyframes aalto-client-logo-drift {
+  from { transform: translateX(-18px); }
+  to { transform: translateX(18px); }
+}
+
 @media (max-width: 768px) {
   a[href*='wa.me'],
   a[aria-label='WhatsApp AALTO'] {
@@ -157,6 +238,33 @@ main > section:nth-of-type(5) article img {
     min-height: 0 !important;
     max-height: none !important;
     object-fit: cover !important;
+  }
+
+  #clientes > div > div:last-child {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    gap: 34px !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    animation: none !important;
+    padding-bottom: 18px !important;
+  }
+
+  #clientes > div > div:last-child > div {
+    flex: 0 0 210px !important;
+    width: 210px !important;
+    max-width: 210px !important;
+    height: 104px !important;
+    min-height: 104px !important;
+  }
+
+  #clientes > div > div:last-child img {
+    max-width: 178px !important;
+    max-height: 72px !important;
+  }
+
+  #clientes > div > div:last-child > div:first-child::after {
+    font-size: 38px !important;
   }
 }
 
