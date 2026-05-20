@@ -80,24 +80,11 @@ const rubros = [
 ] as const;
 
 const clientes = [
-  { name: 'Coca Cola', logo: 'https://logo.clearbit.com/coca-cola.com' },
-  { name: 'Halliburton', logo: 'https://logo.clearbit.com/halliburton.com' },
-  { name: 'Unilever', logo: '/unilever.png' },
-  { name: 'Hotel Park Hyatt Mendoza', logo: 'https://logo.clearbit.com/hyatt.com' },
-  { name: 'Bodega Salentein', logo: '/R.png' },
-  { name: 'Hotel Rosell Boher Lodge', logo: 'https://logo.clearbit.com/rosellboher.com' },
-  { name: 'Bodega Cheval des Andes', logo: 'https://logo.clearbit.com/chevaldesandes.com' },
-  { name: 'Supermercado Mayorista Yaguar', logo: '/yaguar.png' },
-  { name: 'Bodega Chandon', logo: 'https://logo.clearbit.com/chandon.com' },
-  { name: 'Neverland', logo: 'https://logo.clearbit.com/neverland.com.ar' },
-  { name: 'Levis', logo: 'https://logo.clearbit.com/levi.com' },
-  { name: 'Bodega Fecovita', logo: 'https://logo.clearbit.com/fecovita.com' },
-  { name: 'Bodega Luigi Bosca', logo: '/Logo-Luigi-Bosca-Baja.jpg' },
-  { name: 'Bodega Renacer', logo: '/bodega_renacer.png' },
-  { name: 'Famiq', logo: 'https://logo.clearbit.com/famiq.com.ar' },
+  { name: 'Coca Cola', logo: '/coca-cola.png?v=20260520' },
+  { name: 'Halliburton', logo: '/Halliburton.png?v=20260520' },
+  { name: 'Unilever', logo: '/unilever.png?v=20260520' },
+  { name: 'Hotel Park Hyatt Mendoza', logo: '/ParkHyattBlackLogo-640.webp?v=20260520' },
 ] as const;
-
-const clientesSlider = [...clientes, ...clientes];
 
 function go(id: string) {
   const element = document.getElementById(id);
@@ -200,7 +187,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="pb-14 pt-28 text-center md:pt-32">
+      <section className="pb-14 pt-28 text-center md:pt-44 lg:pt-52">
         <div className="mx-auto max-w-5xl px-6">
           <p className="text-2xl font-black leading-snug text-[#0f4f6f] sm:text-3xl">
             Cuidamos cada detalle de tus instalaciones para que funcionen de forma óptima, con un servicio confiable y adaptado a las necesidades de tu empresa.
@@ -319,15 +306,12 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="overflow-hidden py-3">
-            <div className="brand-marquee-track flex w-max gap-12 md:gap-16 animate-[marquee_80s_linear_infinite]">
-              {clientesSlider.map((cliente, index) => (
-                <div key={`${cliente.name}-${index}`} className="brand-marquee-card flex h-28 w-60 shrink-0 items-center justify-center px-4 text-center text-[13px] font-black uppercase tracking-widest text-slate-500 grayscale opacity-70 transition hover:opacity-100 hover:grayscale-0">
-                  <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-20 max-w-[190px] object-contain" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'block'; }} />
-                  <span className="hidden">{cliente.name}</span>
-                </div>
-              ))}
-            </div>
+          <div className="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-12 gap-y-10 lg:grid-cols-4">
+            {clientes.map((cliente) => (
+              <div key={cliente.name} className="brand-marquee-card flex h-28 w-56 items-center justify-center px-4 text-center">
+                <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-20 max-w-[190px] object-contain" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
