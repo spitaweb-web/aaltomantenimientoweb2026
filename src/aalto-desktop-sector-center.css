@@ -5,23 +5,23 @@
   main > section:first-of-type > div.relative.z-20,
   main > section:first-of-type > div:nth-of-type(3) {
     position: absolute !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: -64px !important;
-    width: min(1160px, calc(100vw - 96px)) !important;
-    max-width: min(1160px, calc(100vw - 96px)) !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -58px !important;
+    width: min(1040px, calc(100vw - 120px)) !important;
+    max-width: min(1040px, calc(100vw - 120px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    transform: translateX(-50%) !important;
+    transform: none !important;
   }
 
   main > section:first-of-type > div.relative.z-20 > div,
   main > section:first-of-type > div:nth-of-type(3) > div {
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 22px !important;
+    gap: 18px !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 auto !important;
@@ -36,10 +36,10 @@
     width: 100% !important;
     min-width: 0 !important;
     max-width: none !important;
-    height: 150px !important;
-    min-height: 150px !important;
+    height: 132px !important;
+    min-height: 132px !important;
     margin: 0 !important;
-    padding: 24px 18px !important;
+    padding: 20px 16px !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
@@ -47,21 +47,21 @@
 
   main > section:first-of-type > div.relative.z-20 button svg,
   main > section:first-of-type > div:nth-of-type(3) button svg {
-    width: 40px !important;
-    height: 40px !important;
-    margin-bottom: 16px !important;
+    width: 34px !important;
+    height: 34px !important;
+    margin-bottom: 13px !important;
   }
 
   main > section:first-of-type > div.relative.z-20 button span,
   main > section:first-of-type > div:nth-of-type(3) button span {
     display: block !important;
     width: 100% !important;
-    max-width: 220px !important;
+    max-width: 190px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     line-height: 1.25 !important;
-    letter-spacing: .14em !important;
+    letter-spacing: .13em !important;
     text-align: center !important;
   }
 }
