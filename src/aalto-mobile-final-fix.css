@@ -173,7 +173,7 @@ main > section:nth-of-type(5) article img {
   color: #202833;
   opacity: .72;
   filter: grayscale(1) contrast(1.2) brightness(.8);
-  transform: skewX(-8deg) translateY(-24px);
+  transform: skewX(-8deg) translateY(-42px);
   white-space: nowrap;
   transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease;
 }
@@ -183,7 +183,7 @@ main > section:nth-of-type(5) article img {
   color: #e30613;
   opacity: 1;
   filter: none;
-  transform: skewX(-8deg) translateY(-26px);
+  transform: skewX(-8deg) translateY(-44px);
 }
 
 @keyframes aalto-client-logo-drift {
@@ -299,7 +299,7 @@ main > section:nth-of-type(5) article img {
 
   #clientes > div > div:last-child > div:first-child::after {
     font-size: 38px !important;
-    transform: skewX(-8deg) translateY(-10px) !important;
+    transform: skewX(-8deg) translateY(-22px) !important;
   }
 }
 
@@ -310,5 +310,110 @@ main > section:nth-of-type(5) article img {
 
   main > section:first-of-type h1 span {
     font-size: clamp(26px, 7.2vw, 31px) !important;
+  }
+}
+
+/* Reapplied visible production fixes. This file is imported last, so these rules win. */
+#contacto {
+  position: relative !important;
+  z-index: 20 !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+}
+
+#contacto > div {
+  position: relative !important;
+  z-index: 21 !important;
+  align-items: center !important;
+}
+
+#contacto form {
+  position: relative !important;
+  z-index: 30 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+  overflow: visible !important;
+  min-height: auto !important;
+  padding: 34px !important;
+  background: #ffffff !important;
+  box-shadow: 0 32px 90px rgba(15, 23, 42, .14) !important;
+}
+
+#contacto form input,
+#contacto form textarea,
+#contacto form label,
+#contacto form button {
+  position: relative !important;
+  z-index: 31 !important;
+  display: flex !important;
+  width: 100% !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#contacto form input {
+  min-height: 56px !important;
+}
+
+#contacto form textarea {
+  min-height: 190px !important;
+  resize: vertical !important;
+}
+
+#contacto form label {
+  min-height: 62px !important;
+  align-items: center !important;
+}
+
+#contacto form button {
+  min-height: 66px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+main > section:not(:first-of-type),
+main > section:not(:first-of-type) > div,
+main article,
+#especialidades .grid > div,
+#outsourcing .grid > div,
+#clientes .brand-marquee-card,
+#contacto form,
+footer {
+  animation-name: aalto-production-scroll-flow !important;
+  animation-duration: 760ms !important;
+  animation-timing-function: cubic-bezier(.16, 1, .3, 1) !important;
+  animation-fill-mode: both !important;
+  animation-timeline: view() !important;
+  animation-range: entry 0% cover 34% !important;
+}
+
+@keyframes aalto-production-scroll-flow {
+  from {
+    opacity: .52;
+    transform: translateY(34px) scale(.985);
+    filter: blur(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section:not(:first-of-type),
+  main > section:not(:first-of-type) > div,
+  main article,
+  #especialidades .grid > div,
+  #outsourcing .grid > div,
+  #clientes .brand-marquee-card,
+  #contacto form,
+  footer {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
