@@ -30,6 +30,12 @@ type LogoProps = {
   size?: 'sm' | 'md' | 'lg';
 };
 
+type ClientLogo = {
+  name: string;
+  srcCandidates: string[];
+  alt: string;
+};
+
 const Logo = ({ className = '', scrolled = false, isWhite = false, size = 'md' }: LogoProps) => {
   const symbolSize = size === 'sm' ? 'w-10 md:w-12' : size === 'md' ? 'w-14 md:w-20' : 'w-24 md:w-32';
   const titleSize = size === 'sm' ? 'text-2xl md:text-3xl' : size === 'md' ? 'text-3xl md:text-4xl' : 'text-5xl md:text-7xl';
@@ -60,40 +66,52 @@ const Logo = ({ className = '', scrolled = false, isWhite = false, size = 'md' }
   );
 };
 
-const clientLogos = [
-  { name: 'Coca-Cola', mark: 'Coca-Cola', sector: 'Industria' },
-  { name: 'Halliburton', mark: 'HALLIBURTON', sector: 'Energía' },
-  { name: 'Unilever', mark: 'Unilever', sector: 'Consumo masivo' },
-  { name: 'Hotel Park Hyatt Mendoza', mark: 'PARK HYATT', sector: 'Hotelería' },
-  { name: 'Bodega Salentein', mark: 'SALENTEIN', sector: 'Bodega' },
-  { name: 'Hotel Rosell Boher Lodge', mark: 'ROSELL BOHER', sector: 'Hotelería' },
-  { name: 'Bodega Cheval des Andes', mark: 'CHEVAL DES ANDES', sector: 'Bodega' },
-  { name: 'Supermercado Mayorista Yaguar', mark: 'YAGUAR', sector: 'Retail' },
-  { name: 'Bodega Chandon', mark: 'CHANDON', sector: 'Bodega' },
-  { name: 'Neverland', mark: 'NEVERLAND', sector: 'Entretenimiento' },
-  { name: "Levi's", mark: "Levi's", sector: 'Retail' },
-  { name: 'Bodega Fecovita', mark: 'FECOVITA', sector: 'Bodega' },
-  { name: 'Bodega Luigi Bosca', mark: 'LUIGI BOSCA', sector: 'Bodega' },
-  { name: 'Bodega Renacer', mark: 'RENACER', sector: 'Bodega' },
-  { name: 'Famiq', mark: 'FAMIQ', sector: 'Industria' },
+const clientLogos: ClientLogo[] = [
+  {
+    name: 'Coca Cola',
+    alt: 'Logo Coca Cola',
+    srcCandidates: ['/01-coca-cola.svg', '/01-coca-cola.png', '/01-coca-cola.webp', '/coca-cola.png'],
+  },
+  {
+    name: 'Halliburton',
+    alt: 'Logo Halliburton',
+    srcCandidates: ['/02-halliburton.svg', '/02-halliburton.png', '/02-halliburton.webp', '/halliburton.png', '/halliburton.webp'],
+  },
+  {
+    name: 'Unilever',
+    alt: 'Logo Unilever',
+    srcCandidates: ['/03-unilever.svg', '/03-unilever.png', '/03-unilever.webp', '/unilever.png'],
+  },
+  {
+    name: 'Hotel Park Hyatt Mendoza',
+    alt: 'Logo Hotel Park Hyatt Mendoza',
+    srcCandidates: ['/04-park-hyatt-mendoza.svg', '/04-park-hyatt-mendoza.png', '/04-park-hyatt-mendoza.webp', '/ParkHyattBlackLogo-640.webp'],
+  },
 ];
 
-const ClientLogoCard = ({ client, index }: { client: (typeof clientLogos)[number]; index: number }) => (
-  <article className="min-h-[132px] bg-white px-4 py-6 flex flex-col items-center justify-center text-center transition-colors duration-300 hover:bg-slate-50">
-    <span className="mb-4 text-[9px] font-bold tabular-nums text-slate-300 tracking-[0.32em] uppercase">
-      {String(index + 1).padStart(2, '0')}
-    </span>
-    <div className="min-h-[38px] flex items-center justify-center">
-      <span className="text-base md:text-lg xl:text-xl font-black text-[#1a365d] tracking-[-0.03em] leading-tight">
-        {client.mark}
-      </span>
-    </div>
-    <p className="mt-3 min-h-[28px] flex items-center text-[9px] md:text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400 leading-relaxed">
-      {client.name}
-    </p>
-    <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.24em] text-[#3b82f6]/60">{client.sector}</p>
-  </article>
-);
+const ClientLogoItem = ({ client }: { client: ClientLogo }) => {
+  const [srcIndex, setSrcIndex] = useState(0);
+  const currentSrc = client.srcCandidates[srcIndex];
+
+  return (
+    <article className="h-28 md:h-32 flex items-center justify-center px-4">
+      {currentSrc ? (
+        <img
+          src={currentSrc}
+          alt={client.alt}
+          className="block max-h-16 md:max-h-20 w-full max-w-[240px] object-contain mix-blend-multiply opacity-90 transition duration-300 hover:opacity-100"
+          loading="lazy"
+          decoding="async"
+          onError={() => setSrcIndex((current) => current + 1)}
+        />
+      ) : (
+        <span className="text-center text-base md:text-lg font-black uppercase tracking-[0.12em] text-[#1a365d] leading-tight">
+          {client.name}
+        </span>
+      )}
+    </article>
+  );
+};
 
 const specialities = [
   {
@@ -223,30 +241,32 @@ export default function App() {
 
       <section className="relative min-h-screen w-full flex items-center bg-[#071529] overflow-hidden pt-28 pb-10">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071529]/95 via-[#071529]/72 to-[#071529]/18 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061528]/82 via-[#061528]/48 to-[#061528]/14 z-10" />
+          <div className="absolute inset-0 bg-[#1f65d8]/10 mix-blend-screen z-20" />
           <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=85&w=2200"
-            alt="Infraestructura corporativa"
-            className="absolute inset-0 w-full h-full object-cover opacity-75"
+            src="/hero-alto-industrial.png"
+            alt="Infraestructura corporativa Aalto"
+            className="absolute inset-0 w-full h-full object-cover opacity-95"
             referrerPolicy="no-referrer"
           />
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-30 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-8 max-w-6xl">
+          <div className="lg:col-span-8 max-w-5xl text-center lg:text-left lg:pl-6 xl:pl-12">
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9 }}
-              className="text-5xl sm:text-7xl md:text-8xl xl:text-[7.5rem] 2xl:text-[8.5rem] font-bold text-white leading-[0.9] tracking-tighter uppercase mb-8"
+              className="text-5xl sm:text-7xl md:text-8xl xl:text-[7.2rem] 2xl:text-[8.2rem] font-bold text-white leading-[0.88] tracking-tighter uppercase mb-8 drop-shadow-[0_18px_40px_rgba(0,0,0,0.28)]"
             >
-              Cuidamos su <br className="hidden sm:block" /> infraestructura.
+              Cuidamos su <br className="hidden sm:block" />
+              <span className="text-[#3b82f6]">infraestructura.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15 }}
-              className="text-xl md:text-2xl text-white/80 font-light leading-relaxed max-w-4xl mb-10"
+              className="text-lg md:text-xl xl:text-2xl text-white/88 font-light leading-relaxed max-w-3xl mx-auto lg:mx-0 mb-10"
             >
               Mantenimiento, personal externo y soluciones técnicas para empresas que necesitan continuidad operativa, respuesta profesional y control en cada intervención.
             </motion.p>
@@ -254,9 +274,9 @@ export default function App() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.25 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <a href="#servicios" className="px-10 py-5 bg-[#3b82f6] text-white font-bold uppercase tracking-[0.28em] text-[11px] text-center hover:bg-[#2b6cb0] transition-all">
+              <a href="#servicios" className="px-10 py-5 bg-[#3b82f6] text-white font-bold uppercase tracking-[0.28em] text-[11px] text-center hover:bg-[#2b6cb0] transition-all shadow-xl shadow-blue-950/20">
                 Ver servicios
               </a>
               <a href="#contacto" className="px-10 py-5 border border-white/35 text-white font-bold uppercase tracking-[0.28em] text-[11px] text-center hover:bg-white hover:text-[#1a365d] transition-all">
@@ -398,19 +418,16 @@ export default function App() {
         </div>
       </section>
 
-      <section id="clientes" className="py-20 md:py-28 lg:py-36 bg-white overflow-hidden">
+      <section id="clientes" className="py-20 md:py-28 lg:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
-            <span className="text-[#3b82f6] font-bold uppercase tracking-[0.38em] text-[11px] mb-5 block">Clientes y referencias</span>
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <span className="text-[#3b82f6] font-bold uppercase tracking-[0.38em] text-[11px] mb-5 block">Empresas clientes</span>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1a365d] uppercase tracking-tighter">Empresas que confían en Aalto</h2>
-            <p className="mt-6 text-slate-500 font-light leading-relaxed text-base md:text-lg">
-              Referencias ordenadas en una grilla estable para evitar marcas rotas, desalineación visual o faltantes de carga.
-            </p>
           </div>
 
-          <div className="max-w-7xl mx-auto bg-slate-200 border border-slate-200 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-px">
-            {clientLogos.map((client, index) => (
-              <ClientLogoCard key={client.name} client={client} index={index} />
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 md:gap-x-12 items-center">
+            {clientLogos.map((client) => (
+              <ClientLogoItem key={client.name} client={client} />
             ))}
           </div>
         </div>
