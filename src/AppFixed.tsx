@@ -166,7 +166,7 @@ export default function App() {
       )}
 
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-visible bg-[#0a192f] pt-[86px] text-center">
-        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=85&w=2200" alt="Mantenimiento edilicio profesional" className="absolute inset-0 h-full w-full object-cover opacity-75" referrerPolicy="no-referrer" />
+        <img src="/aalto-mantenimiento.webp?v=20260520" alt="Mantenimiento edilicio profesional" className="absolute inset-0 h-full w-full object-cover opacity-75" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-12 md:pb-32 md:pt-20 lg:px-10">
           <h1 className="mx-auto max-w-6xl text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl md:text-8xl lg:text-[100px]">
