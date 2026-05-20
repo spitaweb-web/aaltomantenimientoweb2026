@@ -22,6 +22,7 @@ const azul = '#1a365d';
 const celeste = '#4299e1';
 const contactEmail = 'info@aaltomantenimiento.com.ar';
 const phone = '+54 261 471 5133';
+const whatsappHref = 'https://wa.me/542614715133';
 
 const nav = [
   ['Quiénes somos', 'quienes-somos'],
@@ -81,22 +82,20 @@ const rubros = [
 const clientes = [
   { name: 'Coca Cola', logo: 'https://logo.clearbit.com/coca-cola.com' },
   { name: 'Halliburton', logo: 'https://logo.clearbit.com/halliburton.com' },
-  { name: 'Unilever', logo: 'https://logo.clearbit.com/unilever.com' },
+  { name: 'Unilever', logo: '/unilever.png' },
   { name: 'Hotel Park Hyatt Mendoza', logo: 'https://logo.clearbit.com/hyatt.com' },
-  { name: 'Bodega Salentein', logo: 'https://logo.clearbit.com/bodegasalentein.com' },
+  { name: 'Bodega Salentein', logo: '/R.png' },
   { name: 'Hotel Rosell Boher Lodge', logo: 'https://logo.clearbit.com/rosellboher.com' },
   { name: 'Bodega Cheval des Andes', logo: 'https://logo.clearbit.com/chevaldesandes.com' },
-  { name: 'Supermercado Mayorista Yaguar', logo: 'https://logo.clearbit.com/yaguar.com.ar' },
-  { name: 'Bodega Chandon', logo: 'https://logo.clearbit.com/chandon.com.ar' },
+  { name: 'Supermercado Mayorista Yaguar', logo: '/yaguar.png' },
+  { name: 'Bodega Chandon', logo: 'https://logo.clearbit.com/chandon.com' },
   { name: 'Neverland', logo: 'https://logo.clearbit.com/neverland.com.ar' },
   { name: 'Levis', logo: 'https://logo.clearbit.com/levi.com' },
   { name: 'Bodega Fecovita', logo: 'https://logo.clearbit.com/fecovita.com' },
-  { name: 'Bodega Luigi Bosca', logo: 'https://logo.clearbit.com/luigibosca.com' },
-  { name: 'Bodega Renacer', logo: 'https://logo.clearbit.com/bodegarenacer.com.ar' },
+  { name: 'Bodega Luigi Bosca', logo: '/Logo-Luigi-Bosca-Baja.jpg' },
+  { name: 'Bodega Renacer', logo: '/bodega_renacer.png' },
   { name: 'Famiq', logo: 'https://logo.clearbit.com/famiq.com.ar' },
 ] as const;
-
-const clientesSlider = [...clientes, ...clientes];
 
 function go(id: string) {
   const element = document.getElementById(id);
@@ -314,15 +313,13 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="overflow-hidden py-3">
-            <div className="flex w-max gap-12 md:gap-16 animate-[marquee_80s_linear_infinite]">
-              {clientesSlider.map((cliente, index) => (
-                <div key={`${cliente.name}-${index}`} className="flex h-28 w-60 shrink-0 items-center justify-center px-4 text-center text-[13px] font-black uppercase tracking-widest text-slate-500 grayscale opacity-70 transition hover:opacity-100 hover:grayscale-0">
-                  <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-20 max-w-[190px] object-contain" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'block'; }} />
-                  <span className="hidden">{cliente.name}</span>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+            {clientes.map((cliente) => (
+              <div key={cliente.name} className="flex h-24 w-full max-w-[210px] items-center justify-center bg-transparent px-3 text-center text-[11px] font-black uppercase tracking-[0.08em] text-[#1a365d]">
+                <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-[70px] max-w-[180px] object-contain opacity-100 mix-blend-normal grayscale-0" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none'; const fallback = event.currentTarget.nextElementSibling as HTMLElement | null; if (fallback) fallback.style.display = 'flex'; }} />
+                <span className="hidden min-h-[42px] items-center justify-center leading-tight">{cliente.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -365,12 +362,12 @@ export default function App() {
         </div>
       </footer>
 
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
+      <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="WhatsApp AALTO" className="fixed bottom-5 right-5 z-[70] inline-flex items-center gap-3 rounded-full bg-[#10b981] px-5 py-4 text-[11px] font-black uppercase tracking-[0.24em] text-white shadow-2xl transition hover:-translate-y-1 hover:bg-[#059669]">
+        <svg viewBox="0 0 32 32" className="h-6 w-6 fill-current" aria-hidden="true">
+          <path d="M16.03 3.2A12.7 12.7 0 0 0 5.12 22.38L3.7 28.8l6.55-1.55A12.7 12.7 0 1 0 16.03 3.2Zm0 2.35a10.34 10.34 0 0 1 8.78 15.8 10.34 10.34 0 0 1-13.96 3.62l-.46-.25-3.63.86.79-3.55-.3-.49A10.34 10.34 0 0 1 16.03 5.55Zm-4.3 5.33c-.24 0-.62.09-.95.45-.32.36-1.25 1.22-1.25 2.98s1.28 3.46 1.46 3.7c.18.24 2.48 3.96 6.1 5.38 3.02 1.18 3.64.94 4.3.88.66-.06 2.12-.86 2.42-1.7.3-.83.3-1.55.21-1.7-.09-.15-.33-.24-.69-.42-.36-.18-2.12-1.05-2.45-1.16-.33-.12-.57-.18-.81.18-.24.36-.93 1.16-1.14 1.4-.21.24-.42.27-.78.09-.36-.18-1.52-.56-2.89-1.78-1.07-.95-1.79-2.13-2-2.49-.21-.36-.02-.55.16-.73.16-.16.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.81-1.95-1.11-2.67-.29-.7-.59-.6-.81-.61h-.69Z" />
+        </svg>
+        WhatsApp
+      </a>
     </main>
   );
 }
