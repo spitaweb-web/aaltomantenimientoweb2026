@@ -31,6 +31,48 @@ a[aria-label='WhatsApp AALTO'] svg {
   display: block !important;
 }
 
+/* Desktop hero sector cards: bigger, centered and visually stronger. Mobile remains untouched. */
+@media (min-width: 1024px) {
+  main > section:first-of-type > div.relative.z-20 {
+    max-width: 1120px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  main > section:first-of-type > div.relative.z-20 > div {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+  }
+
+  main > section:first-of-type > div.relative.z-20 button {
+    height: 145px !important;
+    min-height: 145px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 22px 18px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  main > section:first-of-type > div.relative.z-20 button svg {
+    width: 38px !important;
+    height: 38px !important;
+    margin-bottom: 16px !important;
+  }
+
+  main > section:first-of-type > div.relative.z-20 button span {
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    letter-spacing: .14em !important;
+    max-width: 210px !important;
+  }
+}
+
 /* Keep public-facing sections white/clean outside the dark hero and contact block. */
 #especialidades,
 #outsourcing,
