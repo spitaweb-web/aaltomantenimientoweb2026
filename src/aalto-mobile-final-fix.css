@@ -117,6 +117,18 @@ main > section:nth-of-type(5) article img {
   background: transparent !important;
 }
 
+#clientes > div > div:last-child > div:hover,
+#clientes > div > div:last-child > div:focus,
+#clientes .brand-marquee-card:hover,
+#clientes .brand-marquee-card:focus {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  transform: none !important;
+}
+
 #clientes > div > div:last-child img {
   width: auto !important;
   height: auto !important;
@@ -128,12 +140,23 @@ main > section:nth-of-type(5) article img {
   outline: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
-  opacity: .88 !important;
-  filter: grayscale(1) contrast(1.35) brightness(.62) !important;
+  opacity: .82 !important;
+  filter: grayscale(1) contrast(1.25) brightness(.72) !important;
   mix-blend-mode: multiply !important;
+  transition: filter .28s ease, opacity .28s ease, transform .28s ease !important;
 }
 
-/* The uploaded Coca-Cola asset has a baked background; render it as clean monochrome text to avoid the gray rectangle. */
+#clientes > div > div:last-child > div:hover img,
+#clientes > div > div:last-child > div:focus img,
+#clientes .brand-marquee-card:hover img,
+#clientes .brand-marquee-card:focus img {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: translateY(-2px) !important;
+}
+
+/* The uploaded Coca-Cola asset has a baked background; render it as clean text to avoid the gray rectangle. */
 #clientes > div > div:last-child > div:first-child img {
   display: none !important;
 }
@@ -147,9 +170,19 @@ main > section:nth-of-type(5) article img {
   font-weight: 900;
   letter-spacing: -.08em;
   color: #202833;
-  opacity: .78;
+  opacity: .72;
+  filter: grayscale(1) contrast(1.2) brightness(.8);
   transform: skewX(-8deg);
   white-space: nowrap;
+  transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease;
+}
+
+#clientes > div > div:last-child > div:first-child:hover::after,
+#clientes > div > div:last-child > div:first-child:focus::after {
+  color: #e30613;
+  opacity: 1;
+  filter: none;
+  transform: skewX(-8deg) translateY(-2px);
 }
 
 @keyframes aalto-client-logo-drift {
