@@ -75,7 +75,7 @@ const clientLogos: ClientLogo[] = [
   {
     name: 'Halliburton',
     alt: 'Logo Halliburton',
-    srcCandidates: ['/02-halliburton.svg', '/02-halliburton.png', '/02-halliburton.webp', '/halliburton.png', '/halliburton.webp'],
+    srcCandidates: ['/Halliburton.png', '/02-halliburton.svg', '/02-halliburton.png', '/02-halliburton.webp', '/halliburton.png', '/halliburton.webp'],
   },
   {
     name: 'Unilever',
@@ -241,12 +241,12 @@ export default function App() {
 
       <section className="relative min-h-screen w-full flex items-center bg-[#071529] overflow-hidden pt-28 pb-10">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061528]/82 via-[#061528]/48 to-[#061528]/14 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061528]/74 via-[#061528]/40 to-[#061528]/8 z-10" />
           <div className="absolute inset-0 bg-[#1f65d8]/10 mix-blend-screen z-20" />
           <img
-            src="/hero-alto-industrial.png"
+            src="/aalto-mantenimiento.webp"
             alt="Infraestructura corporativa Aalto"
-            className="absolute inset-0 w-full h-full object-cover opacity-95"
+            className="absolute inset-0 w-full h-full object-cover opacity-100"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -257,7 +257,7 @@ export default function App() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9 }}
-              className="text-5xl sm:text-7xl md:text-8xl xl:text-[7.2rem] 2xl:text-[8.2rem] font-bold text-white leading-[0.88] tracking-tighter uppercase mb-8 drop-shadow-[0_18px_40px_rgba(0,0,0,0.28)]"
+              className="text-5xl sm:text-7xl md:text-8xl xl:text-[7.2rem] 2xl:text-[8.2rem] font-bold text-white leading-[0.88] tracking-tighter uppercase mb-8 drop-shadow-[0_18px_40px_rgba(0,0,0,0.30)]"
             >
               Cuidamos su <br className="hidden sm:block" />
               <span className="text-[#3b82f6]">infraestructura.</span>
