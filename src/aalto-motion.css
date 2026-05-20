@@ -142,24 +142,63 @@ main > section:first-of-type + section p {
 #clientes span { font-size:13px!important; color:#64748b!important; letter-spacing:.08em!important; line-height:1.15!important; }
 
 #contacto {
+  position: relative !important;
+  z-index: 5 !important;
   background: #f2b51d !important;
   color: #fff !important;
+  overflow: visible !important;
 }
 #contacto h2, #contacto p, #contacto a, #contacto span { color:#fff!important; }
+#contacto > div {
+  position: relative !important;
+  z-index: 6 !important;
+  align-items: center !important;
+}
 #contacto form {
+  position: relative !important;
+  z-index: 10 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
   max-width: 680px !important;
   margin-inline: auto !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow: 0 28px 80px rgba(15,23,42,.12) !important;
+  overflow: visible !important;
 }
 #contacto input, #contacto textarea {
-  min-height: 44px !important;
-  border-radius: 999px !important;
-  padding: 12px 18px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  padding: 16px 18px !important;
+  background: #ffffff !important;
 }
-#contacto textarea { border-radius: 18px !important; min-height: 108px !important; }
+#contacto textarea {
+  border-radius: 0 !important;
+  min-height: 180px !important;
+  resize: vertical !important;
+}
+#contacto form label {
+  position: relative !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  min-height: 58px !important;
+  background: #ffffff !important;
+}
+#contacto form button {
+  position: relative !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  min-height: 64px !important;
+}
 
 footer {
+  position: relative !important;
+  z-index: 1 !important;
   padding-top: 42px !important;
   padding-bottom: 42px !important;
   background: #0f7da5 !important;
@@ -261,6 +300,15 @@ main article,
   main > section:first-of-type + section { padding-top:68px!important; }
   #quienes-somos, #especialidades, #outsourcing, #clientes, #contacto { padding-top:64px!important; padding-bottom:64px!important; }
   .service-image img, .service-row img, main article img { min-height:280px!important; }
+
+  #contacto form {
+    gap: 14px !important;
+    max-width: 100% !important;
+  }
+
+  #contacto textarea {
+    min-height: 160px !important;
+  }
 
   main > section:not(:first-of-type),
   footer,
