@@ -166,12 +166,12 @@ export default function App() {
       )}
 
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-visible bg-[#0a192f] pt-[86px] text-center">
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75"
-    style={{ backgroundImage: "url('/aalto-mantenimiento.webp?v=20260520')" }}
-    aria-hidden="true"
-  />
-  <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75"
+          style={{ backgroundImage: "url('/aalto-mantenimiento.webp?v=20260520')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-12 md:pb-32 md:pt-20 lg:px-10">
           <h1 className="mx-auto max-w-6xl text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl md:text-8xl lg:text-[100px]">
             Cuidamos su <span className="text-[#3b82f6]">infraestructura.</span>
@@ -188,12 +188,12 @@ export default function App() {
             </button>
           </div>
         </div>
-        <div className="relative z-20 mt-0 w-full max-w-5xl px-6 md:absolute md:bottom-[-54px] md:left-1/2 md:-translate-x-1/2">
-          <div className="flex snap-x gap-3 overflow-x-auto pb-3 md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
+        <div id="hero-sectors" className="relative z-20 mt-0 w-full px-6 md:absolute md:bottom-[-54px] md:left-0 md:right-0 md:mx-auto md:max-w-5xl md:translate-x-0">
+          <div className="flex snap-x gap-3 overflow-x-auto pb-3 md:mx-auto md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
             {sectores.map(([label, Icon]) => (
-              <button key={label} onClick={() => go('especialidades')} className="flex h-[100px] min-w-[190px] shrink-0 snap-start flex-col items-center justify-center bg-white px-4 text-center shadow-2xl transition-transform hover:-translate-y-1 md:h-[118px] md:min-w-0">
+              <button key={label} onClick={() => go('especialidades')} className="hero-sector-card flex h-[100px] min-w-[190px] shrink-0 snap-start flex-col items-center justify-center bg-white px-4 text-center shadow-2xl transition-transform hover:-translate-y-1 md:h-[118px] md:min-w-0">
                 <Icon size={30} className="mb-3 text-[#0f7da5]" />
-                <span className="text-[11px] font-black uppercase tracking-[0.12em] text-[#1a365d]">{label}</span>
+                <span className="block text-center text-[11px] font-black uppercase tracking-[0.12em] text-[#1a365d]">{label}</span>
               </button>
             ))}
           </div>
