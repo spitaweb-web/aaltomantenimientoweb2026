@@ -1,0 +1,171 @@
+/* Final hard mobile/client fix. Imported last in main.tsx. */
+
+/* Floating WhatsApp: icon only, no text pill. */
+a[href*='wa.me'],
+a[aria-label='WhatsApp AALTO'] {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  border-radius: 9999px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+a[href*='wa.me'] svg,
+a[aria-label='WhatsApp AALTO'] svg {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* Keep public-facing sections white/clean outside the dark hero and contact block. */
+#especialidades,
+#outsourcing,
+#clientes,
+main > section:nth-of-type(2),
+main > section:nth-of-type(3),
+main > section:nth-of-type(5),
+footer {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+#especialidades > div,
+#outsourcing > div,
+#clientes > div,
+main > section:nth-of-type(5) > div {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Remove gray slabs around service images. Detail services is section 5. */
+main > section:nth-of-type(5) article,
+main > section:nth-of-type(5) article > div,
+main > section:nth-of-type(5) article > div:last-child,
+main > section:nth-of-type(5) article > div[class*='bg-slate'] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+main > section:nth-of-type(5) article > div:last-child {
+  padding: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+main > section:nth-of-type(5) article img {
+  display: block !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  a[href*='wa.me'],
+  a[aria-label='WhatsApp AALTO'] {
+    right: 18px !important;
+    bottom: 18px !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    box-shadow: 0 16px 42px rgba(16, 185, 129, .32) !important;
+  }
+
+  a[href*='wa.me'] svg,
+  a[aria-label='WhatsApp AALTO'] svg {
+    width: 29px !important;
+    height: 29px !important;
+    min-width: 29px !important;
+    min-height: 29px !important;
+  }
+
+  /* Mobile hero title: prevent INFRAESTRUC/TURA split. */
+  main > section:first-of-type > div.relative.z-10 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  main > section:first-of-type h1 {
+    max-width: calc(100vw - 44px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(40px, 10.8vw, 48px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.055em !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  main > section:first-of-type h1 span {
+    display: block !important;
+    max-width: 100% !important;
+    font-size: clamp(28px, 7.8vw, 34px) !important;
+    line-height: 1 !important;
+    letter-spacing: -.045em !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  main > section:first-of-type p {
+    max-width: calc(100vw - 48px) !important;
+    font-size: clamp(17px, 4.8vw, 20px) !important;
+    line-height: 1.42 !important;
+    letter-spacing: -.012em !important;
+  }
+
+  /* Remove all suspicious gray panels on mobile sections. */
+  #especialidades,
+  #outsourcing,
+  #clientes,
+  main > section:nth-of-type(2),
+  main > section:nth-of-type(3),
+  main > section:nth-of-type(5),
+  main > section:nth-of-type(5) article,
+  main > section:nth-of-type(5) article > div,
+  footer {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+
+  main > section:nth-of-type(5) article img {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 390px) {
+  main > section:first-of-type h1 {
+    font-size: clamp(37px, 10.2vw, 43px) !important;
+  }
+
+  main > section:first-of-type h1 span {
+    font-size: clamp(26px, 7.2vw, 31px) !important;
+  }
+}
