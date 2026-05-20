@@ -42,7 +42,7 @@ const Logo = ({ className = '', scrolled = false, isWhite = false, size = 'md' }
 
   return (
     <div className={`flex items-center ${className}`}>
-      <div className={`${symbolSize} h-auto mr-4 shrink-0`}>
+      <div className={`${symbolSize} h-auto mr-3 md:mr-4 shrink-0`}>
         <svg viewBox="0 0 100 70" className="w-full h-full" aria-hidden="true">
           <path d="M35 5 L5 65 L22 65 L44 20 L55 45 L65 35 L50 5 Z" fill={isWhite ? 'white' : darkBlue} />
           <path
@@ -61,22 +61,39 @@ const Logo = ({ className = '', scrolled = false, isWhite = false, size = 'md' }
 };
 
 const clientLogos = [
-  { name: 'Coca Cola', domain: 'coca-cola.com' },
-  { name: 'Halliburton', domain: 'halliburton.com' },
-  { name: 'Unilever', domain: 'unilever.com' },
-  { name: 'Hotel Park Hyatt Mendoza', domain: 'hyatt.com' },
-  { name: 'Bodega Salentein', domain: 'bodegasalentein.com' },
-  { name: 'Hotel Rosell Boher Lodge', domain: 'rosellboher.com' },
-  { name: 'Bodega Cheval des Andes', domain: 'chevaldesandes.com' },
-  { name: 'Supermercado Mayorista Yaguar', domain: 'yaguar.com.ar' },
-  { name: 'Bodega Chandon', domain: 'chandon.com.ar' },
-  { name: 'Neverland', domain: 'neverland.com.ar' },
-  { name: 'Levis', domain: 'levi.com' },
-  { name: 'Bodega Fecovita', domain: 'fecovita.com' },
-  { name: 'Bodega Luigi Bosca', domain: 'luigibosca.com' },
-  { name: 'Bodega Renacer', domain: 'bodegarenacer.com.ar' },
-  { name: 'Famiq', domain: 'famiq.com.ar' },
+  { name: 'Coca-Cola', mark: 'Coca-Cola', sector: 'Industria' },
+  { name: 'Halliburton', mark: 'HALLIBURTON', sector: 'Energía' },
+  { name: 'Unilever', mark: 'Unilever', sector: 'Consumo masivo' },
+  { name: 'Hotel Park Hyatt Mendoza', mark: 'PARK HYATT', sector: 'Hotelería' },
+  { name: 'Bodega Salentein', mark: 'SALENTEIN', sector: 'Bodega' },
+  { name: 'Hotel Rosell Boher Lodge', mark: 'ROSELL BOHER', sector: 'Hotelería' },
+  { name: 'Bodega Cheval des Andes', mark: 'CHEVAL DES ANDES', sector: 'Bodega' },
+  { name: 'Supermercado Mayorista Yaguar', mark: 'YAGUAR', sector: 'Retail' },
+  { name: 'Bodega Chandon', mark: 'CHANDON', sector: 'Bodega' },
+  { name: 'Neverland', mark: 'NEVERLAND', sector: 'Entretenimiento' },
+  { name: "Levi's", mark: "Levi's", sector: 'Retail' },
+  { name: 'Bodega Fecovita', mark: 'FECOVITA', sector: 'Bodega' },
+  { name: 'Bodega Luigi Bosca', mark: 'LUIGI BOSCA', sector: 'Bodega' },
+  { name: 'Bodega Renacer', mark: 'RENACER', sector: 'Bodega' },
+  { name: 'Famiq', mark: 'FAMIQ', sector: 'Industria' },
 ];
+
+const ClientLogoCard = ({ client, index }: { client: (typeof clientLogos)[number]; index: number }) => (
+  <article className="min-h-[132px] bg-white px-4 py-6 flex flex-col items-center justify-center text-center transition-colors duration-300 hover:bg-slate-50">
+    <span className="mb-4 text-[9px] font-bold tabular-nums text-slate-300 tracking-[0.32em] uppercase">
+      {String(index + 1).padStart(2, '0')}
+    </span>
+    <div className="min-h-[38px] flex items-center justify-center">
+      <span className="text-base md:text-lg xl:text-xl font-black text-[#1a365d] tracking-[-0.03em] leading-tight">
+        {client.mark}
+      </span>
+    </div>
+    <p className="mt-3 min-h-[28px] flex items-center text-[9px] md:text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400 leading-relaxed">
+      {client.name}
+    </p>
+    <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.24em] text-[#3b82f6]/60">{client.sector}</p>
+  </article>
+);
 
 const specialities = [
   {
@@ -136,20 +153,20 @@ export default function App() {
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 scroll-smooth">
       <nav
         className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-500 ${
-          scrolled ? 'py-3 bg-white shadow-md border-b border-slate-100' : 'py-5 lg:py-7 bg-transparent'
+          scrolled ? 'py-3 bg-white shadow-md border-b border-slate-100' : 'py-4 lg:py-5 bg-transparent'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-between items-center">
-          <button className="cursor-pointer scale-95 sm:scale-100 origin-left" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <Logo scrolled={scrolled} />
+          <button className="cursor-pointer origin-left" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Logo scrolled={scrolled} size="sm" />
           </button>
 
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <div className="hidden lg:flex items-center gap-7 xl:gap-9">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-[11px] font-bold uppercase tracking-[0.24em] transition-all hover:text-[#3b82f6] ${
+                className={`text-[11px] font-bold uppercase tracking-[0.22em] transition-all hover:text-[#3b82f6] ${
                   scrolled ? 'text-[#1a365d]' : 'text-white'
                 }`}
               >
@@ -221,7 +238,7 @@ export default function App() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9 }}
-              className="text-5xl sm:text-7xl md:text-8xl xl:text-[8.5rem] font-bold text-white leading-[0.9] tracking-tighter uppercase mb-8"
+              className="text-5xl sm:text-7xl md:text-8xl xl:text-[7.5rem] 2xl:text-[8.5rem] font-bold text-white leading-[0.9] tracking-tighter uppercase mb-8"
             >
               Cuidamos su <br className="hidden sm:block" /> infraestructura.
             </motion.h1>
@@ -382,40 +399,19 @@ export default function App() {
       </section>
 
       <section id="clientes" className="py-20 md:py-28 lg:py-36 bg-white overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-12 mb-14">
-          <div className="text-center max-w-3xl mx-auto">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
             <span className="text-[#3b82f6] font-bold uppercase tracking-[0.38em] text-[11px] mb-5 block">Clientes y referencias</span>
             <h2 className="text-3xl md:text-5xl font-bold text-[#1a365d] uppercase tracking-tighter">Empresas que confían en Aalto</h2>
+            <p className="mt-6 text-slate-500 font-light leading-relaxed text-base md:text-lg">
+              Referencias ordenadas en una grilla estable para evitar marcas rotas, desalineación visual o faltantes de carga.
+            </p>
           </div>
-        </div>
 
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
-          <div className="flex overflow-hidden">
-            <div className="flex gap-16 md:gap-24 items-center animate-marquee-slow" style={{ width: 'fit-content' }}>
-              {[...clientLogos, ...clientLogos].map((client, idx) => (
-                <div key={`${client.name}-${idx}`} className="w-[230px] h-[130px] flex items-center justify-center grayscale opacity-55 hover:opacity-100 hover:grayscale-0 transition-all duration-700 shrink-0">
-                  <img
-                    src={`https://logo.clearbit.com/${client.domain}`}
-                    alt={client.name}
-                    className="max-h-20 max-w-[190px] object-contain"
-                    referrerPolicy="no-referrer"
-                    onError={(event) => {
-                      const target = event.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent && !parent.querySelector('.fallback-text')) {
-                        const text = document.createElement('span');
-                        text.className = 'fallback-text text-[13px] font-bold text-slate-400 uppercase tracking-[0.25em] text-center leading-relaxed';
-                        text.innerText = client.name;
-                        parent.appendChild(text);
-                      }
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="max-w-7xl mx-auto bg-slate-200 border border-slate-200 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-px">
+            {clientLogos.map((client, index) => (
+              <ClientLogoCard key={client.name} client={client} index={index} />
+            ))}
           </div>
         </div>
       </section>
@@ -486,41 +482,31 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="bg-white py-16 border-t border-slate-100">
-        <div className="container mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-10 items-center">
-          <div className="md:col-span-1">
-            <Logo scrolled size="md" />
+      <footer className="bg-white py-12 md:py-14 border-t border-slate-100">
+        <div className="container mx-auto px-6 lg:px-12 grid lg:grid-cols-[260px_1fr] gap-10 lg:gap-16 items-center">
+          <div>
+            <Logo scrolled size="sm" />
           </div>
-          <div className="md:col-span-2 grid sm:grid-cols-3 gap-8 text-left md:text-right">
+          <div className="grid sm:grid-cols-3 gap-8 text-left lg:text-right">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-slate-400 mb-2">Teléfono</p>
-              <p className="text-lg font-bold text-[#1a365d]">{contactInfo.phone}</p>
+              <p className="text-base md:text-lg font-bold text-[#1a365d]">{contactInfo.phone}</p>
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-slate-400 mb-2">Mail</p>
-              <p className="text-lg font-bold text-[#1a365d] break-words">{contactInfo.email}</p>
+              <p className="text-base md:text-lg font-bold text-[#1a365d] break-words">{contactInfo.email}</p>
             </div>
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-slate-400 mb-2">Web</p>
-              <p className="text-lg font-bold text-[#1a365d] break-words">{contactInfo.domain}</p>
+              <p className="text-base md:text-lg font-bold text-[#1a365d] break-words">{contactInfo.domain}</p>
             </div>
           </div>
         </div>
-        <div className="container mx-auto px-6 lg:px-12 mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-4">
+        <div className="container mx-auto px-6 lg:px-12 mt-10 pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-4">
           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">© {new Date().getFullYear()} Aalto Mantenimiento.</p>
           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">Mantenimiento · Outsourcing · Infraestructura</p>
         </div>
       </footer>
-
-      <style>{`
-        @keyframes marquee-slow {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee-slow {
-          animation: marquee-slow 68s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }
