@@ -1,0 +1,178 @@
+/* Hard final fixes: client logos alignment/order visibility and header contact button cleanup. Imported very last. */
+
+/* Header: remove ugly white/background pill from Contacto while keeping the soft underline hover. */
+header nav button,
+header nav button:last-child,
+header nav button[aria-label],
+header nav button:hover,
+header nav button:focus,
+header nav button:focus-visible {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+header nav button:last-child {
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+/* Clients section: hard reset to white, aligned and premium. */
+#clientes,
+section#clientes,
+#clientes.aalto-section-reveal,
+#clientes[class*='bg-'] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+#clientes::before,
+#clientes::after,
+#clientes *::before,
+#clientes *::after {
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+#clientes > div,
+#clientes .overflow-hidden {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+#clientes .overflow-hidden {
+  width: min(90vw, 1280px) !important;
+  max-width: min(90vw, 1280px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 34px 0 !important;
+  min-height: 162px !important;
+  overflow: hidden !important;
+}
+
+#clientes .brand-marquee-track,
+#clientes [class*='animate-'] {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 58px !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+#clientes .brand-marquee-card,
+#clientes .aalto-local-logo-card,
+#clientes [class*='w-60'] {
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+  height: 108px !important;
+  min-height: 108px !important;
+  padding: 12px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  overflow: visible !important;
+}
+
+#clientes .brand-marquee-card img,
+#clientes .aalto-local-logo-card img,
+#clientes img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 194px !important;
+  max-height: 76px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+#clientes .brand-marquee-card span,
+#clientes .aalto-local-logo-card span {
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  color: #1a365d !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  line-height: 1.15 !important;
+  letter-spacing: .03em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+#clientes .brand-marquee-card img.aalto-logo-failed + span,
+#clientes .aalto-local-logo-card img.aalto-logo-failed + span {
+  display: flex !important;
+}
+
+@media (max-width: 768px) {
+  #clientes .overflow-hidden {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    padding: 26px 0 !important;
+    min-height: 132px !important;
+  }
+
+  #clientes .brand-marquee-track,
+  #clientes [class*='animate-'] {
+    gap: 38px !important;
+  }
+
+  #clientes .brand-marquee-card,
+  #clientes .aalto-local-logo-card,
+  #clientes [class*='w-60'] {
+    flex-basis: 172px !important;
+    width: 172px !important;
+    min-width: 172px !important;
+    max-width: 172px !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    padding: 10px 14px !important;
+  }
+
+  #clientes .brand-marquee-card img,
+  #clientes .aalto-local-logo-card img,
+  #clientes img {
+    max-width: 154px !important;
+    max-height: 62px !important;
+  }
+
+  #clientes .brand-marquee-card span,
+  #clientes .aalto-local-logo-card span {
+    font-size: 11px !important;
+  }
+}
