@@ -76,38 +76,39 @@ main > section:nth-of-type(5) article img {
   background-color: #ffffff !important;
 }
 
-/* Client logos final polish: 90vw, no frame, bigger, grayscale and subtle motion. */
+/* Client logos final polish: 15 items, 90vw, no frames, no broken images, grayscale + color on hover. */
 #clientes > div {
   width: 100% !important;
   max-width: none !important;
 }
 
-#clientes > div > div:last-child {
+#clientes .client-logo-strip,
+#clientes > div > .client-logo-strip {
   width: 90vw !important;
-  max-width: 90vw !important;
+  max-width: 1320px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 22px 0 10px !important;
-  display: flex !important;
-  flex-wrap: nowrap !important;
+  padding: 18px 0 6px !important;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(150px, 1fr)) !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  gap: clamp(34px, 4.8vw, 86px) !important;
+  justify-items: center !important;
+  gap: clamp(22px, 3vw, 52px) clamp(26px, 3.8vw, 62px) !important;
   overflow: visible !important;
   border: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
-  animation: aalto-client-logo-drift 18s ease-in-out infinite alternate !important;
+  animation: none !important;
 }
 
-#clientes > div > div:last-child > div {
-  flex: 1 1 0 !important;
-  width: auto !important;
+#clientes .client-logo-strip .brand-marquee-card {
+  flex: initial !important;
+  width: 100% !important;
   min-width: 0 !important;
-  max-width: none !important;
-  height: 138px !important;
-  min-height: 138px !important;
-  padding: 0 18px !important;
+  max-width: 230px !important;
+  height: 112px !important;
+  min-height: 112px !important;
+  padding: 0 10px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -115,25 +116,26 @@ main > section:nth-of-type(5) article img {
   outline: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
+  opacity: 1 !important;
+  filter: none !important;
+  overflow: visible !important;
 }
 
-#clientes > div > div:last-child > div:hover,
-#clientes > div > div:last-child > div:focus,
-#clientes .brand-marquee-card:hover,
-#clientes .brand-marquee-card:focus {
+#clientes .client-logo-strip .brand-marquee-card:hover,
+#clientes .client-logo-strip .brand-marquee-card:focus {
   border: 0 !important;
   outline: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
   background-color: transparent !important;
-  transform: none !important;
 }
 
-#clientes > div > div:last-child img {
+#clientes .client-logo-img {
+  display: block !important;
   width: auto !important;
   height: auto !important;
-  max-width: min(260px, 18vw) !important;
-  max-height: 104px !important;
+  max-width: 210px !important;
+  max-height: 82px !important;
   object-fit: contain !important;
   object-position: center !important;
   border: 0 !important;
@@ -141,54 +143,76 @@ main > section:nth-of-type(5) article img {
   box-shadow: none !important;
   background: transparent !important;
   opacity: .82 !important;
-  filter: grayscale(1) contrast(1.25) brightness(.72) !important;
+  filter: grayscale(1) contrast(1.22) brightness(.76) !important;
   mix-blend-mode: multiply !important;
   transition: filter .28s ease, opacity .28s ease, transform .28s ease !important;
 }
 
-#clientes > div > div:last-child > div:hover img,
-#clientes > div > div:last-child > div:focus img,
-#clientes .brand-marquee-card:hover img,
-#clientes .brand-marquee-card:focus img {
+#clientes .brand-marquee-card:hover .client-logo-img,
+#clientes .brand-marquee-card:focus .client-logo-img {
   opacity: 1 !important;
   filter: none !important;
   mix-blend-mode: normal !important;
-  transform: translateY(-2px) !important;
+  transform: translateY(-3px) scale(1.025) !important;
 }
 
-/* The uploaded Coca-Cola asset has a baked background; render it as clean text to avoid the gray rectangle. */
-#clientes > div > div:last-child > div:first-child img {
+#clientes .client-logo-text {
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 74px !important;
+  color: #273447 !important;
+  opacity: .78 !important;
+  filter: grayscale(1) contrast(1.1) brightness(.8) !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: clamp(17px, 1.35vw, 24px) !important;
+  font-weight: 900 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+  text-align: center !important;
+  text-transform: none !important;
+  transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease !important;
+}
+
+#clientes .brand-marquee-card:hover .client-logo-text,
+#clientes .brand-marquee-card:focus .client-logo-text {
+  color: var(--client-accent, #1a365d) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: translateY(-3px) scale(1.025) !important;
+}
+
+#clientes .client-logo-strip .brand-marquee-card:first-child .client-logo-text {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(36px, 3vw, 54px) !important;
+  font-style: italic !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -.08em !important;
+  transform: skewX(-8deg) !important;
+}
+
+#clientes .client-logo-strip .brand-marquee-card:first-child:hover .client-logo-text {
+  transform: skewX(-8deg) translateY(-3px) scale(1.025) !important;
+}
+
+#clientes .client-logo-strip .brand-marquee-card:first-child::after {
+  content: none !important;
   display: none !important;
 }
 
-#clientes > div > div:last-child > div:first-child::after {
-  content: 'Coca-Cola';
-  display: block !important;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(38px, 3.2vw, 58px);
-  font-style: italic;
-  font-weight: 900;
-  line-height: 1 !important;
-  letter-spacing: -.08em;
-  color: #202833;
-  opacity: .72;
-  filter: grayscale(1) contrast(1.2) brightness(.8);
-  transform: skewX(-8deg) translateY(-42px);
-  white-space: nowrap;
-  transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease;
-}
+@media (max-width: 1024px) {
+  #clientes .client-logo-strip,
+  #clientes > div > .client-logo-strip {
+    width: calc(100vw - 44px) !important;
+    max-width: 760px !important;
+    grid-template-columns: repeat(3, minmax(120px, 1fr)) !important;
+    gap: 20px 28px !important;
+  }
 
-#clientes > div > div:last-child > div:first-child:hover::after,
-#clientes > div > div:last-child > div:first-child:focus::after {
-  color: #e30613;
-  opacity: 1;
-  filter: none;
-  transform: skewX(-8deg) translateY(-44px);
-}
-
-@keyframes aalto-client-logo-drift {
-  from { transform: translateX(-18px); }
-  to { transform: translateX(18px); }
+  #clientes .client-logo-strip .brand-marquee-card {
+    height: 96px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -274,32 +298,36 @@ main > section:nth-of-type(5) article img {
     object-fit: cover !important;
   }
 
-  #clientes > div > div:last-child {
+  #clientes .client-logo-strip,
+  #clientes > div > .client-logo-strip {
     width: calc(100vw - 32px) !important;
     max-width: calc(100vw - 32px) !important;
-    gap: 34px !important;
-    justify-content: flex-start !important;
-    overflow-x: auto !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px 22px !important;
+    justify-content: center !important;
+    overflow: visible !important;
     animation: none !important;
     padding-bottom: 18px !important;
   }
 
-  #clientes > div > div:last-child > div {
-    flex: 0 0 210px !important;
-    width: 210px !important;
-    max-width: 210px !important;
-    height: 104px !important;
-    min-height: 104px !important;
+  #clientes .client-logo-strip .brand-marquee-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 88px !important;
+    min-height: 88px !important;
   }
 
-  #clientes > div > div:last-child img {
-    max-width: 178px !important;
-    max-height: 72px !important;
+  #clientes .client-logo-img {
+    max-width: 150px !important;
+    max-height: 58px !important;
   }
 
-  #clientes > div > div:last-child > div:first-child::after {
-    font-size: 38px !important;
-    transform: skewX(-8deg) translateY(-22px) !important;
+  #clientes .client-logo-text {
+    font-size: clamp(14px, 4.4vw, 19px) !important;
+  }
+
+  #clientes .client-logo-strip .brand-marquee-card:first-child .client-logo-text {
+    font-size: clamp(31px, 9vw, 42px) !important;
   }
 }
 
@@ -402,6 +430,31 @@ main > section:nth-of-type(5) article img {
   background: #0a192f !important;
   color: #ffffff !important;
   letter-spacing: .32em !important;
+}
+
+footer {
+  background: #ffffff !important;
+  color: #1a365d !important;
+  padding-top: 64px !important;
+  padding-bottom: 58px !important;
+}
+
+footer > div:first-child {
+  align-items: center !important;
+  gap: clamp(34px, 5vw, 84px) !important;
+}
+
+footer .inline-flex {
+  transform: scale(1.08) !important;
+  transform-origin: left center !important;
+}
+
+footer p {
+  color: #1a365d !important;
+}
+
+footer p:first-child {
+  color: #64748b !important;
 }
 
 main > section:not(:first-of-type),
