@@ -79,6 +79,97 @@ const rubros = [
   },
 ] as const;
 
+type AaltoClient = {
+  name: string;
+  alt: string;
+  srcs: string[];
+  className?: string;
+};
+
+const aaltoClients: AaltoClient[] = [
+  {
+    name: 'Coca-Cola',
+    alt: 'Coca-Cola',
+    srcs: ['/coca-cola.png', '/coca-cola.webp', '/coca-cola.jpg', '/01-coca-cola.svg'],
+    className: 'brand-coca',
+  },
+  {
+    name: 'Halliburton',
+    alt: 'Halliburton',
+    srcs: ['/Halliburton.png', '/halliburton.png', '/02-halliburton.svg'],
+  },
+  {
+    name: 'Unilever',
+    alt: 'Unilever',
+    srcs: ['/unilever.png', '/Unilever.png', '/03-unilever.svg'],
+    className: 'brand-unilever',
+  },
+  {
+    name: 'Hotel Park Hyatt Mendoza',
+    alt: 'Hotel Park Hyatt Mendoza',
+    srcs: ['/ParkHyattBlackLogo-640.webp', '/ParkHyattBlackLogo-640w.webp', '/park-hyatt-mendoza.png', '/04-park-hyatt-mendoza.svg'],
+  },
+  {
+    name: 'Bodega Salentein',
+    alt: 'Bodega Salentein',
+    srcs: ['/bodega-salentein.png', '/salentein.png', '/Salentein.png', '/portillo.png'],
+  },
+  {
+    name: 'Hotel Rosell Boher Lodge',
+    alt: 'Hotel Rosell Boher Lodge',
+    srcs: ['/hotel-rosell-boher-lodge.png', '/rosell-boher.png', '/rosell-boher-lodge.png', '/R.png'],
+  },
+  {
+    name: 'Bodega Cheval des Andes',
+    alt: 'Bodega Cheval des Andes',
+    srcs: ['/bodega-cheval-des-andes.png', '/cheval-des-andes.png', '/cheval.png', '/achaval.jpeg'],
+  },
+  {
+    name: 'Supermercado Mayorista Yaguar',
+    alt: 'Supermercado Mayorista Yaguar',
+    srcs: ['/yaguar.png', '/Yaguar.png', '/mayorista-yaguar.png'],
+  },
+  {
+    name: 'Bodega Chandon',
+    alt: 'Bodega Chandon',
+    srcs: ['/bodega-chandon.png', '/chandon.png', '/Chandon.png'],
+  },
+  {
+    name: 'Neverland',
+    alt: 'Neverland',
+    srcs: ['/neverland.webp', '/neverland.png', '/Neverland.png'],
+  },
+  {
+    name: "Levi's",
+    alt: "Levi's",
+    srcs: ['/levis.jpg', '/levis.png', '/levis.webp', '/Levis.png'],
+  },
+  {
+    name: 'Bodega Fecovita',
+    alt: 'Bodega Fecovita',
+    srcs: ['/fecovita.webp', '/fecovita.png', '/Fecovita.png'],
+  },
+  {
+    name: 'Bodega Luigi Bosca',
+    alt: 'Bodega Luigi Bosca',
+    srcs: ['/Logo-Luigi-Bosca-Baja.jpg', '/luigi-bosca.png', '/Luigi-Bosca.png'],
+  },
+  {
+    name: 'Bodega Renacer',
+    alt: 'Bodega Renacer',
+    srcs: ['/bodega_renacer.png', '/bodega-renacer.png', '/renacer.png'],
+  },
+  {
+    name: 'Famiq',
+    alt: 'Famiq',
+    srcs: ['/famiq.png', '/famiq.jpg', '/Famiq.png'],
+  },
+];
+
+function withVersion(src: string) {
+  return `${src}?v=20260522-final`;
+}
+
 function go(id: string) {
   const element = document.getElementById(id);
   if (!element) return;
@@ -109,40 +200,37 @@ function Kicker({ children }: { children: string }) {
   return <span className="mb-4 block text-[10px] font-black uppercase tracking-[0.36em] text-[#3b82f6]">{children}</span>;
 }
 
-function ClientText({ children }: { children: string }) {
-  return <span className="aalto-client-text">{children}</span>;
-}
+function ClientLogoVisual({ client }: { client: AaltoClient }) {
+  const [srcIndex, setSrcIndex] = useState(0);
+  const src = client.srcs[srcIndex];
 
-function ClientImage({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} loading="lazy" className="aalto-client-img" />;
+  return (
+    <article className={`aalto-client-logo-item ${client.className ?? ''}`}>
+      {src ? (
+        <img
+          src={withVersion(src)}
+          alt={client.alt}
+          loading="lazy"
+          decoding="async"
+          className="aalto-logo-img"
+          onError={() => setSrcIndex((current) => current + 1)}
+        />
+      ) : (
+        <span className="aalto-logo-text">{client.name}</span>
+      )}
+    </article>
+  );
 }
 
 function ClientLogoStrip() {
-  const logos = (
-    <>
-      <article><ClientImage src="/coca-cola.png?v=20260522" alt="Coca-Cola" /></article>
-      <article><ClientImage src="/Halliburton.png?v=20260522" alt="Halliburton" /></article>
-      <article><ClientImage src="/unilever.png?v=20260522" alt="Unilever" /></article>
-      <article><ClientImage src="/ParkHyattBlackLogo-640.webp?v=20260522" alt="Hotel Park Hyatt Mendoza" /></article>
-      <article><ClientText>Bodega Salentein</ClientText></article>
-      <article><ClientText>Hotel Rosell Boher Lodge</ClientText></article>
-      <article><ClientText>Bodega Cheval des Andes</ClientText></article>
-      <article><ClientImage src="/yaguar.png?v=20260522" alt="Supermercado Mayorista Yaguar" /></article>
-      <article><ClientText>Bodega Chandon</ClientText></article>
-      <article><ClientImage src="/neverland.webp?v=20260522" alt="Neverland" /></article>
-      <article><ClientImage src="/levis.jpg?v=20260522" alt="Levi's" /></article>
-      <article><ClientImage src="/fecovita.webp?v=20260522" alt="Bodega Fecovita" /></article>
-      <article><ClientImage src="/Logo-Luigi-Bosca-Baja.jpg?v=20260522" alt="Bodega Luigi Bosca" /></article>
-      <article><ClientImage src="/bodega_renacer.png?v=20260522" alt="Bodega Renacer" /></article>
-      <article><ClientImage src="/famiq.jpg?v=20260522" alt="Famiq" /></article>
-    </>
-  );
+  const repeatedClients = [...aaltoClients, ...aaltoClients];
 
   return (
     <div className="aalto-clients-marquee" aria-label="Empresas clientes AALTO">
       <div className="aalto-clients-track">
-        {logos}
-        {logos}
+        {repeatedClients.map((client, index) => (
+          <ClientLogoVisual key={`${client.name}-${index}`} client={client} />
+        ))}
       </div>
     </div>
   );
@@ -175,10 +263,15 @@ export default function App() {
 
       {open && (
         <div className="fixed inset-0 z-[60] bg-white p-8 lg:hidden">
-          <div className="mb-10 flex items-center justify-between"><Logo compact /><button onClick={() => setOpen(false)} aria-label="Cerrar menú"><X size={32} /></button></div>
+          <div className="mb-10 flex items-center justify-between">
+            <Logo compact />
+            <button onClick={() => setOpen(false)} aria-label="Cerrar menú"><X size={32} /></button>
+          </div>
           <div className="flex flex-col gap-7">
             {nav.map(([label, id]) => (
-              <button key={label} onClick={() => { setOpen(false); go(id); }} className="border-b border-slate-100 pb-4 text-left text-lg font-black uppercase tracking-[0.16em] text-[#1a365d]">{label}</button>
+              <button key={label} onClick={() => { setOpen(false); go(id); }} className="border-b border-slate-100 pb-4 text-left text-lg font-black uppercase tracking-[0.16em] text-[#1a365d]">
+                {label}
+              </button>
             ))}
           </div>
         </div>
@@ -191,6 +284,7 @@ export default function App() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
+
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-12 md:pb-32 md:pt-20 lg:px-10">
           <h1 className="mx-auto max-w-6xl text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl md:text-8xl lg:text-[100px]">
             Cuidamos su <span className="text-[#3b82f6]">infraestructura.</span>
@@ -207,6 +301,7 @@ export default function App() {
             </button>
           </div>
         </div>
+
         <div id="hero-sectors" className="relative z-20 mt-0 w-full px-6 md:absolute md:bottom-[-54px] md:left-0 md:right-0 md:mx-auto md:max-w-5xl md:translate-x-0">
           <div className="flex snap-x gap-3 overflow-x-auto pb-3 md:mx-auto md:grid md:grid-cols-4 md:overflow-visible md:pb-0">
             {sectores.map(([label, Icon]) => (
