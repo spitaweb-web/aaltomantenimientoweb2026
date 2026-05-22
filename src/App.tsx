@@ -22,10 +22,21 @@ const navLinks = [
 const sectors = ['Bodegas', 'Hoteles', 'Industrias', 'Centros comerciales'];
 
 const clientLogos: ClientLogo[] = [
-  { name: 'Coca Cola', alt: 'Logo Coca Cola', srcs: ['/coca-cola.png?v=20260520', '/01-coca-cola.svg?v=20260520', '/01-coca-cola.png?v=20260520', '/01-coca-cola.webp?v=20260520'] },
-  { name: 'Halliburton', alt: 'Logo Halliburton', srcs: ['/Halliburton.png?v=20260520', '/02-halliburton.svg?v=20260520', '/02-halliburton.png?v=20260520', '/02-halliburton.webp?v=20260520'] },
-  { name: 'Unilever', alt: 'Logo Unilever', srcs: ['/unilever.png?v=20260520', '/03-unilever.svg?v=20260520', '/03-unilever.png?v=20260520', '/03-unilever.webp?v=20260520'] },
-  { name: 'Hotel Park Hyatt Mendoza', alt: 'Logo Hotel Park Hyatt Mendoza', srcs: ['/ParkHyattBlackLogo-640.webp?v=20260520', '/04-park-hyatt-mendoza.svg?v=20260520', '/04-park-hyatt-mendoza.png?v=20260520', '/04-park-hyatt-mendoza.webp?v=20260520'] },
+  { name: 'Coca Cola', alt: 'Coca Cola', srcs: [] },
+  { name: 'Halliburton', alt: 'Logo Halliburton', srcs: ['/Halliburton.png?v=20260522'] },
+  { name: 'Unilever', alt: 'Logo Unilever', srcs: ['/unilever.png?v=20260522'] },
+  { name: 'Hotel Park Hyatt Mendoza', alt: 'Logo Hotel Park Hyatt Mendoza', srcs: ['/ParkHyattBlackLogo-640.webp?v=20260522'] },
+  { name: 'Bodega Salentein', alt: 'Bodega Salentein', srcs: [] },
+  { name: 'Hotel Rosell Boher Lodge', alt: 'Hotel Rosell Boher Lodge', srcs: [] },
+  { name: 'Bodega Cheval des Andes', alt: 'Bodega Cheval des Andes', srcs: [] },
+  { name: 'Supermercado Mayorista Yaguar', alt: 'Logo Supermercado Mayorista Yaguar', srcs: ['/yaguar.png?v=20260522'] },
+  { name: 'Bodega Chandon', alt: 'Bodega Chandon', srcs: [] },
+  { name: 'Neverland', alt: 'Logo Neverland', srcs: ['/neverland.webp?v=20260522'] },
+  { name: "Levi's", alt: "Logo Levi's", srcs: ['/levis.jpg?v=20260522'] },
+  { name: 'Bodega Fecovita', alt: 'Logo Bodega Fecovita', srcs: ['/fecovita.webp?v=20260522'] },
+  { name: 'Bodega Luigi Bosca', alt: 'Logo Bodega Luigi Bosca', srcs: ['/Logo-Luigi-Bosca-Baja.jpg?v=20260522'] },
+  { name: 'Bodega Renacer', alt: 'Logo Bodega Renacer', srcs: ['/bodega_renacer.png?v=20260522'] },
+  { name: 'Famiq', alt: 'Logo Famiq', srcs: ['/famiq.jpg?v=20260522'] },
 ];
 
 const specialities = [
@@ -63,18 +74,21 @@ function ClientLogoItem({ client }: { client: ClientLogo }) {
   const src = client.srcs[srcIndex];
 
   return (
-    <article className="h-28 md:h-36 flex items-center justify-center px-3 md:px-5">
+    <article className="brand-marquee-card h-24 md:h-28 flex items-center justify-center px-3 md:px-5">
       {src ? (
-        <img
-          src={src}
-          alt={client.alt}
-          className="block w-full max-w-[250px] md:max-w-[290px] max-h-20 md:max-h-24 object-contain mix-blend-multiply opacity-95 transition duration-300 hover:opacity-100"
-          loading="lazy"
-          decoding="async"
-          onError={() => setSrcIndex((current) => current + 1)}
-        />
+        <>
+          <img
+            src={src}
+            alt={client.alt}
+            className="client-logo-img block w-full max-w-[220px] md:max-w-[250px] max-h-16 md:max-h-20 object-contain mix-blend-multiply opacity-95 transition duration-300 hover:opacity-100"
+            loading="lazy"
+            decoding="async"
+            onError={() => setSrcIndex((current) => current + 1)}
+          />
+          <span className="client-logo-text hidden text-center font-black text-[#1a365d] leading-tight">{client.name}</span>
+        </>
       ) : (
-        <span className="text-center text-base md:text-lg font-black uppercase tracking-[0.12em] text-[#1a365d] leading-tight">{client.name}</span>
+        <span className="client-logo-text flex text-center font-black text-[#1a365d] leading-tight">{client.name}</span>
       )}
     </article>
   );
@@ -135,7 +149,7 @@ export default function App() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#061528]/72 via-[#061528]/38 to-[#061528]/8 z-10" />
           <div className="absolute inset-0 bg-[#1f65d8]/10 mix-blend-screen z-20" />
-          <img src="/aalto-mantenimiento.webp?v=20260520" alt="Infraestructura corporativa Aalto" className="absolute inset-0 w-full h-full object-cover opacity-100" />
+          <img src="/aalto-mantenimiento.webp?v=20260522" alt="Infraestructura corporativa Aalto" className="absolute inset-0 w-full h-full object-cover opacity-100" />
         </div>
         <div className="container mx-auto px-6 lg:px-12 relative z-30">
           <div className="max-w-7xl lg:pl-8 xl:pl-14 pt-8 lg:pt-16 text-center lg:text-left">
@@ -225,7 +239,7 @@ export default function App() {
       </section>
 
       <section id="clientes" className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-12"><div className="text-center max-w-3xl mx-auto mb-10 md:mb-12"><span className="text-[#3b82f6] font-bold uppercase tracking-[0.38em] text-[11px] mb-4 block">Empresas clientes</span><h2 className="text-3xl md:text-5xl font-bold text-[#1a365d] uppercase tracking-tighter">Empresas que confían en Aalto</h2></div><div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-8 md:gap-x-14 gap-y-8 items-center">{clientLogos.map((client) => <ClientLogoItem key={client.name} client={client} />)}</div></div>
+        <div className="container mx-auto px-6 lg:px-12"><div className="text-center max-w-3xl mx-auto mb-10 md:mb-12"><span className="text-[#3b82f6] font-bold uppercase tracking-[0.38em] text-[11px] mb-4 block">Empresas clientes</span><h2 className="text-3xl md:text-5xl font-bold text-[#1a365d] uppercase tracking-tighter">Empresas que confían en Aalto</h2></div><div className="client-logo-strip max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-5 gap-x-8 md:gap-x-14 gap-y-8 items-center">{clientLogos.map((client) => <ClientLogoItem key={client.name} client={client} />)}</div></div>
       </section>
 
       <section id="contacto" className="py-16 md:py-20 lg:py-24 bg-slate-900 text-white">
