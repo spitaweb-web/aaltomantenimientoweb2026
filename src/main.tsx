@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
 import './index.css'
 import './aalto-final.css'
 import './aalto-logos-clean.css'
@@ -20,8 +21,8 @@ import './aalto-client-logos-final.css'
 import './aalto-final-hard-fixes.css'
 import './aalto-ultra-scroll-animations.css'
 import './aalto-mobile-final-fix.css'
-import './aalto-clients-polished-final.css'
 import './aalto-clients-marquee-final.css'
+
 import App from './AppFixed.tsx'
 
 createRoot(document.getElementById('root')!).render(
