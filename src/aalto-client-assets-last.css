@@ -1,0 +1,70 @@
+/* Final uploaded logo binding — imported last. */
+
+#clientes .aalto-clients-track article {
+  position: relative !important;
+}
+
+#clientes .aalto-clients-track article:nth-child(5) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(6) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(7) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(15) .aalto-client-img,
+#clientes .aalto-clients-track article:nth-child(20) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(21) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(22) .aalto-client-text,
+#clientes .aalto-clients-track article:nth-child(30) .aalto-client-img {
+  display: none !important;
+}
+
+#clientes .aalto-clients-track article:nth-child(5)::before,
+#clientes .aalto-clients-track article:nth-child(6)::before,
+#clientes .aalto-clients-track article:nth-child(7)::before,
+#clientes .aalto-clients-track article:nth-child(15)::before,
+#clientes .aalto-clients-track article:nth-child(20)::before,
+#clientes .aalto-clients-track article:nth-child(21)::before,
+#clientes .aalto-clients-track article:nth-child(22)::before,
+#clientes .aalto-clients-track article:nth-child(30)::before {
+  content: '' !important;
+  display: block !important;
+  width: 170px !important;
+  height: 58px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  opacity: .86 !important;
+  filter: grayscale(1) saturate(0) contrast(1.14) brightness(.78) !important;
+  mix-blend-mode: multiply !important;
+  transition: opacity .22s ease, filter .22s ease, transform .22s ease !important;
+}
+
+/* First loop */
+#clientes .aalto-clients-track article:nth-child(5)::before { background-image: url('/portillo.png?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(6)::before { background-image: url('/R.png?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(7)::before { background-image: url('/achaval.jpeg?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(15)::before { background-image: url('/famiq.png?v=20260522') !important; }
+
+/* Duplicated loop */
+#clientes .aalto-clients-track article:nth-child(20)::before { background-image: url('/portillo.png?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(21)::before { background-image: url('/R.png?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(22)::before { background-image: url('/achaval.jpeg?v=20260522') !important; }
+#clientes .aalto-clients-track article:nth-child(30)::before { background-image: url('/famiq.png?v=20260522') !important; }
+
+#clientes .aalto-clients-track article:hover::before {
+  opacity: 1 !important;
+  filter: grayscale(0) saturate(1) contrast(1.04) brightness(1) !important;
+  mix-blend-mode: normal !important;
+  transform: translateY(-2px) scale(1.04) !important;
+}
+
+@media (max-width: 768px) {
+  #clientes .aalto-clients-track article:nth-child(5)::before,
+  #clientes .aalto-clients-track article:nth-child(6)::before,
+  #clientes .aalto-clients-track article:nth-child(7)::before,
+  #clientes .aalto-clients-track article:nth-child(15)::before,
+  #clientes .aalto-clients-track article:nth-child(20)::before,
+  #clientes .aalto-clients-track article:nth-child(21)::before,
+  #clientes .aalto-clients-track article:nth-child(22)::before,
+  #clientes .aalto-clients-track article:nth-child(30)::before {
+    width: 125px !important;
+    height: 44px !important;
+  }
+}
