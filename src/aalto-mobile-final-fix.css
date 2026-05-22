@@ -32,7 +32,7 @@ a[aria-label='WhatsApp AALTO'] svg {
   display: block !important;
 }
 
-/* Hero: use the real file visible in /public. Avoid nonexistent aaaltomanieminto.webp 404. */
+/* Hero: use the real file visible in /public. */
 main > section:first-of-type > div.absolute.inset-0 {
   background-image: url('/aalto-mantenimiento.webp?v=20260522') !important;
   background-size: cover !important;
@@ -41,7 +41,6 @@ main > section:first-of-type > div.absolute.inset-0 {
   opacity: .78 !important;
 }
 
-/* Keep public sections clean. */
 #especialidades,
 #outsourcing,
 #clientes,
@@ -63,7 +62,6 @@ main > section:nth-of-type(5) > div {
   background-image: none !important;
 }
 
-/* Service images: remove gray slabs. */
 main > section:nth-of-type(5) article,
 main > section:nth-of-type(5) article > div,
 main > section:nth-of-type(5) article > div:last-child,
@@ -86,7 +84,7 @@ main > section:nth-of-type(5) article img {
   background-color: #ffffff !important;
 }
 
-/* Clients section: compact, premium, no carousel gaps. */
+/* Clients section: compact. */
 #clientes {
   padding-top: 70px !important;
   padding-bottom: 76px !important;
@@ -107,7 +105,6 @@ main > section:nth-of-type(5) article img {
   margin-right: auto !important;
 }
 
-/* New 15-client grid from AppFixed. */
 #clientes .client-logo-strip,
 #clientes > div > .client-logo-strip {
   width: min(90vw, 1180px) !important;
@@ -147,7 +144,7 @@ main > section:nth-of-type(5) article img {
   overflow: visible !important;
 }
 
-/* Old 4-logo grid fallback if Vercel is still serving older AppFixed. */
+/* Old 4-logo grid fallback: compact + visible Coca-Cola. */
 #clientes > div > div:last-child:not(.client-logo-strip) {
   width: min(90vw, 980px) !important;
   max-width: min(90vw, 980px) !important;
@@ -176,6 +173,39 @@ main > section:nth-of-type(5) article img {
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
+  position: relative !important;
+}
+
+#clientes > div > div:last-child:not(.client-logo-strip) > div:first-child img,
+#clientes > div > div:last-child:not(.client-logo-strip) > div:first-child .client-logo-img {
+  display: none !important;
+}
+
+#clientes > div > div:last-child:not(.client-logo-strip) > div:first-child::after {
+  content: 'Coca-Cola' !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 72px !important;
+  color: #273447 !important;
+  opacity: .82 !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(28px, 2.25vw, 40px) !important;
+  font-style: italic !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -.08em !important;
+  transform: skewX(-8deg) !important;
+  filter: grayscale(1) contrast(1.12) brightness(.82) !important;
+  transition: color .28s ease, opacity .28s ease, filter .28s ease, transform .28s ease !important;
+}
+
+#clientes > div > div:last-child:not(.client-logo-strip) > div:first-child:hover::after {
+  color: #e30613 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: skewX(-8deg) translateY(-2px) scale(1.025) !important;
 }
 
 #clientes .brand-marquee-card:hover,
@@ -264,7 +294,7 @@ main > section:nth-of-type(5) article img {
   display: none !important;
 }
 
-/* Contact form: keep fixed after z-index/file-input issue. */
+/* Contact form. */
 #contacto {
   position: relative !important;
   z-index: 20 !important;
@@ -355,7 +385,6 @@ main > section:nth-of-type(5) article img {
   letter-spacing: .32em !important;
 }
 
-/* Footer polish. */
 footer {
   background: #ffffff !important;
   color: #1a365d !important;
@@ -381,7 +410,6 @@ footer p:first-child {
   color: #64748b !important;
 }
 
-/* Scroll reveal, kept subtle. */
 main > section:not(:first-of-type),
 main > section:not(:first-of-type) > div,
 main article,
@@ -514,6 +542,10 @@ footer {
   }
 
   #clientes .client-logo-strip .brand-marquee-card:first-child .client-logo-text {
+    font-size: clamp(29px, 8.2vw, 38px) !important;
+  }
+
+  #clientes > div > div:last-child:not(.client-logo-strip) > div:first-child::after {
     font-size: clamp(29px, 8.2vw, 38px) !important;
   }
 }
