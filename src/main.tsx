@@ -18,8 +18,8 @@ import './aalto-ui-modern-polish.css'
 import './aalto-homepage-literal-fix.css'
 import './aalto-client-logos-final.css'
 import './aalto-final-hard-fixes.css'
-import './aalto-mobile-final-fix.css'
 import './aalto-ultra-scroll-animations.css'
+import './aalto-mobile-final-fix.css'
 import App from './AppFixed.tsx'
 
 createRoot(document.getElementById('root')!).render(
