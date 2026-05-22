@@ -21,6 +21,7 @@ import './aalto-final-hard-fixes.css'
 import './aalto-ultra-scroll-animations.css'
 import './aalto-mobile-final-fix.css'
 import './aalto-clients-polished-final.css'
+import './aalto-clients-marquee-final.css'
 import App from './AppFixed.tsx'
 
 createRoot(document.getElementById('root')!).render(
