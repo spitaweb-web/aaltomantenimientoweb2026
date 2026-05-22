@@ -117,6 +117,37 @@ function ClientImage({ src, alt }: { src: string; alt: string }) {
   return <img src={src} alt={alt} loading="lazy" className="aalto-client-img" />;
 }
 
+function ClientLogoStrip() {
+  const logos = (
+    <>
+      <article><ClientText>Coca-Cola</ClientText></article>
+      <article><ClientImage src="/Halliburton.png?v=20260522" alt="Halliburton" /></article>
+      <article><ClientImage src="/unilever.png?v=20260522" alt="Unilever" /></article>
+      <article><ClientImage src="/ParkHyattBlackLogo-640.webp?v=20260522" alt="Hotel Park Hyatt Mendoza" /></article>
+      <article><ClientText>Bodega Salentein</ClientText></article>
+      <article><ClientText>Hotel Rosell Boher Lodge</ClientText></article>
+      <article><ClientText>Bodega Cheval des Andes</ClientText></article>
+      <article><ClientText>Mayorista Yaguar</ClientText></article>
+      <article><ClientText>Bodega Chandon</ClientText></article>
+      <article><ClientText>Neverland</ClientText></article>
+      <article><ClientText>Levi's</ClientText></article>
+      <article><ClientText>Fecovita</ClientText></article>
+      <article><ClientText>Luigi Bosca</ClientText></article>
+      <article><ClientText>Renacer</ClientText></article>
+      <article><ClientText>Famiq</ClientText></article>
+    </>
+  );
+
+  return (
+    <div className="aalto-clients-marquee" aria-label="Empresas clientes AALTO">
+      <div className="aalto-clients-track">
+        {logos}
+        {logos}
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [open, setOpen] = useState(false);
 
@@ -307,23 +338,7 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="aalto-final-clients-grid">
-            <article><ClientText>Coca-Cola</ClientText></article>
-            <article><ClientImage src="/Halliburton.png?v=20260522" alt="Halliburton" /></article>
-            <article><ClientImage src="/unilever.png?v=20260522" alt="Unilever" /></article>
-            <article><ClientImage src="/ParkHyattBlackLogo-640.webp?v=20260522" alt="Hotel Park Hyatt Mendoza" /></article>
-            <article><ClientText>Bodega Salentein</ClientText></article>
-            <article><ClientText>Hotel Rosell Boher Lodge</ClientText></article>
-            <article><ClientText>Bodega Cheval des Andes</ClientText></article>
-            <article><ClientImage src="/yaguar.png?v=20260522" alt="Supermercado Mayorista Yaguar" /></article>
-            <article><ClientText>Bodega Chandon</ClientText></article>
-            <article><ClientImage src="/neverland.webp?v=20260522" alt="Neverland" /></article>
-            <article><ClientImage src="/levis.jpg?v=20260522" alt="Levi's" /></article>
-            <article><ClientImage src="/fecovita.webp?v=20260522" alt="Bodega Fecovita" /></article>
-            <article><ClientImage src="/Logo-Luigi-Bosca-Baja.jpg?v=20260522" alt="Bodega Luigi Bosca" /></article>
-            <article><ClientImage src="/bodega_renacer.png?v=20260522" alt="Bodega Renacer" /></article>
-            <article><ClientImage src="/famiq.jpg?v=20260522" alt="Famiq" /></article>
-          </div>
+          <ClientLogoStrip />
         </div>
       </section>
 
