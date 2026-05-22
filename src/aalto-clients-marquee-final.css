@@ -1,4 +1,4 @@
-/* AALTO clients — final locked logo marquee, no boxes, no hover cards. */
+/* AALTO clients — final locked logo marquee, no boxes, stable filters. */
 
 #clientes {
   overflow: hidden !important;
@@ -32,7 +32,7 @@
   line-height: .94 !important;
 }
 
-/* Contenedor del marquee */
+/* Marquee wrapper */
 #clientes .aalto-clients-marquee {
   position: relative !important;
   display: block !important;
@@ -49,7 +49,7 @@
   mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
 }
 
-/* Mata pseudo-elementos viejos */
+/* Kill legacy pseudo cards */
 #clientes .aalto-clients-marquee::before,
 #clientes .aalto-clients-marquee::after,
 #clientes .aalto-clients-track article::before,
@@ -84,7 +84,7 @@
   animation-play-state: paused !important;
 }
 
-/* Cada logo: sin card, sin box, sin fondo */
+/* Logo item: never card */
 #clientes .aalto-client-logo-item,
 #clientes .aalto-client-logo-item:hover,
 #clientes .aalto-client-logo-item:focus,
@@ -110,7 +110,7 @@
   transform: none !important;
 }
 
-/* Mata cualquier wrapper heredado */
+/* Kill inherited wrapper boxes */
 #clientes .aalto-client-logo-item > *,
 #clientes .aalto-client-logo-item:hover > *,
 #clientes .aalto-client-logo-item:focus > * {
@@ -122,7 +122,10 @@
   box-shadow: none !important;
 }
 
-/* Imagen logo */
+/* Image logo.
+   IMPORTANT:
+   No brightness(.82). That was making white/gray logo backgrounds visible.
+*/
 #clientes .aalto-logo-img {
   display: block !important;
   width: auto !important;
@@ -131,8 +134,8 @@
   max-height: 60px !important;
   object-fit: contain !important;
   object-position: center !important;
-  opacity: .86 !important;
-  filter: grayscale(1) saturate(0) contrast(1.14) brightness(.82) !important;
+  opacity: .88 !important;
+  filter: grayscale(1) saturate(0) contrast(1.08) brightness(1.02) !important;
   mix-blend-mode: multiply !important;
   border: 0 !important;
   outline: 0 !important;
@@ -143,15 +146,15 @@
   transition: opacity .22s ease, filter .22s ease, transform .22s ease !important;
 }
 
-/* Fallback texto */
+/* Text fallback */
 #clientes .aalto-logo-text {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
   color: #1f2937 !important;
-  opacity: .78 !important;
-  filter: grayscale(1) saturate(0) contrast(1.12) brightness(.78) !important;
+  opacity: .82 !important;
+  filter: grayscale(1) saturate(0) contrast(1.08) brightness(1) !important;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   font-size: clamp(13px, .94vw, 17px) !important;
   font-weight: 950 !important;
@@ -164,19 +167,28 @@
   transition: opacity .22s ease, filter .22s ease, color .22s ease, transform .22s ease !important;
 }
 
-/* Hover limpio: solo logo, nunca caja */
-#clientes .aalto-client-logo-item:hover .aalto-logo-img,
+/* Hover: only logo changes, not the box.
+   Keep multiply to avoid white/gray asset backgrounds appearing again.
+*/
+#clientes .aalto-client-logo-item:hover .aalto-logo-img {
+  opacity: 1 !important;
+  filter: grayscale(0) saturate(1) contrast(1.03) brightness(1.03) !important;
+  mix-blend-mode: multiply !important;
+  transform: translateY(-2px) scale(1.04) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 #clientes .aalto-client-logo-item:hover .aalto-logo-text {
   opacity: 1 !important;
-  filter: grayscale(0) saturate(1) contrast(1.04) brightness(1) !important;
-  mix-blend-mode: normal !important;
+  filter: grayscale(0) saturate(1) contrast(1.03) brightness(1.03) !important;
   color: #0f4f6f !important;
   transform: translateY(-2px) scale(1.04) !important;
   background: transparent !important;
   box-shadow: none !important;
 }
 
-/* Ajustes ópticos por marca */
+/* Optical brand adjustments */
 #clientes .brand-coca .aalto-logo-img {
   max-width: 184px !important;
   max-height: 64px !important;
@@ -186,11 +198,24 @@
   max-height: 68px !important;
 }
 
-/* Si algún logo trae fondo gris incorporado, esta mezcla lo disimula sobre blanco */
+/* Assets with baked light backgrounds:
+   keep multiply + no dark brightness, so the internal box blends into white.
+*/
 #clientes .aalto-logo-img[src*="coca"],
 #clientes .aalto-logo-img[src*="levis"],
 #clientes .aalto-logo-img[src*="achaval"],
-#clientes .aalto-logo-img[src*="portillo"] {
+#clientes .aalto-logo-img[src*="portillo"],
+#clientes .aalto-logo-img[src*="R.png"] {
+  filter: grayscale(1) saturate(0) contrast(1.04) brightness(1.06) !important;
+  mix-blend-mode: multiply !important;
+}
+
+#clientes .aalto-client-logo-item:hover .aalto-logo-img[src*="coca"],
+#clientes .aalto-client-logo-item:hover .aalto-logo-img[src*="levis"],
+#clientes .aalto-client-logo-item:hover .aalto-logo-img[src*="achaval"],
+#clientes .aalto-client-logo-item:hover .aalto-logo-img[src*="portillo"],
+#clientes .aalto-client-logo-item:hover .aalto-logo-img[src*="R.png"] {
+  filter: grayscale(0) saturate(1) contrast(1.02) brightness(1.08) !important;
   mix-blend-mode: multiply !important;
 }
 
