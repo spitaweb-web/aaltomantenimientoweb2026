@@ -1,4 +1,4 @@
-/* AALTO clients — final locked logo marquee. */
+/* AALTO clients — final locked logo marquee, no boxes, no hover cards. */
 
 #clientes {
   overflow: hidden !important;
@@ -6,10 +6,18 @@
   background: #fff !important;
 }
 
+#clientes,
+#clientes *,
+#clientes *::before,
+#clientes *::after {
+  box-sizing: border-box !important;
+}
+
 #clientes > div {
   width: 100% !important;
   max-width: none !important;
   overflow: hidden !important;
+  background: transparent !important;
 }
 
 #clientes .mb-10,
@@ -24,6 +32,7 @@
   line-height: .94 !important;
 }
 
+/* Contenedor del marquee */
 #clientes .aalto-clients-marquee {
   position: relative !important;
   display: block !important;
@@ -33,21 +42,27 @@
   overflow: hidden !important;
   padding: 18px 0 22px !important;
   border: 0 !important;
+  outline: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
   mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
 }
 
+/* Mata pseudo-elementos viejos */
 #clientes .aalto-clients-marquee::before,
 #clientes .aalto-clients-marquee::after,
 #clientes .aalto-clients-track article::before,
 #clientes .aalto-clients-track article::after {
   content: none !important;
   display: none !important;
+  background: none !important;
   background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
+/* Track */
 #clientes .aalto-clients-track {
   display: flex !important;
   width: max-content !important;
@@ -60,6 +75,7 @@
   animation: aalto-real-logo-marquee 48s linear infinite !important;
   will-change: transform !important;
   border: 0 !important;
+  outline: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
@@ -68,7 +84,12 @@
   animation-play-state: paused !important;
 }
 
-#clientes .aalto-client-logo-item {
+/* Cada logo: sin card, sin box, sin fondo */
+#clientes .aalto-client-logo-item,
+#clientes .aalto-client-logo-item:hover,
+#clientes .aalto-client-logo-item:focus,
+#clientes .aalto-client-logo-item:focus-visible,
+#clientes .aalto-client-logo-item:active {
   flex: 0 0 200px !important;
   width: 200px !important;
   height: 88px !important;
@@ -82,19 +103,26 @@
   border: 0 !important;
   outline: 0 !important;
   background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   box-shadow: none !important;
   overflow: visible !important;
+  transform: none !important;
 }
 
-#clientes .aalto-client-logo-item:hover,
-#clientes .aalto-client-logo-item:focus,
-#clientes .aalto-client-logo-item:focus-visible {
+/* Mata cualquier wrapper heredado */
+#clientes .aalto-client-logo-item > *,
+#clientes .aalto-client-logo-item:hover > *,
+#clientes .aalto-client-logo-item:focus > * {
   border: 0 !important;
   outline: 0 !important;
   background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   box-shadow: none !important;
 }
 
+/* Imagen logo */
 #clientes .aalto-logo-img {
   display: block !important;
   width: auto !important;
@@ -109,10 +137,13 @@
   border: 0 !important;
   outline: 0 !important;
   background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
   box-shadow: none !important;
   transition: opacity .22s ease, filter .22s ease, transform .22s ease !important;
 }
 
+/* Fallback texto */
 #clientes .aalto-logo-text {
   display: flex !important;
   align-items: center !important;
@@ -133,6 +164,7 @@
   transition: opacity .22s ease, filter .22s ease, color .22s ease, transform .22s ease !important;
 }
 
+/* Hover limpio: solo logo, nunca caja */
 #clientes .aalto-client-logo-item:hover .aalto-logo-img,
 #clientes .aalto-client-logo-item:hover .aalto-logo-text {
   opacity: 1 !important;
@@ -140,6 +172,8 @@
   mix-blend-mode: normal !important;
   color: #0f4f6f !important;
   transform: translateY(-2px) scale(1.04) !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 /* Ajustes ópticos por marca */
@@ -150,6 +184,14 @@
 
 #clientes .brand-unilever .aalto-logo-img {
   max-height: 68px !important;
+}
+
+/* Si algún logo trae fondo gris incorporado, esta mezcla lo disimula sobre blanco */
+#clientes .aalto-logo-img[src*="coca"],
+#clientes .aalto-logo-img[src*="levis"],
+#clientes .aalto-logo-img[src*="achaval"],
+#clientes .aalto-logo-img[src*="portillo"] {
+  mix-blend-mode: multiply !important;
 }
 
 @keyframes aalto-real-logo-marquee {
@@ -180,204 +222,10 @@
     animation-duration: 36s !important;
   }
 
-  #clientes .aalto-client-logo-item {
-    flex: 0 0 150px !important;
-    width: 150px !important;
-    height: 70px !important;
-    min-height: 70px !important;
-  }
-
-  #clientes .aalto-logo-img {
-    max-width: 130px !important;
-    max-height: 46px !important;
-  }
-
-  #clientes .aalto-logo-text {
-    font-size: clamp(12px, 3.6vw, 15px) !important;
-  }
-}/* AALTO clients — final locked logo marquee. */
-
-#clientes {
-  overflow: hidden !important;
-  padding: 72px 0 78px !important;
-  background: #fff !important;
-}
-
-#clientes > div {
-  width: 100% !important;
-  max-width: none !important;
-  overflow: hidden !important;
-}
-
-#clientes .mb-10,
-#clientes .mb-14 {
-  margin-bottom: 34px !important;
-}
-
-#clientes h2 {
-  max-width: 840px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  line-height: .94 !important;
-}
-
-#clientes .aalto-clients-marquee {
-  position: relative !important;
-  display: block !important;
-  width: 100vw !important;
-  margin-left: 50% !important;
-  transform: translateX(-50%) !important;
-  overflow: hidden !important;
-  padding: 18px 0 22px !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%) !important;
-}
-
-#clientes .aalto-clients-marquee::before,
-#clientes .aalto-clients-marquee::after,
-#clientes .aalto-clients-track article::before,
-#clientes .aalto-clients-track article::after {
-  content: none !important;
-  display: none !important;
-  background-image: none !important;
-}
-
-#clientes .aalto-clients-track {
-  display: flex !important;
-  width: max-content !important;
-  max-width: none !important;
-  flex-wrap: nowrap !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: clamp(64px, 6.8vw, 126px) !important;
-  padding-left: 6vw !important;
-  animation: aalto-real-logo-marquee 48s linear infinite !important;
-  will-change: transform !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-#clientes .aalto-clients-marquee:hover .aalto-clients-track {
-  animation-play-state: paused !important;
-}
-
-#clientes .aalto-client-logo-item {
-  flex: 0 0 200px !important;
-  width: 200px !important;
-  height: 88px !important;
-  min-height: 88px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-#clientes .aalto-client-logo-item:hover,
-#clientes .aalto-client-logo-item:focus,
-#clientes .aalto-client-logo-item:focus-visible {
-  border: 0 !important;
-  outline: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-#clientes .aalto-logo-img {
-  display: block !important;
-  width: auto !important;
-  height: auto !important;
-  max-width: 170px !important;
-  max-height: 60px !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  opacity: .86 !important;
-  filter: grayscale(1) saturate(0) contrast(1.14) brightness(.82) !important;
-  mix-blend-mode: multiply !important;
-  border: 0 !important;
-  outline: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  transition: opacity .22s ease, filter .22s ease, transform .22s ease !important;
-}
-
-#clientes .aalto-logo-text {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  color: #1f2937 !important;
-  opacity: .78 !important;
-  filter: grayscale(1) saturate(0) contrast(1.12) brightness(.78) !important;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-  font-size: clamp(13px, .94vw, 17px) !important;
-  font-weight: 950 !important;
-  line-height: 1.04 !important;
-  letter-spacing: -.035em !important;
-  text-align: center !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  transition: opacity .22s ease, filter .22s ease, color .22s ease, transform .22s ease !important;
-}
-
-#clientes .aalto-client-logo-item:hover .aalto-logo-img,
-#clientes .aalto-client-logo-item:hover .aalto-logo-text {
-  opacity: 1 !important;
-  filter: grayscale(0) saturate(1) contrast(1.04) brightness(1) !important;
-  mix-blend-mode: normal !important;
-  color: #0f4f6f !important;
-  transform: translateY(-2px) scale(1.04) !important;
-}
-
-/* Ajustes ópticos por marca */
-#clientes .brand-coca .aalto-logo-img {
-  max-width: 184px !important;
-  max-height: 64px !important;
-}
-
-#clientes .brand-unilever .aalto-logo-img {
-  max-height: 68px !important;
-}
-
-@keyframes aalto-real-logo-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@media (max-width: 768px) {
-  #clientes {
-    padding-top: 58px !important;
-    padding-bottom: 62px !important;
-  }
-
-  #clientes .aalto-clients-marquee {
-    padding: 12px 0 16px !important;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%) !important;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%) !important;
-  }
-
-  #clientes .aalto-clients-track {
-    gap: 42px !important;
-    padding-left: 24px !important;
-    animation-duration: 36s !important;
-  }
-
-  #clientes .aalto-client-logo-item {
+  #clientes .aalto-client-logo-item,
+  #clientes .aalto-client-logo-item:hover,
+  #clientes .aalto-client-logo-item:focus,
+  #clientes .aalto-client-logo-item:focus-visible {
     flex: 0 0 150px !important;
     width: 150px !important;
     height: 70px !important;
