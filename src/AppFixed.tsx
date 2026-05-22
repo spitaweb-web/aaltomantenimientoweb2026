@@ -24,6 +24,12 @@ const contactEmail = 'info@aaltomantenimiento.com.ar';
 const phone = '+54 261 471 5133';
 const whatsappHref = 'https://wa.me/542614715133';
 
+type Cliente = {
+  name: string;
+  logo?: string;
+  accent?: string;
+};
+
 const nav = [
   ['Quiénes somos', 'quienes-somos'],
   ['Especialidades', 'especialidades'],
@@ -79,12 +85,23 @@ const rubros = [
   },
 ] as const;
 
-const clientes = [
-  { name: 'Coca Cola', logo: '/coca-cola.png?v=20260520' },
-  { name: 'Halliburton', logo: '/Halliburton.png?v=20260520' },
-  { name: 'Unilever', logo: '/unilever.png?v=20260520' },
-  { name: 'Hotel Park Hyatt Mendoza', logo: '/ParkHyattBlackLogo-640.webp?v=20260520' },
-] as const;
+const clientes: Cliente[] = [
+  { name: 'Coca Cola', accent: '#e30613' },
+  { name: 'Halliburton', logo: '/Halliburton.png?v=20260522', accent: '#d71920' },
+  { name: 'Unilever', logo: '/unilever.png?v=20260522', accent: '#005eef' },
+  { name: 'Hotel Park Hyatt Mendoza', logo: '/ParkHyattBlackLogo-640.webp?v=20260522', accent: '#8a6f3f' },
+  { name: 'Bodega Salentein', accent: '#7b1f2a' },
+  { name: 'Hotel Rosell Boher Lodge', accent: '#7a4a24' },
+  { name: 'Bodega Cheval des Andes', accent: '#6c1d2c' },
+  { name: 'Supermercado Mayorista Yaguar', accent: '#e11d48' },
+  { name: 'Bodega Chandon', accent: '#d4a017' },
+  { name: 'Neverland', accent: '#e11d48' },
+  { name: "Levi's", accent: '#c41230' },
+  { name: 'Bodega Fecovita', accent: '#0f7a3f' },
+  { name: 'Bodega Luigi Bosca', accent: '#6f2c2c' },
+  { name: 'Bodega Renacer', accent: '#7c2d12' },
+  { name: 'Famiq', accent: '#1d4ed8' },
+];
 
 function go(id: string) {
   const element = document.getElementById(id);
@@ -114,6 +131,34 @@ function Logo({ compact = false }: { compact?: boolean }) {
 
 function Kicker({ children }: { children: string }) {
   return <span className="mb-4 block text-[10px] font-black uppercase tracking-[0.36em] text-[#3b82f6]">{children}</span>;
+}
+
+function ClienteLogo({ cliente }: { cliente: Cliente }) {
+  return (
+    <div
+      className="brand-marquee-card flex h-28 w-56 items-center justify-center px-4 text-center"
+      style={{ ['--client-accent' as string]: cliente.accent || '#1a365d' }}
+    >
+      {cliente.logo ? (
+        <>
+          <img
+            src={cliente.logo}
+            alt={cliente.name}
+            loading="lazy"
+            className="client-logo-img max-h-20 max-w-[190px] object-contain"
+            onError={(event) => {
+              event.currentTarget.style.display = 'none';
+              const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
+              if (fallback) fallback.style.display = 'flex';
+            }}
+          />
+          <span className="client-logo-text hidden">{cliente.name}</span>
+        </>
+      ) : (
+        <span className="client-logo-text flex">{cliente.name}</span>
+      )}
+    </div>
+  );
 }
 
 export default function App() {
@@ -155,7 +200,7 @@ export default function App() {
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-visible bg-[#0a192f] pt-[86px] text-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75"
-          style={{ backgroundImage: "url('/aalto-mantenimiento.webp?v=20260520')" }}
+          style={{ backgroundImage: "url('/aaaltomanieminto.webp?v=20260522'), url('/aalto-mantenimiento.webp?v=20260520')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
@@ -306,12 +351,8 @@ export default function App() {
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
           </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-12 gap-y-10 lg:grid-cols-4">
-            {clientes.map((cliente) => (
-              <div key={cliente.name} className="brand-marquee-card flex h-28 w-56 items-center justify-center px-4 text-center">
-                <img src={cliente.logo} alt={cliente.name} loading="lazy" className="max-h-20 max-w-[190px] object-contain" />
-              </div>
-            ))}
+          <div className="client-logo-strip mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-12 gap-y-10 lg:grid-cols-4">
+            {clientes.map((cliente) => <ClienteLogo key={cliente.name} cliente={cliente} />)}
           </div>
         </div>
       </section>
@@ -341,15 +382,18 @@ export default function App() {
       </section>
 
       <footer className="bg-white py-14 text-[#1a365d]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_2fr] lg:px-10 items-center">
-          <Logo />
-          <div className="grid gap-7 text-left sm:grid-cols-3 lg:text-right">
-            <div><p className="text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">Teléfono</p><p className="mt-2 text-xl font-black">{phone}</p></div>
-            <div><p className="text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">Mail</p><p className="mt-2 text-xl font-black break-words">{contactEmail}</p></div>
-            <div><p className="text-[10px] font-black uppercase tracking-[0.32em] text-slate-400">Web</p><p className="mt-2 text-xl font-black break-words">aaltomantenimiento.com.ar</p></div>
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[420px_1fr] lg:px-10 items-center">
+          <div className="space-y-5">
+            <Logo />
+            <p className="max-w-sm text-base font-semibold leading-relaxed text-slate-500">Mantenimiento edilicio, outsourcing técnico e infraestructura para empresas.</p>
+          </div>
+          <div className="grid gap-8 text-left sm:grid-cols-3 lg:text-right">
+            <div><p className="text-[11px] font-black uppercase tracking-[0.32em] text-slate-400">Teléfono</p><p className="mt-3 text-2xl lg:text-3xl font-black">{phone}</p></div>
+            <div><p className="text-[11px] font-black uppercase tracking-[0.32em] text-slate-400">Mail</p><p className="mt-3 text-2xl lg:text-3xl font-black break-words">{contactEmail}</p></div>
+            <div><p className="text-[11px] font-black uppercase tracking-[0.32em] text-slate-400">Web</p><p className="mt-3 text-2xl lg:text-3xl font-black break-words">aaltomantenimiento.com.ar</p></div>
           </div>
         </div>
-        <div className="mx-auto mt-10 max-w-7xl border-t border-slate-100 px-6 pt-7 text-[10px] font-black uppercase tracking-[0.35em] text-slate-400 lg:px-10">
+        <div className="mx-auto mt-12 max-w-7xl border-t border-slate-100 px-6 pt-8 text-[11px] font-black uppercase tracking-[0.35em] text-slate-400 lg:px-10">
           © {new Date().getFullYear()} Aalto Mantenimiento · Mantenimiento · Outsourcing · Infraestructura
         </div>
       </footer>
