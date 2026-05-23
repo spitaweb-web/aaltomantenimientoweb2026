@@ -63,13 +63,13 @@ const rubros = [
     titulo: 'Carpintería',
     Icon: Wrench,
     items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=85&w=1500',
+    image: 'https://images.pexels.com/photos/37604386/pexels-photo-37604386.jpeg',
   },
   {
   titulo: 'Refrigeración',
   Icon: Snowflake,
   items: [
-    'Instalación y mantenimiento de aire acondicionado.',
+    'Instalación y mantenimiento de aire acondicionado',
     'Refrigeración central, roof-top, inverter y piso techo.',
     'Mantenimiento de sistemas frigoríficos.',
   ],
