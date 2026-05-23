@@ -79,8 +79,33 @@ const rubros = [
   },
 ] as const;
 
+type AaltoClient = {
+  name: string;
+  alt: string;
+  srcs: string[];
+  className?: string;
+};
+
+const aaltoClients: AaltoClient[] = [
+  { name: 'Coca-Cola', alt: 'Coca-Cola', srcs: ['/coca-cola.png', '/coca-cola.webp', '/coca-cola.jpg', '/01-coca-cola.svg'], className: 'brand-coca' },
+  { name: 'Halliburton', alt: 'Halliburton', srcs: ['/Halliburton.png', '/halliburton.png', '/02-halliburton.svg'] },
+  { name: 'Unilever', alt: 'Unilever', srcs: ['/unilever.png', '/Unilever.png', '/03-unilever.svg'], className: 'brand-unilever' },
+  { name: 'Hotel Park Hyatt Mendoza', alt: 'Hotel Park Hyatt Mendoza', srcs: ['/ParkHyattBlackLogo-640.webp', '/ParkHyattBlackLogo-640w.webp', '/park-hyatt-mendoza.png', '/04-park-hyatt-mendoza.svg'] },
+  { name: 'Bodega Salentein', alt: 'Bodega Salentein', srcs: ['/bodega-salentein.png', '/salentein.png', '/Salentein.png', '/portillo.png'] },
+  { name: 'Hotel Rosell Boher Lodge', alt: 'Hotel Rosell Boher Lodge', srcs: ['/hotel-rosell-boher-lodge.png', '/rosell-boher.png', '/rosell-boher-lodge.png', '/R.png'] },
+  { name: 'Bodega Cheval des Andes', alt: 'Bodega Cheval des Andes', srcs: ['/bodega-cheval-des-andes.png', '/cheval-des-andes.png', '/cheval.png', '/achaval.jpeg'] },
+  { name: 'Supermercado Mayorista Yaguar', alt: 'Supermercado Mayorista Yaguar', srcs: ['/yaguar.png', '/Yaguar.png', '/mayorista-yaguar.png'] },
+  { name: 'Bodega Chandon', alt: 'Bodega Chandon', srcs: ['/bodega-chandon.png', '/chandon.png', '/Chandon.png'] },
+  { name: 'Neverland', alt: 'Neverland', srcs: ['/neverland.webp', '/neverland.png', '/Neverland.png'] },
+  { name: "Levi's", alt: "Levi's", srcs: ['/levis.jpg', '/levis.png', '/levis.webp', '/Levis.png'] },
+  { name: 'Bodega Fecovita', alt: 'Bodega Fecovita', srcs: ['/fecovita.webp', '/fecovita.png', '/Fecovita.png'] },
+  { name: 'Bodega Luigi Bosca', alt: 'Bodega Luigi Bosca', srcs: ['/Logo-Luigi-Bosca-Baja.jpg', '/luigi-bosca.png', '/Luigi-Bosca.png'] },
+  { name: 'Bodega Renacer', alt: 'Bodega Renacer', srcs: ['/bodega_renacer.png', '/bodega-renacer.png', '/renacer.png'] },
+  { name: 'Famiq', alt: 'Famiq', srcs: ['/famiq.png', '/famiq.jpg', '/Famiq.png'] },
+];
+
 function withVersion(src: string) {
-  return `${src}?v=20260522-final`;
+  return `${src}?v=20260523-final`;
 }
 
 function go(id: string) {
@@ -191,12 +216,15 @@ export default function App() {
       )}
 
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-visible bg-[#0a192f] pt-[86px] text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75"
-          style={{ backgroundImage: "url('/aalto-mantenimiento.webp?v=20260522')" }}
+        <img
+          src="/aalto-mantenimiento.webp?v=20260523-hero-final"
+          alt=""
           aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-100"
+          style={{ objectPosition: 'center 46%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/95 via-[#061523]/74 to-[#061523]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061523]/84 via-[#061523]/54 to-[#061523]/18" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061523]/16 via-transparent to-[#061523]/28" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-12 md:pb-32 md:pt-20 lg:px-10">
           <h1 className="mx-auto max-w-6xl text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl md:text-8xl lg:text-[100px]">
