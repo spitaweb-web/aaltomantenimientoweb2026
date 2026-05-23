@@ -66,11 +66,15 @@ const rubros = [
     image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=85&w=1500',
   },
   {
-    titulo: 'Refrigeración',
-    Icon: Snowflake,
-    items: ['Instalación y mantenimiento de aire acondicionado.', 'Refrigeración central, roof-top, inverter y piso techo.', 'Mantenimiento de sistemas frigoríficos.'],
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=85&w=1500',
-  },
+  titulo: 'Refrigeración',
+  Icon: Snowflake,
+  items: [
+    'Instalación y mantenimiento de aire acondicionado.',
+    'Refrigeración central, roof-top, inverter y piso techo.',
+    'Mantenimiento de sistemas frigoríficos.',
+  ],
+  image: 'https://images.unsplash.com/photo-1581092921461-eab10380b1e1?auto=format&fit=crop&q=85&w=1500',
+},
   {
     titulo: 'Herrería',
     Icon: Hammer,
