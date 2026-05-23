@@ -63,25 +63,25 @@ const rubros = [
     titulo: 'Carpintería',
     Icon: Wrench,
     items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
-    image: 'https://images.pexels.com/photos/37604386/pexels-photo-37604386.jpeg',
+    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=85&w=1500',
   },
   {
-  titulo: 'Refrigeración',
-  Icon: Snowflake,
-  items: [
-    'Instalación y mantenimiento de aire acondicionado',
-    'Refrigeración central, roof-top, inverter y piso techo.',
-    'Mantenimiento de sistemas frigoríficos.',
-  ],
-  image: 'https://images.pexels.com/photos/37604386/pexels-photo-37604386.jpeg',
-},
+    titulo: 'Refrigeración',
+    Icon: Snowflake,
+    items: [
+      'Instalación y mantenimiento de aire acondicionado.',
+      'Refrigeración central, roof-top, inverter y piso techo.',
+      'Mantenimiento de sistemas frigoríficos.',
+    ],
+    image: 'https://images.pexels.com/photos/37604386/pexels-photo-37604386.jpeg?auto=compress&cs=tinysrgb&w=1500',
+  },
   {
     titulo: 'Herrería',
     Icon: Hammer,
     items: ['Estructuras metálicas a medida.', 'Acero inoxidable.', 'Soldaduras especializadas.', 'Rejas, puertas y portones.'],
     image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=85&w=1500',
   },
-];
+] as const;
 
 type AaltoClient = {
   name: string;
