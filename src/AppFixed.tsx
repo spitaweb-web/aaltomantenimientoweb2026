@@ -45,7 +45,7 @@ const rubros = [
     titulo: 'Obra civil',
     Icon: Building2,
     items: ['Albañilería general.', 'Construcción en seco.', 'Pavimentos y pisos.', 'Revestimientos y acabados.'],
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=85&w=1500',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=85&w=1500',
   },
   {
     titulo: 'Pintura',
@@ -63,13 +63,13 @@ const rubros = [
     titulo: 'Carpintería',
     Icon: Wrench,
     items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=85&w=1500',
+    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=85&w=1500',
   },
   {
     titulo: 'Refrigeración',
     Icon: Snowflake,
     items: ['Instalación y mantenimiento de aire acondicionado.', 'Refrigeración central, roof-top, inverter y piso techo.', 'Mantenimiento de sistemas frigoríficos.'],
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=85&w=1500',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=85&w=1500',
   },
   {
     titulo: 'Herrería',
@@ -78,93 +78,6 @@ const rubros = [
     image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=85&w=1500',
   },
 ] as const;
-
-type AaltoClient = {
-  name: string;
-  alt: string;
-  srcs: string[];
-  className?: string;
-};
-
-const aaltoClients: AaltoClient[] = [
-  {
-    name: 'Coca-Cola',
-    alt: 'Coca-Cola',
-    srcs: ['/coca-cola.png', '/coca-cola.webp', '/coca-cola.jpg', '/01-coca-cola.svg'],
-    className: 'brand-coca',
-  },
-  {
-    name: 'Halliburton',
-    alt: 'Halliburton',
-    srcs: ['/Halliburton.png', '/halliburton.png', '/02-halliburton.svg'],
-  },
-  {
-    name: 'Unilever',
-    alt: 'Unilever',
-    srcs: ['/unilever.png', '/Unilever.png', '/03-unilever.svg'],
-    className: 'brand-unilever',
-  },
-  {
-    name: 'Hotel Park Hyatt Mendoza',
-    alt: 'Hotel Park Hyatt Mendoza',
-    srcs: ['/ParkHyattBlackLogo-640.webp', '/ParkHyattBlackLogo-640w.webp', '/park-hyatt-mendoza.png', '/04-park-hyatt-mendoza.svg'],
-  },
-  {
-    name: 'Bodega Salentein',
-    alt: 'Bodega Salentein',
-    srcs: ['/bodega-salentein.png', '/salentein.png', '/Salentein.png', '/portillo.png'],
-  },
-  {
-    name: 'Hotel Rosell Boher Lodge',
-    alt: 'Hotel Rosell Boher Lodge',
-    srcs: ['/hotel-rosell-boher-lodge.png', '/rosell-boher.png', '/rosell-boher-lodge.png', '/R.png'],
-  },
-  {
-    name: 'Bodega Cheval des Andes',
-    alt: 'Bodega Cheval des Andes',
-    srcs: ['/bodega-cheval-des-andes.png', '/cheval-des-andes.png', '/cheval.png', '/achaval.jpeg'],
-  },
-  {
-    name: 'Supermercado Mayorista Yaguar',
-    alt: 'Supermercado Mayorista Yaguar',
-    srcs: ['/yaguar.png', '/Yaguar.png', '/mayorista-yaguar.png'],
-  },
-  {
-    name: 'Bodega Chandon',
-    alt: 'Bodega Chandon',
-    srcs: ['/bodega-chandon.png', '/chandon.png', '/Chandon.png'],
-  },
-  {
-    name: 'Neverland',
-    alt: 'Neverland',
-    srcs: ['/neverland.webp', '/neverland.png', '/Neverland.png'],
-  },
-  {
-    name: "Levi's",
-    alt: "Levi's",
-    srcs: ['/levis.jpg', '/levis.png', '/levis.webp', '/Levis.png'],
-  },
-  {
-    name: 'Bodega Fecovita',
-    alt: 'Bodega Fecovita',
-    srcs: ['/fecovita.webp', '/fecovita.png', '/Fecovita.png'],
-  },
-  {
-    name: 'Bodega Luigi Bosca',
-    alt: 'Bodega Luigi Bosca',
-    srcs: ['/Logo-Luigi-Bosca-Baja.jpg', '/luigi-bosca.png', '/Luigi-Bosca.png'],
-  },
-  {
-    name: 'Bodega Renacer',
-    alt: 'Bodega Renacer',
-    srcs: ['/bodega_renacer.png', '/bodega-renacer.png', '/renacer.png'],
-  },
-  {
-    name: 'Famiq',
-    alt: 'Famiq',
-    srcs: ['/famiq.png', '/famiq.jpg', '/Famiq.png'],
-  },
-];
 
 function withVersion(src: string) {
   return `${src}?v=20260522-final`;
