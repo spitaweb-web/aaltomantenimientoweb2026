@@ -23,6 +23,7 @@ import './aalto-ultra-scroll-animations.css'
 import './aalto-mobile-final-fix.css'
 import './aalto-clients-marquee-final.css'
 import './aalto-mobile-closeout-final.css'
+import './aalto-mobile-380-final.css'
 
 import App from './AppFixed.tsx'
 
