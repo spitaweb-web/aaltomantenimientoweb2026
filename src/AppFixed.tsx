@@ -63,7 +63,7 @@ const rubros = [
     titulo: 'Carpintería',
     Icon: Wrench,
     items: ['Fabricación y restauración de aberturas y mobiliario.', 'Construcción y mantenimiento de pérgolas y decks.'],
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=85&w=1500',
+    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=85&w=1500',
   },
   {
     titulo: 'Refrigeración',
@@ -95,7 +95,7 @@ const aaltoClients: AaltoClient[] = [
   { name: 'Hotel Rosell Boher Lodge', alt: 'Hotel Rosell Boher Lodge', srcs: ['/hotel-rosell-boher-lodge.png', '/rosell-boher.png', '/rosell-boher-lodge.png', '/R.png'] },
   { name: 'Bodega Cheval des Andes', alt: 'Bodega Cheval des Andes', srcs: ['/bodega-cheval-des-andes.png', '/cheval-des-andes.png', '/cheval.png', '/achaval.jpeg'] },
   { name: 'Supermercado Mayorista Yaguar', alt: 'Supermercado Mayorista Yaguar', srcs: ['/yaguar.png', '/Yaguar.png', '/mayorista-yaguar.png'] },
-  { name: 'Bodega Chandon', alt: 'Bodega Chandon', srcs: ['/bodega-chandon.png', '/chandon.png', '/Chandon.png'] },
+  { name: 'Bodega Chandon', alt: 'Bodega Chandon', srcs: ['/chandon.png', '/bodega-chandon.png', '/Chandon.png'] },
   { name: 'Neverland', alt: 'Neverland', srcs: ['/neverland.webp', '/neverland.png', '/Neverland.png'] },
   { name: "Levi's", alt: "Levi's", srcs: ['/levis.jpg', '/levis.png', '/levis.webp', '/Levis.png'] },
   { name: 'Bodega Fecovita', alt: 'Bodega Fecovita', srcs: ['/fecovita.webp', '/fecovita.png', '/Fecovita.png'] },
