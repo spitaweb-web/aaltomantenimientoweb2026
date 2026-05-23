@@ -73,7 +73,7 @@ const rubros = [
     'Refrigeración central, roof-top, inverter y piso techo.',
     'Mantenimiento de sistemas frigoríficos.',
   ],
-  image: 'https://images.unsplash.com/photo-1581092921461-eab10380b1e1?auto=format&fit=crop&q=85&w=1500',
+  image: 'https://images.pexels.com/photos/37604386/pexels-photo-37604386.jpeg',
 },
   {
     titulo: 'Herrería',
