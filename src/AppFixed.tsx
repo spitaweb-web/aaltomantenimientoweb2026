@@ -393,15 +393,56 @@ export default function App() {
               <a href={`mailto:${contactEmail}`} className="flex items-center gap-4"><Mail size={20} className="text-[#3b82f6]" />{contactEmail}</a>
             </div>
           </div>
-          <form onSubmit={e => e.preventDefault()} className="bg-white p-7 text-slate-900 shadow-xl">
-            <input className="mb-4 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]" placeholder="Nombre y empresa" />
-            <input className="mb-4 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]" placeholder="Teléfono / Email" />
-            <textarea className="mb-4 min-h-32 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]" placeholder="Mensaje" />
+          <form
+            action="https://formsubmit.co/aalto.mza@gmail.com"
+            method="POST"
+            encType="multipart/form-data"
+            className="bg-white p-7 text-slate-900 shadow-xl"
+          >
+            <input type="hidden" name="_subject" value="Nuevo contacto / CV desde la web de AALTO" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://aaltomantenimiento.com.ar/#contacto" />
+
+            <input
+              name="nombre_y_empresa"
+              required
+              autoComplete="name organization"
+              className="mb-4 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]"
+              placeholder="Nombre y empresa"
+            />
+
+            <input
+              name="telefono_o_email"
+              required
+              autoComplete="email tel"
+              className="mb-4 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]"
+              placeholder="Teléfono / Email"
+            />
+
+            <textarea
+              name="mensaje"
+              required
+              className="mb-4 min-h-32 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]"
+              placeholder="Mensaje"
+            />
+
             <label className="mb-4 flex cursor-pointer items-center justify-center gap-3 border border-dashed border-slate-300 p-4 text-sm font-semibold text-slate-500 transition hover:border-[#3b82f6] hover:text-[#1a365d]">
               <FileUp size={20} /> Adjuntar archivo / CV
-              <input type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" className="hidden" />
+              <input
+                name="attachment"
+                type="file"
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                className="hidden"
+              />
             </label>
-            <button className="w-full bg-[#1a365d] py-5 text-[11px] font-black uppercase tracking-[0.28em] text-white transition hover:bg-[#3b82f6]">Enviar consulta</button>
+
+            <button
+              type="submit"
+              className="w-full bg-[#1a365d] py-5 text-[11px] font-black uppercase tracking-[0.28em] text-white transition hover:bg-[#3b82f6]"
+            >
+              Enviar consulta
+            </button>
           </form>
         </div>
       </section>
