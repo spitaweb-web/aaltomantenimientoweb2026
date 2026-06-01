@@ -26,6 +26,7 @@ import './aalto-mobile-closeout-final.css'
 import './aalto-mobile-380-final.css'
 import './aalto-mobile-final-lock.css'
 import './aalto-client-final-polish.css'
+import './aalto-final-visible-fixes.css'
 
 import App from './AppFixed.tsx'
 
