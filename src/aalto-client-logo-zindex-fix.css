@@ -1,0 +1,52 @@
+/* AALTO — final micro fix: keep client logos above title overlap, especially Unilever. */
+
+#clientes {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#clientes .mb-10,
+#clientes .mb-14,
+#clientes h2 {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#clientes .aalto-clients-marquee {
+  position: relative !important;
+  z-index: 8 !important;
+  margin-top: 18px !important;
+}
+
+#clientes .aalto-clients-track {
+  position: relative !important;
+  z-index: 9 !important;
+}
+
+#clientes .aalto-client-logo-item,
+#clientes .brand-unilever,
+#clientes .brand-unilever .aalto-logo-img {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+#clientes .brand-unilever .aalto-logo-img {
+  opacity: .92 !important;
+  max-height: 76px !important;
+  transform: translateY(3px) !important;
+}
+
+#clientes .brand-unilever:hover .aalto-logo-img {
+  transform: translateY(1px) scale(1.04) !important;
+}
+
+@media (max-width: 768px) {
+  #clientes .aalto-clients-marquee {
+    margin-top: 12px !important;
+  }
+
+  #clientes .brand-unilever .aalto-logo-img {
+    max-height: 52px !important;
+    transform: translateY(2px) !important;
+  }
+}
