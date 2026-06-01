@@ -1,0 +1,215 @@
+/* AALTO — final client polish. Import absolute last. */
+
+/* Header nav: remove aggressive hover/selection look, especially Contacto. */
+header nav button,
+header nav button:hover,
+header nav button:focus,
+header nav button:active,
+header nav button:focus-visible {
+  background: transparent !important;
+  color: #1a365d !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 0 !important;
+  transform: none !important;
+  filter: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+header nav button::before,
+header nav button::after {
+  content: none !important;
+  display: none !important;
+}
+
+header nav button:hover {
+  color: #2563eb !important;
+}
+
+/* Phrase after hero: requested final text + tighter hierarchy. */
+main > section:nth-of-type(2) p {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+main > section:nth-of-type(2) p::after {
+  content: "Cuidamos cada detalle de tus instalaciones para que fluyan de forma óptima, con un servicio confiable.";
+  display: block !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  color: #0f4f6f !important;
+  font-size: clamp(30px, 2.15vw, 42px) !important;
+  line-height: 1.08 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+  text-align: center !important;
+  text-wrap: balance !important;
+}
+
+/* WhatsApp floating CTA: always a clean circle with the icon centered. */
+a[aria-label="WhatsApp AALTO"],
+a[href*="wa.me"] {
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px !important;
+  min-height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+  overflow: hidden !important;
+  background: #10b981 !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 44px rgba(16, 185, 129, .32) !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+a[aria-label="WhatsApp AALTO"] svg,
+a[href*="wa.me"] svg {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  margin: 0 !important;
+  display: block !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Kill residual blur on buttons/interactive pieces created by previous motion layers. */
+button,
+a,
+label,
+input,
+textarea,
+#contacto,
+#contacto *,
+footer,
+footer *,
+#especialidades .grid > div,
+#especialidades .grid > div *,
+#outsourcing,
+#outsourcing * {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: none !important;
+}
+
+#contacto,
+#contacto *,
+footer,
+footer *,
+#contacto form,
+#contacto form *,
+#contacto form button,
+#contacto form label {
+  animation-name: none !important;
+  opacity: 1 !important;
+}
+
+/* Mobile: keep the post-hero phrase below the H1 hierarchy. */
+@media (max-width: 768px) {
+  main > section:nth-of-type(2) {
+    padding-top: 26px !important;
+    padding-bottom: 22px !important;
+  }
+
+  main > section:nth-of-type(2) p::after {
+    max-width: 340px !important;
+    font-size: clamp(16px, 4.8vw, 20px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  a[aria-label="WhatsApp AALTO"],
+  a[href*="wa.me"] {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+  }
+
+  a[aria-label="WhatsApp AALTO"] svg,
+  a[href*="wa.me"] svg {
+    width: 29px !important;
+    height: 29px !important;
+    min-width: 29px !important;
+    min-height: 29px !important;
+  }
+}
+
+/* Narrow Android lock: hero sector cards must never run to the right edge. */
+@media (max-width: 430px) {
+  main > section:first-of-type {
+    overflow: hidden !important;
+  }
+
+  #hero-sectors {
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #hero-sectors > div {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 8px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #hero-sectors .hero-sector-card {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    padding: 8px 6px !important;
+    border-radius: 9px !important;
+  }
+
+  #hero-sectors .hero-sector-card span {
+    font-size: 7.1px !important;
+    line-height: 1.16 !important;
+    letter-spacing: .085em !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 360px) {
+  #hero-sectors {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  #hero-sectors > div {
+    gap: 7px !important;
+  }
+
+  #hero-sectors .hero-sector-card {
+    height: 72px !important;
+    min-height: 72px !important;
+  }
+}
