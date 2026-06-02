@@ -1,6 +1,14 @@
 const AALTO_FORM_TARGET = 'https://formsubmit.co/info@aaltomantenimiento.com.ar';
 const MAX_ATTACHMENTS = 3;
 
+function safePatch(callback: () => void) {
+  try {
+    callback();
+  } catch (error) {
+    console.warn('[AALTO] Form patch skipped safely', error);
+  }
+}
+
 function ensureHidden(form: HTMLFormElement, name: string, value: string) {
   let input = form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
 
@@ -14,38 +22,21 @@ function ensureHidden(form: HTMLFormElement, name: string, value: string) {
   input.value = value;
 }
 
-function applyFileLimit(fileInput: HTMLInputElement) {
-  const files = Array.from(fileInput.files ?? []);
+function getSelectedFiles(fileInput: HTMLInputElement) {
+  return Array.from(fileInput.files ?? []);
+}
+
+function enforceFileLimit(fileInput: HTMLInputElement) {
+  const files = getSelectedFiles(fileInput);
 
   if (files.length <= MAX_ATTACHMENTS) return files;
 
-  const selected = files.slice(0, MAX_ATTACHMENTS);
-
-  try {
-    const transfer = new DataTransfer();
-    selected.forEach((file) => transfer.items.add(file));
-    fileInput.files = transfer.files;
-  } catch {
-    fileInput.value = '';
-    return [];
-  }
-
-  window.alert(`Podés adjuntar hasta ${MAX_ATTACHMENTS} archivos. Se conservaron los primeros ${MAX_ATTACHMENTS}.`);
-  return selected;
+  fileInput.value = '';
+  window.alert(`Podés adjuntar hasta ${MAX_ATTACHMENTS} archivos. Seleccioná nuevamente hasta ${MAX_ATTACHMENTS}.`);
+  return [];
 }
 
-function setLabelBase(label: HTMLLabelElement) {
-  if (label.dataset.aaltoBaseReady) return;
-
-  label.dataset.aaltoBaseReady = 'true';
-  label.style.flexDirection = 'column';
-  label.style.alignItems = 'center';
-  label.style.justifyContent = 'center';
-  label.style.gap = '8px';
-  label.style.textAlign = 'center';
-}
-
-function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputElement, files: File[]) {
+function ensureAttachmentNotice(label: HTMLLabelElement) {
   let notice = label.querySelector<HTMLElement>('[data-aalto-file-notice]');
 
   if (!notice) {
@@ -53,6 +44,7 @@ function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputEle
     notice.setAttribute('data-aalto-file-notice', 'true');
     notice.style.width = '100%';
     notice.style.maxWidth = '100%';
+    notice.style.marginTop = '6px';
     notice.style.borderRadius = '10px';
     notice.style.padding = '9px 12px';
     notice.style.fontSize = '12px';
@@ -61,8 +53,22 @@ function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputEle
     notice.style.letterSpacing = '-0.01em';
     notice.style.overflow = 'hidden';
     notice.style.textOverflow = 'ellipsis';
+    notice.style.whiteSpace = 'nowrap';
     label.appendChild(notice);
   }
+
+  return notice;
+}
+
+function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputElement) {
+  const notice = ensureAttachmentNotice(label);
+  const files = getSelectedFiles(fileInput);
+
+  label.style.flexDirection = 'column';
+  label.style.alignItems = 'center';
+  label.style.justifyContent = 'center';
+  label.style.gap = '8px';
+  label.style.textAlign = 'center';
 
   if (!files.length) {
     label.setAttribute('data-file-ready', 'false');
@@ -70,6 +76,7 @@ function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputEle
     notice.style.background = '#f8fafc';
     notice.style.color = '#64748b';
     notice.style.border = '1px solid #e2e8f0';
+    fileInput.setAttribute('aria-label', `Adjuntar archivo o CV. Máximo ${MAX_ATTACHMENTS} archivos.`);
     return;
   }
 
@@ -82,7 +89,6 @@ function renderAttachmentNotice(label: HTMLLabelElement, fileInput: HTMLInputEle
   notice.style.background = '#ecfdf5';
   notice.style.color = '#047857';
   notice.style.border = '1px solid #a7f3d0';
-
   fileInput.setAttribute('aria-label', `${files.length} ${plural}: ${names}`);
 }
 
@@ -98,14 +104,16 @@ function normalizeFileInput(form: HTMLFormElement) {
   const label = fileInput.closest('label');
   if (!label) return;
 
-  setLabelBase(label);
-
-  const files = applyFileLimit(fileInput);
-  renderAttachmentNotice(label, fileInput, files);
+  renderAttachmentNotice(label, fileInput);
 
   if (!fileInput.dataset.aaltoFileListener) {
     fileInput.dataset.aaltoFileListener = 'true';
-    fileInput.addEventListener('change', () => normalizeFileInput(form));
+    fileInput.addEventListener('change', () => {
+      safePatch(() => {
+        enforceFileLimit(fileInput);
+        renderAttachmentNotice(label, fileInput);
+      });
+    });
   }
 }
 
@@ -135,35 +143,25 @@ function patchAaltoContactForm() {
 }
 
 if (typeof window !== 'undefined') {
-  patchAaltoContactForm();
-  window.addEventListener('DOMContentLoaded', patchAaltoContactForm);
-  window.addEventListener('load', patchAaltoContactForm);
+  const run = () => safePatch(patchAaltoContactForm);
 
-  window.setTimeout(patchAaltoContactForm, 0);
-  window.setTimeout(patchAaltoContactForm, 400);
-  window.setTimeout(patchAaltoContactForm, 1200);
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', run, { once: true });
+  } else {
+    run();
+  }
+
+  window.addEventListener('load', run, { once: true });
+  window.setTimeout(run, 250);
+  window.setTimeout(run, 900);
 
   document.addEventListener(
     'submit',
     () => {
-      patchAaltoContactForm();
+      run();
     },
     true,
   );
-
-  document.addEventListener(
-    'change',
-    (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLInputElement) || target.type !== 'file') return;
-      const form = target.closest('form');
-      if (form) normalizeFileInput(form);
-    },
-    true,
-  );
-
-  const observer = new MutationObserver(() => patchAaltoContactForm());
-  observer.observe(document.documentElement, { childList: true, subtree: true });
 }
 
 export {};
