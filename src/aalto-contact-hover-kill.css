@@ -1,4 +1,4 @@
-/* AALTO — fully remove hover effects from contact/form buttons and nav Contacto. */
+/* AALTO — fully lock contact/form buttons and header Contacto color. */
 
 #contacto button,
 #contacto button:hover,
@@ -34,7 +34,10 @@ header nav button,
 header nav button:hover,
 header nav button:focus,
 header nav button:active,
-header nav button:focus-visible {
+header nav button:focus-visible,
+header nav button[class*="hover:text"]:hover,
+header nav button[class*="hover\\:text"]:hover,
+header nav button[class*="Contacto"]:hover {
   background: transparent !important;
   background-color: transparent !important;
   color: #1a365d !important;
