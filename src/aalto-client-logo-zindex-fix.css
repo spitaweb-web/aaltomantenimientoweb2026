@@ -1,4 +1,4 @@
-/* AALTO — final micro fix: keep client logos above title overlap, especially Unilever. */
+/* AALTO — final micro fix: keep client logos clean and prevent Unilever crop. */
 
 #clientes {
   position: relative !important;
@@ -15,12 +15,16 @@
 #clientes .aalto-clients-marquee {
   position: relative !important;
   z-index: 8 !important;
-  margin-top: 18px !important;
+  margin-top: 22px !important;
+  padding-top: 28px !important;
+  padding-bottom: 30px !important;
+  overflow: hidden !important;
 }
 
 #clientes .aalto-clients-track {
   position: relative !important;
   z-index: 9 !important;
+  align-items: center !important;
 }
 
 #clientes .aalto-client-logo-item,
@@ -30,23 +34,46 @@
   z-index: 12 !important;
 }
 
+/* Unilever was visually cropped because its asset is vertically taller than the optical slot. */
+#clientes .brand-unilever {
+  height: 108px !important;
+  min-height: 108px !important;
+  overflow: visible !important;
+}
+
 #clientes .brand-unilever .aalto-logo-img {
-  opacity: .92 !important;
-  max-height: 76px !important;
-  transform: translateY(3px) !important;
+  display: block !important;
+  width: auto !important;
+  max-width: 150px !important;
+  max-height: 92px !important;
+  height: auto !important;
+  opacity: .9 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: translateY(-2px) scale(.86) !important;
+  transform-origin: center center !important;
+  mix-blend-mode: multiply !important;
 }
 
 #clientes .brand-unilever:hover .aalto-logo-img {
-  transform: translateY(1px) scale(1.04) !important;
+  transform: translateY(-4px) scale(.9) !important;
 }
 
 @media (max-width: 768px) {
   #clientes .aalto-clients-marquee {
-    margin-top: 12px !important;
+    margin-top: 14px !important;
+    padding-top: 18px !important;
+    padding-bottom: 20px !important;
+  }
+
+  #clientes .brand-unilever {
+    height: 74px !important;
+    min-height: 74px !important;
   }
 
   #clientes .brand-unilever .aalto-logo-img {
-    max-height: 52px !important;
-    transform: translateY(2px) !important;
+    max-width: 112px !important;
+    max-height: 58px !important;
+    transform: translateY(-1px) scale(.86) !important;
   }
 }
