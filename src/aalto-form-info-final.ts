@@ -117,6 +117,70 @@ function normalizeFileInput(form: HTMLFormElement) {
   }
 }
 
+function showSentPopup() {
+  const existing = document.querySelector('[data-aalto-sent-popup]');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.setAttribute('data-aalto-sent-popup', 'true');
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.zIndex = '99999';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.background = 'rgba(15, 23, 42, .26)';
+  overlay.style.backdropFilter = 'blur(3px)';
+
+  const box = document.createElement('div');
+  box.style.width = 'min(360px, calc(100vw - 48px))';
+  box.style.borderRadius = '18px';
+  box.style.background = '#ffffff';
+  box.style.padding = '28px 26px';
+  box.style.boxShadow = '0 28px 80px rgba(15, 23, 42, .18)';
+  box.style.textAlign = 'center';
+  box.style.color = '#1a365d';
+  box.style.fontFamily = 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+
+  const title = document.createElement('div');
+  title.textContent = 'Ha sido enviado';
+  title.style.fontSize = '22px';
+  title.style.fontWeight = '950';
+  title.style.letterSpacing = '-0.035em';
+
+  const text = document.createElement('div');
+  text.textContent = 'Gracias. Tu consulta fue enviada correctamente.';
+  text.style.marginTop = '8px';
+  text.style.fontSize = '14px';
+  text.style.lineHeight = '1.45';
+  text.style.color = '#64748b';
+
+  box.appendChild(title);
+  box.appendChild(text);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+}
+
+function handleSubmit(event: SubmitEvent) {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement)) return;
+
+  const action = form.getAttribute('action') ?? '';
+  const isContactForm = action.includes('formsubmit.co') || Boolean(form.closest('#contacto'));
+  if (!isContactForm) return;
+
+  if (form.dataset.aaltoSubmitReady === 'true') return;
+
+  event.preventDefault();
+  patchAaltoContactForm();
+  showSentPopup();
+  form.dataset.aaltoSubmitReady = 'true';
+
+  window.setTimeout(() => {
+    HTMLFormElement.prototype.submit.call(form);
+  }, 900);
+}
+
 function patchAaltoContactForm() {
   if (typeof document === 'undefined') return;
 
@@ -155,13 +219,7 @@ if (typeof window !== 'undefined') {
   window.setTimeout(run, 250);
   window.setTimeout(run, 900);
 
-  document.addEventListener(
-    'submit',
-    () => {
-      run();
-    },
-    true,
-  );
+  document.addEventListener('submit', (event) => safePatch(() => handleSubmit(event as SubmitEvent)), true);
 }
 
 export {};
