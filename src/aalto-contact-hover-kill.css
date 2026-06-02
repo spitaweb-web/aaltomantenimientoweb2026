@@ -1,4 +1,4 @@
-/* AALTO — kill dark/blue hover on contact/form buttons. Keep visual stable. */
+/* AALTO — fully remove hover effects from contact/form buttons and nav Contacto. */
 
 #contacto button,
 #contacto button:hover,
@@ -13,16 +13,21 @@
   background: #1a365d !important;
   background-color: #1a365d !important;
   color: #ffffff !important;
+  opacity: 1 !important;
   box-shadow: none !important;
   filter: none !important;
   transform: none !important;
   outline: none !important;
   border: 0 !important;
+  transition: none !important;
 }
 
-#contacto button:hover,
-#contacto form button:hover {
-  opacity: .96 !important;
+#contacto button::before,
+#contacto button::after,
+#contacto form button::before,
+#contacto form button::after {
+  content: none !important;
+  display: none !important;
 }
 
 header nav button,
@@ -33,12 +38,18 @@ header nav button:focus-visible {
   background: transparent !important;
   background-color: transparent !important;
   color: #1a365d !important;
+  opacity: 1 !important;
   box-shadow: none !important;
   outline: none !important;
   border: 0 !important;
+  transform: none !important;
+  filter: none !important;
+  text-decoration: none !important;
+  transition: none !important;
 }
 
-header nav button:hover {
-  color: #1a365d !important;
-  opacity: .72 !important;
+header nav button::before,
+header nav button::after {
+  content: none !important;
+  display: none !important;
 }
