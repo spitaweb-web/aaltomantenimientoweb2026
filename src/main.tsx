@@ -29,6 +29,7 @@ import './aalto-client-final-polish.css'
 import './aalto-final-visible-fixes.css'
 import './aalto-client-logo-zindex-fix.css'
 import './aalto-contact-hover-kill.css'
+import './aalto-desktop-sector-center.css'
 import './aalto-form-info-final'
 
 import App from './AppFixed.tsx'

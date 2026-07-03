@@ -18,7 +18,7 @@ main > section:nth-of-type(2) p[class*="text-2xl"] {
 main > section:nth-of-type(2) p::before,
 main > section:nth-of-type(2) p.text-2xl::before,
 main > section:nth-of-type(2) p[class*="text-2xl"]::before {
-  content: "Cuidamos cada detalle de tus instalaciones para que fluyan de forma óptima, con un servicio confiable." !important;
+  content: "Mantenimiento preventivo, correctivo y personal técnico para que tu operación siga funcionando sin fricción." !important;
   display: block !important;
   max-width: 1180px !important;
   margin: 0 auto !important;
@@ -29,6 +29,13 @@ main > section:nth-of-type(2) p[class*="text-2xl"]::before {
   letter-spacing: -0.045em !important;
   text-align: center !important;
   text-wrap: balance !important;
+}
+
+main > section:nth-of-type(2) p::after,
+main > section:nth-of-type(2) p.text-2xl::after,
+main > section:nth-of-type(2) p[class*="text-2xl"]::after {
+  content: none !important;
+  display: none !important;
 }
 
 /* 2) Desktop nav hover: no blue box, no underline block, no weird active state. */
@@ -205,4 +212,25 @@ footer *,
     letter-spacing: .085em !important;
     white-space: normal !important;
   }
+}
+
+/* 5) Hero must be crisp immediately in screenshots and first load. */
+main > section:first-of-type h1,
+main > section:first-of-type h1 span,
+main > section:first-of-type p,
+main > section:first-of-type .mt-8,
+main > section:first-of-type .mt-8 button,
+#hero-sectors,
+#hero-sectors > div,
+#hero-sectors .hero-sector-card,
+#hero-sectors .hero-sector-card svg,
+#hero-sectors .hero-sector-card span {
+  animation: none !important;
+  animation-name: none !important;
+  animation-timeline: auto !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }

@@ -142,7 +142,7 @@ function Kicker({ children }: { children: string }) {
   return <span className="mb-4 block text-[10px] font-black uppercase tracking-[0.36em] text-[#3b82f6]">{children}</span>;
 }
 
-function ClientLogoVisual({ client }: { client: AaltoClient }) {
+function ClientLogoVisual({ client }: { client: AaltoClient; key?: string }) {
   const [srcIndex, setSrcIndex] = useState(0);
   const src = client.srcs[srcIndex];
 
@@ -235,14 +235,14 @@ export default function App() {
             Cuidamos su <span className="text-[#3b82f6]">infraestructura.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-5xl text-lg font-light leading-relaxed text-white/85 sm:text-2xl">
-            Mantenimiento, personal externo y soluciones técnicas para empresas que necesitan continuidad operativa, respuesta profesional y control en cada intervención.
+            Mantenimiento edilicio, soporte correctivo y personal técnico para bodegas, hoteles, industrias y centros comerciales en Mendoza.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <button onClick={() => go('especialidades')} className="bg-[#3b82f6] px-9 py-4 text-[12px] font-black uppercase tracking-[0.22em] text-white shadow-lg transition hover:bg-[#2b6cb0]">
-              Ver servicios
+              Solicitar mantenimiento
             </button>
             <button onClick={() => go('contacto')} className="border border-white/35 px-9 py-4 text-[12px] font-black uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-[#1a365d]">
-              Enviar consulta / CV
+              Enviar CV
             </button>
           </div>
         </div>
@@ -262,7 +262,7 @@ export default function App() {
       <section className="pb-14 pt-28 text-center md:pt-44 lg:pt-52">
         <div className="mx-auto max-w-5xl px-6">
           <p className="text-2xl font-black leading-snug text-[#0f4f6f] sm:text-3xl">
-            Cuidamos cada detalle de tus instalaciones para que funcionen de forma óptima, con un servicio confiable y adaptado a las necesidades de tu empresa.
+            Mantenimiento preventivo, correctivo y personal técnico para que tu operación siga funcionando sin fricción.
           </p>
         </div>
       </section>
@@ -298,12 +298,12 @@ export default function App() {
             <div className="border bg-white p-10 text-center shadow-sm">
               <Building2 className="mx-auto mb-6 text-[#1a365d]" size={38} />
               <h3 className="text-2xl font-black uppercase text-[#1a365d]">Mantenimiento Edilicio</h3>
-              <p className="mx-auto mt-5 max-w-md font-light leading-relaxed text-slate-600">Ejecución de tareas de mantenimiento programado, preventivo y correctivo según las necesidades de cada organización.</p>
+              <p className="mx-auto mt-5 max-w-md font-light leading-relaxed text-slate-600">Planes preventivos, correctivos y urgencias técnicas para sostener la operación diaria sin desorden interno.</p>
             </div>
             <div className="bg-[#1a365d] p-10 text-center text-white shadow-sm">
               <Users className="mx-auto mb-6 text-white" size={38} />
               <h3 className="text-2xl font-black uppercase">Personal Externo (Outsourcing)</h3>
-              <p className="mx-auto mt-5 max-w-md font-light leading-relaxed text-white/70">Provisión de técnicos especializados integrados a la operación del cliente.</p>
+              <p className="mx-auto mt-5 max-w-md font-light leading-relaxed text-white/70">Técnicos especializados integrados a normas, horarios y responsables de cada cliente.</p>
               <button onClick={() => go('outsourcing')} className="mt-8 inline-flex items-center gap-3 bg-white px-7 py-4 text-[11px] font-black uppercase tracking-[0.22em] text-[#1a365d] transition hover:bg-[#3b82f6] hover:text-white">
                 Saber más <ChevronRight size={16} />
               </button>
@@ -377,6 +377,9 @@ export default function App() {
           <div className="mb-10 text-center">
             <Kicker>Nuestros clientes</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-[#1a365d] sm:text-5xl">Empresas que confían en AALTO</h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base font-light leading-relaxed text-slate-600 sm:text-lg">
+              Acompañamos operaciones exigentes en bodegas, hotelería, industria y retail con respuesta técnica ordenada.
+            </p>
           </div>
           <ClientLogoStrip />
         </div>
@@ -387,7 +390,7 @@ export default function App() {
           <div>
             <Kicker>Contacto directo</Kicker>
             <h2 className="text-4xl font-black uppercase leading-none tracking-[-0.05em] text-white sm:text-5xl">HABLEMOS DE TU PROYECTO</h2>
-            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-white/70">Decinos qué servicio o solución necesita tu empresa y nuestro equipo te va a asesorar. ¿Querés sumarte a AALTO equipo? Adjuntá tu currículum y conocé nuestras oportunidades laborales.</p>
+            <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-white/70">Contanos qué instalación necesitás mantener, qué urgencia querés resolver o qué perfil técnico buscás sumar. Si querés postularte, adjuntá tu CV en el mismo formulario.</p>
             <div className="mt-10 space-y-5 text-white/85">
               <a href="tel:+542614715133" className="flex items-center gap-4"><Phone size={20} className="text-[#3b82f6]" />{phone}</a>
               <a href={`mailto:${contactEmail}`} className="flex items-center gap-4"><Mail size={20} className="text-[#3b82f6]" />{contactEmail}</a>
@@ -424,11 +427,11 @@ export default function App() {
               name="mensaje"
               required
               className="mb-4 min-h-32 w-full border border-slate-200 p-4 outline-none focus:border-[#3b82f6]"
-              placeholder="Mensaje"
+              placeholder="Servicio, urgencia o perfil técnico que necesitás"
             />
 
             <label className="mb-4 flex cursor-pointer items-center justify-center gap-3 border border-dashed border-slate-300 p-4 text-sm font-semibold text-slate-500 transition hover:border-[#3b82f6] hover:text-[#1a365d]">
-              <FileUp size={20} /> Adjuntar archivo / CV
+              <FileUp size={20} /> Adjuntar CV o archivo
               <input
                 name="attachment"
                 type="file"
@@ -441,7 +444,7 @@ export default function App() {
               type="submit"
               className="w-full bg-[#1a365d] py-5 text-[11px] font-black uppercase tracking-[0.28em] text-white transition hover:bg-[#3b82f6]"
             >
-              Enviar consulta
+              Solicitar contacto
             </button>
           </form>
         </div>

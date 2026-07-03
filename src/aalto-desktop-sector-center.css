@@ -2,8 +2,7 @@
    Imported after all other AALTO CSS files. Do not affect mobile. */
 
 @media (min-width: 1024px) {
-  main > section:first-of-type > div.relative.z-20,
-  main > section:first-of-type > div:nth-of-type(3) {
+  #hero-sectors {
     position: absolute !important;
     left: 0 !important;
     right: 0 !important;
@@ -17,8 +16,7 @@
     transform: none !important;
   }
 
-  main > section:first-of-type > div.relative.z-20 > div,
-  main > section:first-of-type > div:nth-of-type(3) > div {
+  #hero-sectors > div {
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 18px !important;
@@ -31,8 +29,7 @@
     overflow: visible !important;
   }
 
-  main > section:first-of-type > div.relative.z-20 button,
-  main > section:first-of-type > div:nth-of-type(3) button {
+  #hero-sectors .hero-sector-card {
     width: 100% !important;
     min-width: 0 !important;
     max-width: none !important;
@@ -45,15 +42,13 @@
     text-align: center !important;
   }
 
-  main > section:first-of-type > div.relative.z-20 button svg,
-  main > section:first-of-type > div:nth-of-type(3) button svg {
+  #hero-sectors .hero-sector-card svg {
     width: 34px !important;
     height: 34px !important;
     margin-bottom: 13px !important;
   }
 
-  main > section:first-of-type > div.relative.z-20 button span,
-  main > section:first-of-type > div:nth-of-type(3) button span {
+  #hero-sectors .hero-sector-card span {
     display: block !important;
     width: 100% !important;
     max-width: 190px !important;

@@ -30,13 +30,13 @@ function prepareAaltoContactForm() {
   if (textInputs[0]) {
     textInputs[0].name = 'nombre_y_empresa';
     textInputs[0].required = true;
-    textInputs[0].autocomplete = 'name organization';
+    textInputs[0].setAttribute('autocomplete', 'name organization');
   }
 
   if (textInputs[1]) {
     textInputs[1].name = 'telefono_o_email';
     textInputs[1].required = true;
-    textInputs[1].autocomplete = 'email tel';
+    textInputs[1].setAttribute('autocomplete', 'email tel');
   }
 
   if (textarea) {
